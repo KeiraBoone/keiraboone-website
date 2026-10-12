@@ -1,0 +1,236 @@
+<!-- projects/carbon-fiber-laminates.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Fiber Laminates | Keira Boone</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg-primary:#0a0e17; --bg-secondary:#141824; --bg-card:#1a1f2e;
+            --text-primary:#e4e6eb; --text-secondary:#a8b2d1; --accent:#64ffda;
+            --accent-dim:#4a9d7f; --border:#2d3548;
+        }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--bg-primary); color:var(--text-primary); }
+        .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        nav { padding:1.5rem 0; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,14,23,0.95); }
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; }
+        .nav-logo { font-size:1.25rem; font-weight:600; color:var(--text-primary); text-decoration:none; }
+        .nav-links { display:flex; gap:2rem; }
+        .nav-link { color:var(--text-secondary); text-decoration:none; font-size:0.95rem; }
+        .nav-link:hover { color:var(--accent); }
+        header { padding:3.5rem 0 2rem; border-bottom:1px solid var(--border); }
+        h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+        .subtitle { color:var(--text-secondary); margin-bottom:1.5rem; }
+        section { padding:2.5rem 0; border-bottom:1px solid var(--border); }
+        h2 { font-size:1.8rem; margin-bottom:1rem; }
+        h3 { font-size:1.2rem; margin:1.5rem 0 0.5rem; color:var(--accent); }
+        p { color:var(--text-secondary); margin-bottom:1rem; }
+        ul { padding-left:1.25rem; color:var(--text-secondary); }
+        li { margin-bottom:0.5rem; }
+        .gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:1rem;
+    margin-top:1rem;
+}
+
+.gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:1rem;
+    margin-top:1rem;
+}
+
+.gallery figure {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+}
+
+.gallery img {
+    width:auto;              /* prevents stretching */
+    height:auto;             /* keeps true resolution */
+    max-width:100%;          /* keeps it inside the grid cell */
+    max-height:280px;        /* keeps layout clean but does NOT distort */
+    margin:auto;             /* this centers the image top-to-bottom AND left-right */
+    display:block;
+    border-radius:6px;
+    border:1px solid var(--border);
+    background:#0a0e17;
+}
+
+.gallery figcaption {
+    text-align:center;
+    font-size:0.9rem;
+    color:var(--text-secondary);
+    margin-top:0.5rem;
+}
+
+.gallery figure.sem img {
+    width:100%;        /* fills the full width of the card */
+    height:auto;       /* preserves aspect ratio */
+    max-height:none;   /* removes vertical constraint */
+    object-fit:contain;
+}
+
+.nav-headshot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<header>
+    <div class="container">
+        <h1>Carbon Fiber Laminate Design & Testing</h1>
+        <p class="subtitle">Composite Manufacturing • Classical Laminate Theory • Mechanical Testing</p>
+        <p>Designed, fabricated, and tested symmetric 4-ply carbon fiber laminates to evaluate how inner ply orientation affects flexural modulus using both experimental testing and theoretical modeling.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>Project Summary</h2>
+        <p>This project investigated the relationship between ply orientation and mechanical performance in wet-layup carbon fiber composites. Using Classical Laminate Theory (CLT) alongside experimental testing, we evaluated how internal fiber directionality influences stiffness and failure behavior.</p>
+        <div class="callout">
+            <strong>Key Variables Studied</strong>
+            <ul>
+                <li>Inner ply orientation ([45/0]s, [45/90]s, [45/-45]s, [45/45]s)</li>                <li>Fiber volume fraction (~35%)</li>
+                <li>Manufacturing variability (alignment, curing, voids)</li>
+                <li>Weave efficiency and material properties</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Fabrication Process</h2>
+        <h3>1. Wet Layup</h3>
+        <p>Hand-laid 2×2 twill carbon fiber with epoxy system (mass ratio 55:50:16) to form symmetric 4-ply laminates.</p>
+
+        <h3>2. Vacuum Bagging & Cure</h3>
+        <p>Vacuum bagged for ~8 hours at room temperature to consolidate plies and reduce void formation.</p>
+
+        <h3>3. Specimen Preparation</h3>
+        <p>Panels cut into ASTM D790 coupons (12.7 × 50.8 mm) using waterjet cutting for high precision and minimal fiber distortion.</p>
+
+        <h3>4. Quality Considerations</h3>
+        <p>Controlled fiber alignment, resin distribution, and curing conditions, though variability remained due to hand fabrication.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Testing & Characterization</h2>
+        <p>Performed 3-point bend testing using an Instron universal testing machine to determine flexural modulus and failure behavior.</p>
+        <div class="callout">
+            <strong>Key Figures of Merit</strong>
+            <ul>
+                <li>Flexural Modulus (E<sub>flex</sub>)</li>
+                <li>Yield Strength</li>
+                <li>Stress–Strain Behavior</li>
+                <li>Failure Modes (fiber vs matrix dominated)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Results & Insights</h2>
+        <ul>
+            <li>Observed trend matched CLT predictions: [45/0]s showed highest stiffness, [45/90]s lowest.</li>
+            <li>Measured modulus (~15–24 GPa) significantly lower than theoretical values due to low fiber volume fraction and defects.</li>
+            <li>Outer plies dominated bending response, contributing disproportionately to stiffness.</li>
+            <li>Failure modes included matrix cracking, fiber pull-out, and interfacial debonding.</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Gallery</h2>
+
+        <div class="slideshow-embed">
+            <iframe
+                src="https://docs.google.com/presentation/d/1Hec0-M4bIj-IgnLuhUdduyxE9yG6LwD3yATAK4-o9nU/embed?start=false&loop=false&delayms=3000"
+                frameborder="0"
+                width="100%"
+                height="600"
+                allowfullscreen="true">
+            </iframe>
+            <p class="caption">Full project presentation — detailed methodology, modeling, and results</p>
+        </div>
+
+
+
+
+
+        <div class="gallery">
+            <figure class="sem">
+    <img src="https://drive.google.com/thumbnail?id=1OgLKV9uGylv9KudcgweB6gp3nynPOh95">
+    <figcaption>
+        SEM fractography of carbon fiber/epoxy laminate failure showing matrix-dominated cracking with brittle epoxy fracture, fiber–matrix interfacial debonding, and fiber pull-out, indicative of limited interfacial shear strength and non-uniform load transfer across the fiber network.
+    </figcaption>
+</figure>
+           
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1A1MXKGhTAbCyK7PxjeybC3EWitZKAY93">
+                <figcaption>Abrasive waterjet machining of cured laminates for ASTM D790 specimens, providing ±0.025 mm dimensional accuracy while preserving fiber alignment and minimizing edge-induced defects such as fraying, delamination, and resin-rich boundary regions.</figcaption>
+            </figure>
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1I-RmXh12nixNhsymWbUQNnNj_OgrHtoK">
+                <figcaption>Three-point bending test performed on an Instron 68TM-50 using ASTM D790 thin-sheet geometry (12.7 × 50.8 mm coupons, 25.4 mm span) to extract flexural modulus from load–displacement data under controlled displacement loading.</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Future Improvements</h2>
+        <ul>
+            <li>Increase fiber volume fraction using VARTM or prepreg methods</li>
+            <li>Improve curing via elevated temperature control</li>
+            <li>Expand testing to tensile, shear, and compression properties</li>
+            <li>Use digital image correlation (DIC) for strain mapping</li>
+            <li>Perform full CLT [A][B][D] matrix validation and FEA modeling</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!-- projects/solar-cells.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon Solar Cells | Keira Boone</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg-primary:#0a0e17; --bg-secondary:#141824; --bg-card:#1a1f2e;
+            --text-primary:#e4e6eb; --text-secondary:#a8b2d1; --accent:#64ffda;
+            --accent-dim:#4a9d7f; --border:#2d3548;
+        }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.7; }
+        .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        nav { padding:1.5rem 0; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,14,23,0.95); backdrop-filter:blur(10px); z-index:100; }
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .nav-logo { font-size:1.25rem; font-weight:600; color:var(--text-primary); text-decoration:none; }
+        .nav-links { display:flex; gap:2rem; }
+        .nav-link { color:var(--text-secondary); text-decoration:none; font-size:0.95rem; }
+        .nav-link:hover { color:var(--accent); }
+        header { padding:3.5rem 0 2rem; border-bottom:1px solid var(--border); }
+        h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+        .subtitle { color:var(--text-secondary); margin-bottom:1.5rem; }
+        section { padding:2.5rem 0; border-bottom:1px solid var(--border); }
+        h2 { font-size:1.8rem; margin-bottom:1rem; }
+        h3 { font-size:1.2rem; margin:1.5rem 0 0.5rem; color:var(--accent); }
+        p { color:var(--text-secondary); margin-bottom:1rem; }
+        ul { padding-left:1.25rem; color:var(--text-secondary); }
+        li { margin-bottom:0.5rem; }
+        .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
+        .gallery img { width:100%; height:200px; object-fit:cover; border-radius:6px; border:1px solid var(--border); background:var(--bg-secondary); }
+        .callout { background:var(--bg-card); border:1px solid var(--border); padding:1rem; border-radius:6px; margin:1rem 0; }
+        footer { padding:2rem 0; text-align:center; color:var(--text-secondary); }
+        @media (max-width:768px){ .container,.nav-container{padding:0 1rem;} }
+
+.nav-headshot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>Silicon Solar Cell Design & Testing</h1>
+        <p class="subtitle">Micro/Nano Processing • Device Fabrication • I–V Characterization</p>
+        <p>Designed, fabricated, and tested silicon solar cells in a full device workflow: implantation, anneal, ARC deposition, lithography, metallization, and I–V characterization. Investigated layout optimization and diagnosed anomalous wafers.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>Project Summary</h2>
+        <p>This project focused on optimizing silicon solar cell layouts to maximize power output. The process included design, fabrication, and characterization using a complete cleanroom flow.</p>
+        <div class="callout">
+            <strong>Key Variables Studied</strong>
+            <ul>
+                <li>Finger count (N)</li>
+                <li>Finger width (W)</li>
+                <li>Metal coverage fraction</li>
+                <li>ARC thickness & uniformity</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Fabrication Process</h2>
+        <h3>1. Ion Implantation</h3>
+        <p>Frontside As (n+), backside B (p+). Controlled doping profiles to form junctions and BSF.</p>
+        <h3>2. Cleaning & Anneal</h3>
+        <p>Piranha + RCA clean, then furnace anneal (~900°C, 1 hr).</p>
+        <h3>3. ARC Deposition</h3>
+        <p>70 nm SiNx deposited via PECVD for antireflection.</p>
+        <h3>4. Lithography + BOE Etch</h3>
+        <p>Opened contact windows in the ARC layer.</p>
+        <h3>5. Metallization</h3>
+        <p>Frontside Ti/Al deposition with patterned finger lines. Backside Ti/Al for full contact.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Testing & Characterization</h2>
+        <p>Measured dark and light I–V curves under AM1.5 illumination (1000 W/m²). Extracted Rs, Rsh, IL, Voc, Isc, and efficiency. Calibrated light intensity using a reference cell.</p>
+        <div class="callout">
+            <strong>Key Figures of Merit</strong>
+            <ul>
+                <li>Efficiency (η)</li>
+                <li>Short Circuit Current (Isc)</li>
+                <li>Open Circuit Voltage (Voc)</li>
+                <li>Fill Factor (FF)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Results & Insights</h2>
+        <ul>
+            <li>Increasing N reduces series resistance but can reduce Voc.</li>
+            <li>Optimal metal coverage ~10% for max efficiency.</li>
+            <li>Best tested performance: ~11.8% efficiency.</li>
+            <li>Anomalous wafers traced to oxide/metal contact issues and gettering effects.</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Gallery</h2>
+
+        <!-- Embedded Google Slides Presentation -->
+        <div class="slideshow-embed">
+            <iframe 
+                src="https://docs.google.com/presentation/d/1dSU49azLbcOkVkVBF661S-v1QuBTeCrVGGm8FmMq294/embed?start=false&loop=false&delayms=3000" 
+                frameborder="0" 
+                width="100%" 
+                height="500" 
+                allowfullscreen="true" 
+                mozallowfullscreen="true" 
+                webkitallowfullscreen="true">
+            </iframe>
+            <p class="caption">Full project presentation — click through at your own pace</p>
+        </div>
+
+        <div class="gallery">
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1yVPn_BauFLSXmltftKLU_BsrMdYsWEhR" alt="Cross-section and birds-eye diagrams of solar cell">
+                <figcaption>Vignette cross-section &amp; bird's-eye diagrams of one of our solar cells</figcaption>
+            </figure>
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1m8tdT0W_5CSIvUK78xTC_OnqQ8iS2_z7" alt="All cells tested in KLayout">
+                <figcaption>All cells tested in KLayout</figcaption>
+            </figure>
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1NTX59adjJmUHAqnm5JoB2FQQg3wyQKhG" alt="Shearing solar cells from the wafer">
+                <figcaption>Shearing of the solar cells to separate from the wafer</figcaption>
+            </figure>
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1jhh3wzut6bKJgWppiubkSU-VzN9M-u9f" alt="Photogenic solar cells">
+                <figcaption>A few of our solar cells</figcaption>
+            </figure>
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=11fTk8LZY8NI8XvhYyXtWpk3L9wxFyn6b" alt="Photogenic cells zoomed in">
+                <figcaption>Some of our solar cells a bit more zoomed in</figcaption>
+            </figure>
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1sBU20kMX9ZkCbPCIfqbr7BfBS7ZQhHWJ" alt="Active testing of solar cell">
+                <figcaption>Active testing of a solar cell</figcaption>
+            </figure>
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1TAQWrTrxQbfLE3fQk-63t66vjwlbj8Gb" alt="Broken solar cell">
+                <figcaption>Broken solar cell - sometimes the shearing doesn't quite break along the crystal planes as intended!</figcaption>
+            </figure>
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1I7FhVR2YZw5asNy-3pNWnPaqS7JdnIey" alt="Custom design featuring Artemis the cat with an octopus stuffed animal">
+                <figcaption>Custom cell design featuring one of my cats, Artemis, disgruntled with an octopus stuffed animal on her head</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Future Improvements</h2>
+        <ul>
+            <li>KOH texturing for higher Isc</li>
+            <li>ALD Al₂O₃ rear passivation for higher Voc</li>
+            <li>Sub-10 µm fingers to reduce metal coverage</li>
+            <li>Improved ARC uniformity and ash cleaning</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+</body>
+</html>

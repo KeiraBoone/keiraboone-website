@@ -1,0 +1,192 @@
+<!-- projects/mobile-hoist.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Steel Hoist | Keira Boone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #141824;
+            --bg-card: #1a1f2e;
+            --text-primary: #e4e6eb;
+            --text-secondary: #a8b2d1;
+            --accent: #64ffda;
+            --accent-dim: #4a9d7f;
+            --border: #2d3548;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        nav {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0;
+            background: rgba(10,14,23,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+        }
+        .nav-logo { font-size: 1.25rem; font-weight: 600; color: var(--text-primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+        .nav-link:hover { color: var(--accent); }
+        header { padding: 3.5rem 0 2rem; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+        h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
+        p { color: var(--text-secondary); margin-bottom: 1rem; }
+        ul { padding-left: 1.25rem; color: var(--text-secondary); }
+        li { margin-bottom: 0.5rem; }
+        .gallery {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem; margin-top: 1rem;
+        }
+        .gallery img {
+            width: 100%; height: 200px; object-fit: cover;
+            border-radius: 6px; border: 1px solid var(--border); background: var(--bg-secondary);
+        }
+        .callout {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 1rem; border-radius: 6px; margin: 1rem 0;
+        }
+        footer { padding: 2rem 0; text-align: center; color: var(--text-secondary); }
+        @media (max-width: 768px) { .container, .nav-container { padding: 0 1rem; } }
+
+.nav-headshot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>Mobile Steel Hoist</h1>
+        <p class="subtitle">Structural Design • Welding • Hand Calculations • Salvaged Steel</p>
+        <p>Fabricated a mobile steel hoist for lifting heavy shop equipment. Designed entirely around salvaged materials, validated by hand calculations, and built to ~600 lb capacity with a safety factor of 2. This project was a blend of structural design, creative constraints, and hands-on welding practice.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>Project Overview</h2>
+        <p>This hoist was designed to help my grandpa lift heavy equipment in his shop (lawn mower, power washer, etc.). It also became a multi-purpose lifting tool for future builds. The main goal was functionality, safety, and the ability to fabricate the whole system using only scrap steel and basic shop tools.</p>
+        <div class="callout">
+            <strong>Key Stats</strong>
+            <ul>
+                <li>Approx. Capacity: ~600 lb</li>
+                <li>Safety Factor: 2</li>
+                <li>Approx. Lift Height: 8 ft (limited by 8’6” ceiling fans)</li>
+                <li>Materials: Salvaged HSS and angle steel, repurposed boat trailer winch</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Design & Constraints</h2>
+        <h3>Primary Constraints</h3>
+        <ul>
+            <li>All steel must come from scrap stock available at a local construction scrap dumpster.</li>
+            <li>Maximum height limited by shop ceiling fans.</li>
+            <li>Must be mobile and stable while lifting.</li>
+            <li>Must be buildable with MIG welding and hand tools.</li>
+        </ul>
+        <h3>Design Strategy</h3>
+        <p>The design was built around the largest scrap component available: a piece of HSS 4x4x½ tube steel with HSS 8x4x½ welded at both ends. This piece became the main post, with the base being beveled and splayed for stability.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Engineering Calculations</h2>
+        <p>We used statics and strength of materials to estimate the maximum allowable loads based on section modulus, moment of inertia, and weld sizing. Calculations were referenced from the AISC Steel Construction Manual (14th edition).</p>
+        <ul>
+            <li>Calculated capacity for main post and jib arm based on available sections</li>
+            <li>Checked weld sizes for allowable shear</li>
+            <li>Compared alternative jib configurations (tube vs. double-angle)</li>
+        </ul>
+        <div class="callout">
+            <strong>Note:</strong> Later we found a single 3x3 tube steel jib arm would have yielded higher capacity than our double-angle setup—documented for future iterations.
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Build Process</h2>
+        <h3>Step 1 — Sourcing & Layout</h3>
+        <p>We scavenged for strong, straight steel sections and selected members based on available lengths. The main post set the entire geometry.</p>
+        <h3>Step 2 — Base Beveling & Splayed Legs</h3>
+        <p>We beveled the HSS 8x4x½ base using an angle grinder to splay the legs. This was time-consuming and rough—future builds would use a bandsaw for cleaner cuts.</p>
+        <h3>Step 3 — Jib Arm Welding</h3>
+        <p>We rigged pulleys from the roof frame to lift and align the jib arm. Overhead and flare bevel welds made this stage especially challenging.</p>
+        <h3>Step 4 — Mobility Additions</h3>
+        <p>We mounted rear casters on a channel at the base to avoid drilling into ½” steel. Later, we added handlebars for steering and tested mobility under load.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Gallery (Placeholders)</h2>
+        <div class="gallery">
+            <img src="../images/placeholder-hoist-1.jpg" alt="Hoist overview">
+            <img src="../images/placeholder-hoist-2.jpg" alt="Base beveling">
+            <img src="../images/placeholder-hoist-3.jpg" alt="Welding jib arm">
+            <img src="../images/placeholder-hoist-4.jpg" alt="Testing lift">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Lessons Learned</h2>
+        <ul>
+            <li>Beveling large sections with a cutoff wheel is slow and messy—use a bandsaw next time.</li>
+            <li>Overhead and flare bevel welds require more practice and prep.</li>
+            <li>Designing around scrap materials is powerful but requires flexibility.</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+</body>
+</html>

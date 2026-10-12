@@ -1,0 +1,97 @@
+<!-- projects/side-table.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Side Table/Cabinet | Keira Boone</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --bg-primary:#0a0e17; --bg-secondary:#141824; --bg-card:#1a1f2e; --text-primary:#e4e6eb; --text-secondary:#a8b2d1; --accent:#64ffda; --accent-dim:#4a9d7f; --border:#2d3548; }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.7;}
+        .container { max-width:1100px; margin:0 auto; padding:0 2rem;}
+        nav { padding:1.5rem 0; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,14,23,0.95); backdrop-filter:blur(10px); z-index:100;}
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; padding:0 2rem;}
+        .nav-logo { font-size:1.25rem; font-weight:600; color:var(--text-primary); text-decoration:none;}
+        .nav-links { display:flex; gap:2rem;}
+        .nav-link { color:var(--text-secondary); text-decoration:none; font-size:0.95rem;}
+        .nav-link:hover { color:var(--accent);}
+        header { padding:3.5rem 0 2rem; border-bottom:1px solid var(--border);}
+        h1 { font-size:2.5rem; margin-bottom:0.5rem;}
+        .subtitle { color:var(--text-secondary); margin-bottom:1.5rem;}
+        section { padding:2.5rem 0; border-bottom:1px solid var(--border);}
+        h2 { font-size:1.8rem; margin-bottom:1rem;}
+        h3 { font-size:1.2rem; margin:1.5rem 0 0.5rem; color:var(--accent);}
+        p { color:var(--text-secondary); margin-bottom:1rem;}
+        ul { padding-left:1.25rem; color:var(--text-secondary);}
+        li { margin-bottom:0.5rem;}
+        .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1rem; margin-top:1rem;}
+        .gallery img { width:100%; height:200px; object-fit:cover; border-radius:6px; border:1px solid var(--border); background:var(--bg-secondary);}
+        footer { padding:2rem 0; text-align:center; color:var(--text-secondary);}
+        @media (max-width:768px){ .container,.nav-container{padding:0 1rem;} }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo">Keira Boone</a>
+        <div class="nav-links">
+            <a href="../index.html#projects" class="nav-link">Projects</a>
+            <a href="../courses.html" class="nav-link">Courses</a>
+            <a href="../hobbies.html" class="nav-link">Hobbies</a>
+            <a href="../index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>Small Side Table / Cabinet</h1>
+        <p class="subtitle">Woodworking • Joinery • Repurposed Materials</p>
+        <p>Compact cabinet built from a broken oak bed frame with mortise-and-tenon joinery, router trim, and recycled casters. It later fit perfectly beneath the cantilever desk.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>Build Overview</h2>
+        <ul>
+            <li>Oak bed frame repurposed into cabinet structure</li>
+            <li>Mortise & tenon joints cut with dado blade</li>
+            <li>Router trim work for decorative finish</li>
+            <li>Casters salvaged from old office chair</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Build Process</h2>
+        <h3>Frame & Joinery</h3>
+        <p>Rails were mortised into stiles, glued, and clamped. Insert panels were cut from scrap oak plywood.</p>
+        <h3>Finishing</h3>
+        <p>Trim routing and staining completed by hand. Router direction had to be carefully managed to avoid tear-out.</p>
+        <h3>Final Assembly</h3>
+        <p>Casters were mounted to the base, giving the cabinet mobility and a perfect fit under the later-built desk.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Gallery (Placeholders)</h2>
+        <div class="gallery">
+            <img src="../images/placeholder-side-1.jpg" alt="Side table overview">
+            <img src="../images/placeholder-side-2.jpg" alt="Mortise and tenon">
+            <img src="../images/placeholder-side-3.jpg" alt="Router trim work">
+            <img src="../images/placeholder-side-4.jpg" alt="Finished cabinet">
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+</body>
+</html>

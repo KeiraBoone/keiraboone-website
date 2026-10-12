@@ -1,0 +1,188 @@
+<!-- projects/prototype-greens.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Greens | Keira Boone</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg-primary:#0a0e17; --bg-secondary:#141824; --bg-card:#1a1f2e;
+            --text-primary:#e4e6eb; --text-secondary:#a8b2d1; --accent:#64ffda;
+            --accent-dim:#4a9d7f; --border:#2d3548;
+        }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--bg-primary); color:var(--text-primary);}
+        .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        nav { padding:1.5rem 0; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,14,23,0.9);}
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; padding:0 2rem;}
+        .nav-logo { font-size:1.25rem; font-weight:600; color:var(--text-primary); text-decoration:none; }
+        .nav-links { display:flex; gap:2rem; }
+        .nav-link { color:var(--text-secondary); text-decoration:none; font-size:0.95rem; }
+        .nav-link:hover { color:var(--accent); }
+        header { padding:3.5rem 0 2rem; border-bottom:1px solid var(--border); }
+        h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+        .subtitle { color:var(--text-secondary); margin-bottom:1.5rem; }
+        section { padding:2.5rem 0; border-bottom:1px solid var(--border); }
+        h2 { font-size:1.8rem; margin-bottom:1rem; }
+        h3 { font-size:1.2rem; margin:1.5rem 0 0.5rem; color:var(--accent); }
+        p { color:var(--text-secondary); margin-bottom:1rem; }
+        ul { padding-left:1.25rem; color:var(--text-secondary); }
+        li { margin-bottom:0.5rem; }
+        .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1rem; margin-top:1rem;}
+        .gallery img { width:100%; height:200px; object-fit:cover; border-radius:6px; border:1px solid var(--border);}
+        .callout { background:var(--bg-card); border:1px solid var(--border); padding:1rem; border-radius:6px; margin:1rem 0;}
+        footer { padding:2rem 0; text-align:center; color:var(--text-secondary); }
+        @media (max-width:768px){ .container,.nav-container{padding:0 1rem;} }
+
+        .nav-headshot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>Prototype Greens</h1>
+        <p class="subtitle">Carbon Capture • Biofuel Production • Sustainable Energy Startup</p>
+        <p>In 8th grade, co-founded a startup and pitched at Rice University Lilie Lab focused on innovative algae-based carbon capture and biofuel production systems designed for scalable, sustainable energy solutions. I include this because it was my first introduction to the entrepreneurial world, of which I am much more involved in today.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>Project Summary</h2>
+        <p>Prototype Greens is a biofuel and carbon capture startup aimed at reducing global CO₂ emissions through algae-based systems. The project combines environmental engineering, chemistry, and business strategy to create a scalable clean energy solution.</p>
+
+        <div class="callout">
+            <strong>Core Focus Areas</strong>
+            <ul>
+                <li>Carbon capture via algae</li>
+                <li>Biofuel production pipeline</li>
+                <li>Scalable deployment systems</li>
+                <li>Market integration and sustainability</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>How It Works</h2>
+        <h3>1. Biomass Growth</h3>
+        <p>Algae is cultivated in controlled environments designed to maximize sunlight exposure and growth efficiency.</p>
+
+        <h3>2. Processing</h3>
+        <p>The biomass is dehydrated, blended, and chemically processed to extract usable fuel components.</p>
+
+        <h3>3. Conversion</h3>
+        <p>Biomass is converted into biofuel through refinement and filtration processes.</p>
+
+        <h3>4. Storage & Use</h3>
+        <p>Final fuel is stored and used in generators, vehicles, and other energy systems.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Market Opportunity</h2>
+        <p>The global energy and carbon capture markets are rapidly expanding, creating strong opportunities for sustainable alternatives.</p>
+
+        <div class="callout">
+            <strong>Key Drivers</strong>
+            <ul>
+                <li>Rising fuel costs (~$5/gal diesel)</li>
+                <li>Climate change urgency</li>
+                <li>Carbon credit markets</li>
+                <li>Limited self-produced biofuel options</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Product & Applications</h2>
+        <ul>
+            <li>Diesel generator fuel replacement</li>
+            <li>RV and mobile energy systems</li>
+            <li>Farm equipment fuel</li>
+            <li>Self-sustaining remote communities</li>
+            <li>Carbon credit generation</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Business Model</h2>
+        <ul>
+            <li>Estimated fuel cost: ~$3.00/gallon</li>
+            <li>Subscription-based customer plans</li>
+            <li>Installation + maintenance services</li>
+            <li>Partnerships with hardware stores and RV companies</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Gallery</h2>
+
+        <!-- Embedded Google Slides Presentation -->
+        <div class="slideshow-embed">
+            <iframe
+                src="https://docs.google.com/presentation/d/1OxT1FR0NHaa9vHv1xrbx2qj4dYih7hnS/embed?start=false&loop=false&delayms=3000"
+                frameborder="0"
+                width="100%"
+                height="500"
+                allowfullscreen="true">
+            </iframe>
+            <p class="caption">Full project presentation — click through at your own pace</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Future Improvements</h2>
+        <ul>
+            <li>Expand biomass types beyond algae</li>
+            <li>Improve containment materials</li>
+            <li>Develop vehicle-integrated systems</li>
+            <li>Scale manufacturing and deployment</li>
+            <li>Secure patents and investors</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+
+</body>
+</html>

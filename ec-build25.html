@@ -1,0 +1,211 @@
+<!-- projects/ec-fort-coaster.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>East Campus Fort &amp; Coaster | Keira Boone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #141824;
+            --bg-card: #1a1f2e;
+            --text-primary: #e4e6eb;
+            --text-secondary: #a8b2d1;
+            --accent: #64ffda;
+            --accent-dim: #4a9d7f;
+            --border: #2d3548;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        nav {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0;
+            background: rgba(10,14,23,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+        }
+        .nav-logo { font-size: 1.25rem; font-weight: 600; color: var(--text-primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+        .nav-link:hover { color: var(--accent); }
+        header { padding: 3.5rem 0 2rem; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+        h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
+        p { color: var(--text-secondary); margin-bottom: 1rem; }
+        ul { padding-left: 1.25rem; color: var(--text-secondary); }
+        li { margin-bottom: 0.5rem; }
+        .gallery {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem; margin-top: 1rem;
+        }
+        .gallery img {
+            width: 100%; height: 180px; object-fit: cover;
+            border-radius: 6px; border: 1px solid var(--border); background: var(--bg-secondary);
+        }
+        .callout {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 1rem; border-radius: 6px; margin: 1rem 0;
+        }
+        footer { padding: 2rem 0; text-align: center; color: var(--text-secondary); }
+        @media (max-width: 768px) { .container, .nav-container { padding: 0 1rem; } }
+        .nav-headshot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        /* Two-column video+gallery layout */
+        .dual-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .video-col h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+        .col-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .col-gallery img {
+            width: 100%; height: 150px; object-fit: cover;
+            border-radius: 6px; border: 1px solid var(--border); background: var(--bg-secondary);
+        }
+        @media (max-width: 768px) {
+            .dual-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>East Campus Fort &amp; Coaster</h1>
+        <p class="subtitle">Woodworking &bull; Structural Construction &bull; Lighting &bull; 2025 REX</p>
+        <p>East Campus's annual REX build is one of MIT's most beloved traditions — students spend weeks constructing massive rides and structures from scratch to welcome incoming first-years (I don't think we normally help with build, but this was the type of thing I chose MIT for, so yes I was going to be there for every waking moment!!). Along with a small team of the initial designers, I spent 15+ hours a day for two weeks building a 3 story fort with LED displays, sound, and lighting, from scratch (well, $70k worth of uncut wood — thanks for the sponsorship RedBull), as well as a roller coaster (of which unfortunately was not completed due to permitting issues).
+
+ The builds draw on a long lineage of ambitious EC projects dating back to the early 2000s, growing from carnival booths into fully engineer-approved roller coasters that have shaped the dorm's identity ever since. As I am not a party person, a special thanks goes to Evan, Hanu, and Zach for the close-up photos during the party, in addition to being phenomenal build designers! I was much happier manning the Tesla Coil during the party :)</p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="dual-section">
+
+        <!-- Fort Column -->
+        <div class="video-col">
+            <h2>2025 East Campus Fort Timelapse</h2>
+            <div class="video-wrapper">
+                <!-- Fort timelapse: 0:00 – 2:04 (start=0, end=124) -->
+                <iframe
+                    src="https://www.youtube.com/embed/RXyzGZMpu_I?start=0&end=124&autoplay=1&mute=1&loop=1&playlist=RXyzGZMpu_I&controls=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="col-gallery">
+                <!-- Replace the id= values with your Google Drive file IDs -->
+                <img src="https://drive.google.com/thumbnail?id=12J4txw9Wd-GuGMIrKELOqCOz9Y1Mr-w5" alt="Fort photo 1">
+                <img src="https://drive.google.com/thumbnail?id=1SamxxOr7ITsN_kLIoPttRKe6SaCBbDCE" alt="Fort photo 2">
+<img src="https://drive.google.com/thumbnail?id=1nUKOGU7-TV-eqGYKHHZXD2CUmkkj2HRG" alt="Fort photo 2">
+                <img src="https://drive.google.com/thumbnail?id=15W6QnmMbnlwfFhJNerUWcednkLfpjEb9" alt="Fort photo 3">
+                <img src="https://drive.google.com/thumbnail?id=1fNwl3aluB4V2-hREh8jLQaFQut-a2kE1" alt="Fort photo 4">
+<img src="https://drive.google.com/thumbnail?id=1gH9wu_1TTk1cUqQjV40tpAIA_u8Np0fz" alt="Fort photo 4">
+<img src="https://drive.google.com/thumbnail?id=1WekZiKQjSQ1k36LSvWYQ66v0RffR39MP" alt="Fort photo 4"> 
+<img src="https://drive.google.com/thumbnail?id=1Q6n6i1suiWlE_6MV2gAzF0v7rs6OrxJE" alt="Fort photo 4"> 
+<img src="https://drive.google.com/thumbnail?id=1q6vc-EoSmcmjT_bFLGYjHwLSBGyeseJ6" alt="Fort photo 4"> 
+<img src="https://drive.google.com/thumbnail?id=1XmbB_6JuuDMgYuND6fQwBbImTR3xsEWd" alt="Fort photo 4">
+<img src="https://drive.google.com/thumbnail?id=1DRkFT-oK_ORHzMv2_zhELD9qaePT0INH" alt="Fort photo 4">
+<img src="https://drive.google.com/thumbnail?id=1vnWKErWYtX2tjvfhMMrGzd7CqheahDWw" alt="Fort photo 4">
+<iframe src="https://drive.google.com/file/d/12MaoI2B52sprBJ-aFQ-1PqlyylmSQWAt/preview" width="640" height="480" allowfullscreen></iframe>
+ 
+            </div>
+        </div>
+
+        <!-- Coaster Column -->
+        <div class="video-col">
+            <h2>2025 East Campus Roller Coaster Timelapse</h2>
+            <div class="video-wrapper">
+                <!-- Coaster timelapse: 2:05 – 3:13 (start=125, end=193) -->
+                <iframe
+                    src="https://www.youtube.com/embed/RXyzGZMpu_I?start=125&end=193&autoplay=1&mute=1&loop=1&playlist=RXyzGZMpu_I&controls=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="col-gallery">
+                <!-- Replace the id= values with your Google Drive file IDs -->
+
+<img src="https://drive.google.com/thumbnail?id=1QLpOWi17zXhK5iQfKNNfbdFZ-iROweWV" alt="Coaster photo 3">
+                <img src="https://drive.google.com/thumbnail?id=1z22hwiwWKJIjrb9iitkEkrH6_25wk9ON" alt="Coaster photo 1">
+                <img src="https://drive.google.com/thumbnail?id=1QJQIXWYQ_WfyAYqnbyg74v065Q16SlQ3" alt="Coaster photo 2">
+                <img src="https://drive.google.com/thumbnail?id=1tJzoq6DVmSWyrxklyHqJNBQeFh-omQ0J" alt="Coaster photo 3">
+<img src="https://drive.google.com/thumbnail?id=1HHIqUJsYpTqYo-FYTj9-dqWpZ-xZpsRV" alt="Coaster photo 3">
+<img src="https://drive.google.com/thumbnail?id=1FUrs-1EWV3urQal8KXAb4n16KogUgQSL" alt="Coaster photo 3">
+                <img src="https://drive.google.com/thumbnail?id=1muJJeJ3U-PqHlxWKyPG3ngHLEyRQxYLP" alt="Coaster photo 4">
+<img src="https://drive.google.com/thumbnail?id=1FUrs-1EWV3urQal8KXAb4n16KogUgQSL" alt="Coaster photo 3">
+<img src="https://drive.google.com/thumbnail?id=1HHIqUJsYpTqYo-FYTj9-dqWpZ-xZpsRV" alt="Coaster photo 3">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Keira Boone</p>
+</footer>
+
+</body>
+</html>

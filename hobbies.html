@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies | Keira Boone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #141824;
+            --bg-card: #1a1f2e;
+            --text-primary: #e4e6eb;
+            --text-secondary: #a8b2d1;
+            --accent: #64ffda;
+            --accent-dim: #4a9d7f;
+            --border: #2d3548;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .social-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+        }
+
+        header {
+            padding: 4rem 0 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 2rem;
+            transition: all 0.2s;
+        }
+
+        .hobby-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .hobby-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hobby-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .hobby-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .hobby-highlight {
+            color: var(--accent-dim);
+            font-weight: 500;
+        }
+
+        footer {
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            background-color: var(--bg-primary);
+            margin-top: 3rem;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container, .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .social-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Keira Boone</a>
+            <div class="nav-links">
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="hobbies.html" class="nav-link">Hobbies</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <div class="social-links">
+                    <a href="mailto:KBoone@MIT.edu" class="social-link" title="Email">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/keira-boone" target="_blank" class="social-link" title="LinkedIn">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Hobbies & Interests</h1>
+            <p class="subtitle">What I do when I'm not building things (though making is definitely a big one!)</p>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+<section>
+    <div class="container">
+        <div class="hobbies-grid">
+
+            <!-- MAKING -->
+            <div class="hobby-card">
+                <h3>Making & Fabrication</h3>
+
+                <div class="image-container tilt">
+                    <img src="https://drive.google.com/thumbnail?id=1_jXIJPU-si1kIDt5UKsJfHNqIqKnU_lC">
+                </div>
+
+                <p>
+                    My most prolific hobby! From welding and woodworking to laser cutting and CNC machining, I love designing and building functional objects from scratch. Whether it's salvaging steel from scrap dumpsters or creating custom electrochemical cells, making things is where I'm most at home.
+                </p>
+                <p class="hobby-highlight">
+                    Current focus: Injection molding, composite fabrication, and precision machining
+                </p>
+            </div>
+
+            <!-- SILKS -->
+            <div class="hobby-card">
+                <h3>Aerial Silks</h3>
+
+                <div class="image-container curtain">
+                    <img src="https://drive.google.com/thumbnail?id=1hd0bZKVp7Se-Z0aSOd9fSceMUdlHEGv0">
+                    <div class="curtain-overlay"></div>
+                </div>
+
+                <p>
+                    Training in aerial silks combines strength, flexibility, and artistry. The physics of weight distribution, momentum, and controlled falling translate surprisingly well to understanding structural mechanics and material behavior under load.
+                </p>
+                <p class="hobby-highlight">
+                    It's problem-solving in 3D space while suspended in fabric
+                </p>
+            </div>
+
+            <!-- BJJ -->
+            <div class="hobby-card">
+                <h3>Brazilian Jiu Jitsu</h3>
+
+                <div class="image-container reveal">
+                    <img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID">
+                </div>
+
+                <p>
+                    BJJ is like physical chess—every move is a calculated decision based on leverage, timing, and strategy. The iterative problem-solving mindset mirrors the engineering process.
+                </p>
+                <p class="hobby-highlight">
+                    Elegant solutions beat brute force
+                </p>
+            </div>
+
+            <!-- HIKING -->
+            <div class="hobby-card">
+                <h3>Hiking</h3>
+
+                <div class="image-container parallax">
+                    <img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID">
+                </div>
+
+                <p>
+                    Being outdoors clears the mind and sparks creativity. Hiking provides the reset needed to approach complex problems with fresh perspective.
+                </p>
+            </div>
+
+            <!-- CONFERENCES -->
+            <div class="hobby-card">
+                <h3>Random Conferences & Lectures</h3>
+
+                <div class="image-container stack">
+                    <img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID">
+                </div>
+
+                <p>
+                    I enjoy attending talks completely outside my field. You never know when a talk on something obscure will spark a new idea.
+                </p>
+                <p class="hobby-highlight">
+                    Learning random new things is basically a sport
+                </p>
+            </div>
+
+            <!-- DIY SCIENCE -->
+            <div class="hobby-card">
+                <h3>DIY Science Experiments</h3>
+
+                <div class="image-container scan">
+                    <img src="https://drive.google.com/uc?export=view&id=YOUR_IMAGE_ID">
+                    <div class="scan-line"></div>
+                </div>
+
+                <p>
+                    From simulations to analyzing datasets, I love exploring scientific ideas hands-on. The line between hobby and research gets blurry quickly.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+
+/* Base image */
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* 1. Tilt (Making) */
+.tilt:hover img {
+    transform: rotateX(5deg) rotateY(-5deg) scale(1.05);
+}
+
+/* 2. Curtain reveal (Silks) */
+
+/* Ripple effect (Silks) */
+.curtain {
+    position: relative;
+    overflow: hidden;
+}
+
+.curtain img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* ripple layer */
+.curtain::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(100,255,218,0.25) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+/* trigger ripple */
+.curtain:hover::after {
+    animation: rippleEffect 0.8s ease-out;
+}
+
+@keyframes rippleEffect {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.6;
+    }
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+    }
+}
+
+/* subtle fabric motion */
+.curtain:hover img {
+    transform: scale(1.03);
+
+}
+
+/* 3. Directional reveal (BJJ) */
+.reveal img {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.6s ease;
+}
+
+.reveal:hover img {
+    clip-path: inset(0 0 0 0);
+}
+
+/* 4. Parallax (Hiking) */
+.parallax:hover img {
+    transform: scale(1.1) translateY(-10px);
+}
+
+/* 5. Stack shuffle (Conferences) */
+.stack img {
+    transform: rotate(-2deg);
+}
+
+.stack:hover img {
+    transform: rotate(0deg) scale(1.05);
+}
+
+/* 6. Scan effect (DIY science) */
+.scan-line {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: rgba(100,255,218,0.2);
+    transition: top 0.6s ease;
+}
+
+.scan:hover .scan-line {
+    top: 100%;
+}
+
+</style>
+
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Keira Boone. Built from scratch with HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

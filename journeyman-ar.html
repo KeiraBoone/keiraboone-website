@@ -1,0 +1,381 @@
+<!-- projects/journeyman-ar.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journeyman AR | Keira Boone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #141824;
+            --bg-card: #1a1f2e;
+            --text-primary: #e4e6eb;
+            --text-secondary: #a8b2d1;
+            --accent: #64ffda;
+            --accent-dim: #4a9d7f;
+            --border: #2d3548;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        nav {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0;
+            background: rgba(10,14,23,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+        }
+        .nav-logo { font-size: 1.25rem; font-weight: 600; color: var(--text-primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; }
+        .nav-link:hover { color: var(--accent); }
+
+        header { padding: 3.5rem 0 2rem; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-secondary); margin-bottom: 1rem; }
+
+        .award-badges {
+            display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.2rem 0;
+        }
+        .badge {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.85rem; font-weight: 600;
+            border: 1px solid;
+        }
+        .badge-gold {
+            background: rgba(255, 200, 60, 0.1);
+            color: #ffc83c;
+            border-color: rgba(255, 200, 60, 0.35);
+        }
+        .badge-teal {
+            background: rgba(100, 255, 218, 0.08);
+            color: var(--accent);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+
+        section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+        h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; color: var(--accent); }
+        p { color: var(--text-secondary); margin-bottom: 1rem; }
+        ul { padding-left: 1.25rem; color: var(--text-secondary); }
+        li { margin-bottom: 0.5rem; }
+
+        .callout {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 1rem 1.25rem; border-radius: 6px; margin: 1rem 0;
+        }
+        .callout strong { color: var(--text-primary); }
+
+        /* Video embed */
+        .video-wrapper {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border-radius: 8px; border: 1px solid var(--border);
+            background: var(--bg-card);
+            margin-top: 1rem;
+        }
+        .video-wrapper iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            border: none;
+        }
+        .video-placeholder {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 0.75rem; color: var(--text-secondary);
+        }
+        .video-placeholder svg { opacity: 0.4; }
+        .video-placeholder span { font-size: 0.9rem; opacity: 0.6; }
+
+        /* Gallery */
+        .gallery {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem; margin-top: 1rem;
+        }
+        .gallery-item {
+            position: relative; border-radius: 6px; overflow: hidden;
+            border: 1px solid var(--border); background: var(--bg-secondary);
+        }
+        .gallery-item img {
+            width: 100%; height: 200px; object-fit: cover; display: block;
+        }
+        .gallery-item .caption {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.82rem; color: var(--text-secondary);
+            background: var(--bg-card);
+        }
+        .img-placeholder {
+            width: 100%; height: 200px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-secondary); font-size: 0.85rem; opacity: 0.5;
+            background: var(--bg-secondary);
+        }
+
+        /* Collaborators */
+        .collaborators {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;
+        }
+        .collaborator-tag {
+            padding: 0.25rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* Tech stack pills */
+        .tech-stack {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;
+        }
+        .tech-pill {
+            padding: 0.2rem 0.65rem;
+            border-radius: 4px;
+            font-size: 0.82rem;
+            background: rgba(100, 255, 218, 0.07);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            color: var(--accent);
+        }
+
+        /* Back button */
+        .back-section {
+            padding: 2.5rem 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .back-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .back-btn svg { width: 16px; height: 16px; }
+
+        footer { padding: 2rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border); }
+        @media (max-width: 768px) { .container, .nav-container { padding: 0 1rem; } h1 { font-size: 1.9rem; } }
+
+        .nav-headshot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+
+
+<header>
+    <div class="container">
+        <h1>Journeyman</h1>
+        <p class="subtitle">Augmenting Personal Realities &nbsp;·&nbsp; AR Projection &nbsp;·&nbsp; Spatial Mapping &nbsp;·&nbsp; Hackathon</p>
+
+        <div class="award-badges">
+            <span class="badge badge-gold">🥈 2nd Place Overall — MIT Media Lab HARD MODE Hackathon</span>
+            <span class="badge badge-teal">🏆 K2 Think V2 Sponsor Winner</span>
+            <span class="badge badge-teal">48 Hours</span>
+        </div>
+    </div>
+</header>
+
+<!-- Overview -->
+<section>
+    <div class="container">
+        <h2>Project Overview</h2>
+        <p>Journeyman is a wearable AR projection-based guidance system for accelerated skill acquisition — from learning piano to assembling machinery and operating industrial equipment. Instead of augmenting reality through isolated personal displays like traditional AR glasses, Journeyman projects guidance directly onto physical surfaces via a helmet-mounted projector, making learning visible, intuitive, and collaborative.</p>
+        <p>Built in a single hackathon weekend at the MIT Media Lab, the system orchestrates real-time spatial mapping, voice control, and synchronized haptic feedback in one unified pipeline. Piano was our demo, but the architecture is fully domain-agnostic.</p>
+        <div class="callout">
+            <strong>Key Stats</strong>
+            <ul style="margin-top:0.5rem;">
+                <li>Award: 2nd place overall + K2 Think V2 sponsor prize, MIT Media Lab Hard Mode Hackathon</li>
+                <li>Demo: Real-time projected piano guidance onto a physical keyboard</li>
+                <li>Hardware: Helmet-mounted projector + camera, Raspberry Pi, ESP32, INMP441 mic</li>
+                <li>Localization: AprilTag-based spatial mapping with pixel-accurate coordinate transforms</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Demo Video -->
+<section>
+    <div class="container">
+        <h2>Demo Video</h2>
+        <div class="video-wrapper">
+            <!-- To embed a YouTube video, replace the src with:
+                 https://www.youtube.com/embed/sln7g3raf7Y
+                 For Vimeo: https://player.vimeo.com/video/YOUR_VIDEO_ID -->
+            <div class="video-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10" stroke-width="1.5"/>
+                    <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/>
+                </svg>
+                <span>Embed video here — replace with &lt;iframe src="..."&gt; or &lt;video&gt; tag</span>
+            </div>
+            
+            <iframe src="https://www.youtube.com/embed/sln7g3raf7Y" allowfullscreen></iframe>
+            
+        </div>
+    </div>
+</section>
+
+<!-- System Architecture -->
+<section>
+    <div class="container">
+        <h2>System Architecture</h2>
+        <p>The full pipeline runs from surface detection to projected guidance to physical feedback in real time.</p>
+
+        <h3>Spatial Mapping & Projection</h3>
+        <p>A helmet-mounted camera detects AprilTag markers to localize and map target surfaces, computing precise projector coordinate transforms for pixel-accurate overlays. This lets the system know exactly where to project each cue relative to the physical object in front of the user.</p>
+
+        <h3>Session State Machine</h3>
+        <p>A central orchestrator manages the lesson loop — tracking which step the learner is on, when to advance, and how to recover from errors. The state machine is designed to be fully domain-agnostic, so the same logic that guides a piano learner through a chord progression can guide a technician through a machinery assembly sequence.</p>
+
+        <h3>Voice Control</h3>
+        <p>An INMP441 microphone and Raspberry Pi handle voice command recognition, dispatching intents — next, repeat, stop — to the central orchestrator so learners can navigate lessons hands-free.</p>
+
+        <h3>Haptic Feedback</h3>
+        <p>An ESP32 microcontroller delivers haptic feedback synchronized with each projected step, reinforcing visual cues with a physical signal so the learner's body and hands stay engaged with the task.</p>
+
+        <div class="callout">
+            <strong>Tech Stack</strong>
+            <div class="tech-stack" style="margin-top:0.6rem;">
+                <span class="tech-pill">Raspberry Pi</span>
+                <span class="tech-pill">ESP32</span>
+                <span class="tech-pill">AprilTags</span>
+                <span class="tech-pill">INMP441 Mic</span>
+                <span class="tech-pill">Helmet-Mounted Projector</span>
+                <span class="tech-pill">Spatial Mapping</span>
+                <span class="tech-pill">Voice Recognition</span>
+                <span class="tech-pill">Haptic Feedback</span>
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">OpenCV</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Applications -->
+<section>
+    <div class="container">
+        <h2>Applications</h2>
+        <p>While piano was our hackathon demo, Journeyman's architecture was designed from the start to generalize to any hands-on skill where guidance can be projected directly into the world.</p>
+        <ul>
+            <li><strong style="color:var(--text-primary)">Piano / music learning</strong> — project note cues directly onto keys in real time</li>
+            <li><strong style="color:var(--text-primary)">Equipment assembly</strong> — guide technicians through complex assembly steps with projected arrows and labels</li>
+            <li><strong style="color:var(--text-primary)">Factory worker training</strong> — project step-by-step instructions onto machinery without requiring workers to look away</li>
+            <li><strong style="color:var(--text-primary)">Surgical / medical training</strong> — project anatomical overlays onto physical models for hands-on learning</li>
+            <li><strong style="color:var(--text-primary)">Construction & trades</strong> — project layout lines, measurements, or assembly guides onto work surfaces</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Progress Photos -->
+<section>
+    <div class="container">
+        <h2>Progress Photos</h2>
+        <p> As is generally the case with hackathons, it was a bit chaotic but tons of fun! </p>
+        <div class="gallery">
+            <div class="gallery-item">
+                <div class="img-placeholder">[ Photo: Helmet build ]</div>
+                <!-- <img src="../images/journeyman-helmet.jpg" alt="Helmet build"> -->
+                <div class="caption">Helmet-mounted projector + camera assembly</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder">[ Photo: Projection demo ]</div>
+                <!-- <img src="../images/journeyman-projection.jpg" alt="Projection demo"> -->
+                <div class="caption">Projected piano guidance on physical keyboard</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder">[ Photo: AprilTag mapping ]</div>
+                <!-- <img src="../images/journeyman-apriltag.jpg" alt="AprilTag mapping"> -->
+                <div class="caption">AprilTag-based surface localization</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder">[ Photo: Hackathon demo ]</div>
+                <!-- <img src="../images/journeyman-demo.jpg" alt="Hackathon demo"> -->
+                <div class="caption">Live demo at MIT Media Lab Hackathon</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder">[ Photo: Electronics / wiring ]</div>
+                <!-- <img src="../images/journeyman-electronics.jpg" alt="Electronics"> -->
+                <div class="caption">Raspberry Pi + ESP32 wiring and integration</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-placeholder">[ Photo: Award / team ]</div>
+                <!-- <img src="../images/journeyman-team.jpg" alt="Team photo"> -->
+                <div class="caption">Team with 2nd place award</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team -->
+<section>
+    <div class="container">
+        <h2>Team</h2>
+        <p>Built over a single weekend at the MIT Media Lab Hard Mode Hackathon.</p>
+        <div class="collaborators">
+            <span class="collaborator-tag">Mohammed Aamir</span>
+            <span class="collaborator-tag">Keira Boone</span>
+            <span class="collaborator-tag">Nick Nim</span>
+            <span class="collaborator-tag">Chris Um</span>
+            <span class="collaborator-tag">Cecilia Xu</span>
+            <span class="collaborator-tag">Rachael Yang</span>
+            <span class="collaborator-tag">Anna Zhang</span>
+            <span class="collaborator-tag">Gloria Zhu</span>
+        </div>
+    </div>
+</section>
+
+<!-- Back button -->
+<div class="back-section">
+    <a href="../index.html#projects" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Projects
+    </a>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+
+</body>
+</html>

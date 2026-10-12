@@ -1,0 +1,1020 @@
+<!-- projects/placeholder.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction | Keira Boone</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg-primary:#0a0e17; --bg-secondary:#141824; --bg-card:#1a1f2e;
+            --text-primary:#e4e6eb; --text-secondary:#a8b2d1; --accent:#64ffda;
+            --accent-dim:#4a9d7f; --border:#2d3548; --red:#ff6464; --gold:#ffd966;
+            --orange:#ff9950;
+        }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--bg-primary); color:var(--text-primary); min-height:100vh; }
+        .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        nav { padding:1.5rem 0; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,14,23,0.92); backdrop-filter:blur(10px); z-index:100; }
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .nav-logo { font-size:1.25rem; font-weight:600; color:var(--text-primary); text-decoration:none; display:flex; align-items:center; }
+        .nav-headshot { width:36px; height:36px; border-radius:50%; object-fit:cover; margin-right:8px; vertical-align:middle; }
+        .nav-links { display:flex; gap:2rem; }
+        .nav-link { color:var(--text-secondary); text-decoration:none; font-size:0.95rem; transition:color 0.2s; }
+        .nav-link:hover { color:var(--accent); }
+
+        header { padding:3.5rem 0 2rem; border-bottom:1px solid var(--border); }
+        h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+        .subtitle { color:var(--text-secondary); margin-bottom:1.5rem; }
+        header p { color:var(--text-secondary); margin-bottom:1rem; line-height:1.7; }
+
+        /* ── UNDER CONSTRUCTION BANNER ── */
+        .under-construction {
+            background:linear-gradient(135deg,rgba(255,217,102,0.07),rgba(255,153,80,0.05));
+            border:1px solid rgba(255,217,102,0.22);
+            border-radius:10px; padding:1.2rem 1.4rem;
+            margin:1.5rem 0 0; display:flex; align-items:flex-start; gap:1rem;
+        }
+        .uc-icon { font-size:1.5rem; flex-shrink:0; margin-top:2px; }
+        .uc-title { font-weight:700; color:var(--gold); font-size:0.88rem; margin-bottom:0.2rem; letter-spacing:0.05em; text-transform:uppercase; }
+        .uc-body { color:var(--text-secondary); font-size:0.85rem; line-height:1.6; }
+        .uc-body a { color:var(--accent); text-decoration:none; }
+        .uc-body a:hover { text-decoration:underline; }
+        .uc-progress { display:flex; gap:0.3rem; margin-top:0.6rem; align-items:center; }
+        .uc-dot { width:8px; height:8px; border-radius:50%; background:var(--border); }
+        .uc-dot.done { background:var(--accent); }
+        .uc-dot.active { background:var(--gold); box-shadow:0 0 5px var(--gold); }
+        .uc-dot-label { font-size:0.73rem; color:var(--text-secondary); margin-left:0.35rem; }
+
+        .games-divider { margin:2rem 0 0; display:flex; align-items:center; gap:1rem; }
+        .games-divider-line { flex:1; height:1px; background:var(--border); }
+        .games-divider-label { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
+
+        /* ── GAME TABS ── */
+        .game-nav { display:flex; border-bottom:1px solid var(--border); overflow-x:auto; }
+        .game-tab { padding:1rem 1.5rem; font-size:0.92rem; font-weight:600; color:var(--text-secondary); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition:color 0.2s,border-color 0.2s; white-space:nowrap; background:none; border-top:none; border-left:none; border-right:none; }
+        .game-tab:hover { color:var(--text-primary); }
+        .game-tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+        .game-panel { display:none; padding:2.5rem 0; }
+        .game-panel.active { display:block; }
+
+        /* ── GAME CHROME ── */
+        .game-layout { display:grid; grid-template-columns:1fr 270px; gap:1.5rem; align-items:start; }
+        @media(max-width:820px){ .game-layout{grid-template-columns:1fr;} }
+        .game-canvas-wrap { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+        canvas { display:block; width:100%; }
+        .game-sidebar { display:flex; flex-direction:column; gap:1rem; }
+        .sidebar-card { background:var(--bg-card); border:1px solid var(--border); border-radius:10px; padding:1.1rem 1.2rem; }
+        .sidebar-card h3 { font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:0.7rem; }
+        .stat-row { display:flex; justify-content:space-between; font-size:0.86rem; margin-bottom:0.38rem; }
+        .stat-row .label { color:var(--text-secondary); }
+        .stat-row .value { color:var(--text-primary); font-weight:600; }
+        select { width:100%; background:var(--bg-secondary); border:1px solid var(--border); color:var(--text-primary); padding:0.42rem 0.55rem; border-radius:6px; font-size:0.86rem; margin-bottom:0.45rem; }
+        .btn { width:100%; background:transparent; border:1px solid var(--accent); color:var(--accent); font-size:0.86rem; font-weight:600; padding:0.48rem; border-radius:6px; cursor:pointer; transition:background 0.15s; margin-top:0.2rem; }
+        .btn:hover { background:rgba(100,255,218,0.1); }
+        .btn.danger { border-color:var(--red); color:var(--red); }
+        .btn.danger:hover { background:rgba(255,100,100,0.08); }
+        .progress-wrap { background:var(--border); border-radius:99px; height:6px; overflow:hidden; margin-top:4px; }
+        .progress-fill { height:100%; border-radius:99px; transition:width 0.4s; }
+        label { font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:2px; }
+        input[type=range] { width:100%; accent-color:var(--accent); cursor:pointer; }
+        .hint-box { background:rgba(100,255,218,0.04); border:1px solid rgba(100,255,218,0.13); border-radius:8px; padding:0.7rem 0.85rem; font-size:0.8rem; color:var(--text-secondary); line-height:1.55; margin-top:0.6rem; }
+        .hint-box strong { color:var(--text-primary); }
+        .msg-log { font-size:0.78rem; color:var(--text-secondary); line-height:1.6; max-height:88px; overflow-y:auto; }
+        .msg-log .ok   { color:var(--accent); }
+        .msg-log .warn { color:var(--gold); }
+        .msg-log .err  { color:var(--red); }
+
+        footer { padding:2rem 0; text-align:center; color:var(--text-secondary); font-size:0.88rem; border-top:1px solid var(--border); margin-top:2rem; }
+        @media(max-width:768px){ .container,.nav-container{padding:0 1rem;} }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>This Page is Under Construction</h1>
+        <p class="subtitle">Please check back soon</p>
+        <p></p>
+
+        <div class="under-construction">
+            <div class="uc-icon">🚧</div>
+            <div>
+                <div class="uc-title">Page under construction</div>
+                <div class="uc-body">
+                    This project page will appear as soon as I have a bit of free time; that is likely not in the near future, but if you would like to learn more about this project or just want to chat, please <a href="index.html#contact">reach out!</a>
+                    The mini-games below should be (somewhat) functional in the meantime.
+                    
+                </div>
+                <div class="uc-progress">
+                    <div class="uc-dot done"></div>
+                    <div class="uc-dot done"></div>
+                    <div class="uc-dot active"></div>
+                    <div class="uc-dot"></div>
+                    <div class="uc-dot"></div>
+                    <span class="uc-dot-label">3 / 5 complete (I didn't give units, could be 3/5 dreams of completing a page before it happens in real life - yes, I do dream about this occasionally)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="games-divider">
+            <div class="games-divider-line"></div>
+            <div class="games-divider-label">✦ Mini-Games — playable while you wait (please don't wait until I fix the page, it will likely be a while and these are meant to be 1-minute stops)</div>
+            <div class="games-divider-line"></div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="game-nav">
+        <button class="game-tab active" data-tab="casting">🔥 Metal Casting</button>
+        <button class="game-tab" data-tab="micro">🔬 Phase ID</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         GAME 1 — METAL CASTING SIM
+         ──────────────────────────────────────────────────────────────
+         Physics:
+         1. Chvorinov solidification time:  t_s = B·(V/A)²
+            B = mold constant (s/m²); V/A = section modulus (m).
+
+         2. Cooling ODE — Apparent Heat Capacity (AHC) method:
+              dT/dt = −h·(A_s/V)·(T − T_mold) / (ρ·c_p_eff)
+            where
+              c_p_eff = c_p                   (liquid or fully solid)
+              c_p_eff = c_p + L/ΔT_mushy      (Tsol ≤ T ≤ Tliq)
+            The mushy-zone term absorbs latent heat L uniformly over
+            the solidification interval, keeping the ODE energy-
+            conservative — no separate ad-hoc latent-heat term needed.
+
+         3. DAS = K·t_s^(1/3)  [µm]
+            K is alloy-specific (µm·s^−1/3).
+            Sources: Gruzleski & Closset (Al), Flemings (steels),
+                     Lacaze (cast irons).
+
+         4. Hot-tear index (0–1):
+              HTI = min(1, A_ht · (ΔT_mushy/60) · thin_factor · SH_factor)
+            Longer mushy zone, thin sections, and high superheat raise risk.
+
+         5. Niyama-analogue shrinkage criterion:
+              Ny = 1/(modulus·√B)
+            shrink_risk = shrink_pct·riser_factor / (1 + Ny/5)
+            Ny_ref=5 normalises risk to [0,1] across the parameter space.
+
+         6. UTS = UTS_base·(DAS_ref/DAS)^n
+            Al: n=0.20 (Gruzleski). Steels/irons: n≈0.05.
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="game-panel active" id="panel-casting">
+        <div class="game-layout">
+            <div>
+                <div class="game-canvas-wrap">
+                    <canvas id="castCanvas" width="680" height="420"></canvas>
+                </div>
+<div class="hint-box">
+    <strong>Physics & Model Details:</strong><br><br>
+
+    <strong>1. Solidification Time (Chvorinov’s Rule)</strong><br>
+    The code computes total solidification time using:
+    <em>t<sub>s</sub> = B · (V/A)²</em>, where <em>B</em> is a mold-dependent constant and <em>V/A</em> is the casting modulus (volume-to-surface-area ratio). 
+    Larger sections (higher modulus) cool more slowly because heat must travel farther to escape through the surface. 
+    This value sets the total simulation time and time step (<em>dt = t<sub>s</sub>/N</em>).<br><br>
+
+    <strong>2. Lumped Cooling Model (Transient Energy Balance)</strong><br>
+    Temperature evolution is solved using a lumped-capacitance approximation:
+    <em>dT/dt = −h · (A/V) · (T − T<sub>mold</sub>) / (ρ · c<sub>p,eff</sub>)</em>.<br>
+    In code, <em>A/V</em> is approximated as <em>1 / (V/A)</em>, assuming uniform geometry.
+    Heat extraction is controlled by the mold heat-transfer coefficient <em>h</em> and temperature difference between metal and mold.
+    Density <em>ρ</em> and heat capacity determine how quickly temperature responds to heat loss.<br><br>
+
+    <strong>3. Latent Heat via Apparent Heat Capacity</strong><br>
+    Instead of explicitly tracking phase change, the model increases heat capacity in the mushy zone:
+    <em>c<sub>p,eff</sub> = c<sub>p</sub> + L / ΔT<sub>mushy</sub></em> for <em>T<sub>sol</sub> ≤ T ≤ T<sub>liq</sub></em>.<br>
+    This spreads latent heat release uniformly across the freezing range, ensuring energy conservation without a separate source term.
+    Outside this region, <em>c<sub>p,eff</sub> = c<sub>p</sub></em>.<br><br>
+
+    <strong>4. Solid Fraction Evolution</strong><br>
+    The fraction solid is approximated using a linear lever-rule surrogate:
+    <em>f<sub>s</sub> = (T<sub>liq</sub> − T) / ΔT<sub>mushy</sub></em>, clamped between 0 and 1.
+    This is used for visualization and to track progression through the mushy zone during cooling.<br><br>
+
+    <strong>5. Dendrite Arm Spacing (DAS)</strong><br>
+    Microstructural scale is estimated from solidification time:
+    <em>DAS = K · t<sub>s</sub><sup>1/3</sup></em>, where <em>K</em> is alloy-specific.
+    Faster cooling (smaller <em>t<sub>s</sub></em>) produces finer dendrites, which generally improve mechanical properties.<br><br>
+
+    <strong>6. Mechanical Strength Scaling</strong><br>
+    Ultimate tensile strength is adjusted based on DAS:
+    <em>UTS = UTS<sub>base</sub> · (DAS<sub>ref</sub> / DAS)<sup>n</sup></em>.
+    This captures the empirical trend that finer microstructures (smaller DAS) increase strength.<br><br>
+
+    <strong>7. Defect Risk Models (Heuristic)</strong><br>
+    • <em>Hot tearing:</em> increases with freezing range, thin sections, and superheat.<br>
+    • <em>Shrinkage:</em> estimated using a Niyama-like proxy based on modulus and mold constant to approximate feeding difficulty.<br>
+    These are simplified, dimensionally motivated indicators rather than full thermomechanical models.<br><br>
+
+    <strong>8. Numerical Implementation</strong><br>
+    The simulation runs over <em>N = 800</em> time steps. At each step:
+    temperature is updated using forward Euler integration, solid fraction is recalculated, and results are stored.
+    The cooling curve and solid fraction are then rendered in real time on the canvas.<br><br>
+
+    <strong>General Overview:</strong>
+    This is a lumped, transient solidification model combining heat transfer, phase change (via apparent heat capacity), 
+    and empirical microstructure-property relationships to produce physically realistic trends in casting behavior.
+</div>       
+
+
+
+
+
+            </div>
+            <div class="game-sidebar">
+                <div class="sidebar-card">
+                    <h3>Alloy</h3>
+                    <select id="cast-alloy">
+                        <option value="1020">AISI 1020 Steel</option>
+                        <option value="4140">AISI 4140 Steel</option>
+                        <option value="gray_iron">Gray Cast Iron</option>
+                        <option value="al356" selected>Al-Si A356</option>
+                        <option value="cu_brass">Brass 70/30</option>
+                        <option value="ti64">Ti-6Al-4V</option>
+                    </select>
+                    <h3 style="margin-top:0.6rem;">Mold</h3>
+                    <select id="cast-mold">
+                        <option value="sand" selected>Green Sand</option>
+                        <option value="steel_die">Steel Permanent Mold</option>
+                        <option value="ceramic">Ceramic Shell</option>
+                        <option value="graphite">Graphite Die</option>
+                    </select>
+                </div>
+                <div class="sidebar-card">
+                    <h3>Parameters</h3>
+                    <label>Pour temp: <span id="cast-temp-val">—</span> °C</label>
+                    <input type="range" id="cast-temp" min="600" max="1700" value="700" step="10">
+                    <label style="margin-top:0.45rem;">V/A ratio: <span id="cast-modulus-val">0.030</span> m</label>
+                    <input type="range" id="cast-modulus" min="5" max="80" value="30" step="1">
+                    <label style="margin-top:0.45rem;">Risering: <span id="cast-riser-val">medium</span></label>
+                    <input type="range" id="cast-riser" min="0" max="2" value="1" step="1">
+                </div>
+                <div class="sidebar-card">
+                    <h3>Results</h3>
+                    <div class="stat-row"><span class="label">Superheat</span><span class="value" id="res-superheat" style="color:var(--orange)">—</span></div>
+                    <div class="stat-row"><span class="label">Solidif. time</span><span class="value" id="res-solidtime">—</span></div>
+                    <div class="stat-row"><span class="label">DAS</span><span class="value" id="res-das">—</span></div>
+                    <div class="stat-row"><span class="label">Shrinkage risk</span><span class="value" id="res-shrinkage">—</span></div>
+                    <div class="stat-row"><span class="label">Hot-tear risk</span><span class="value" id="res-hottear">—</span></div>
+                    <div class="stat-row"><span class="label">Est. UTS</span><span class="value" id="res-uts">—</span></div>
+                </div>
+                <div class="sidebar-card">
+                    <h3>Log</h3>
+                    <div class="msg-log" id="cast-log"></div>
+                </div>
+                <button class="btn" id="cast-pour-btn">▶ Pour Metal</button>
+                <button class="btn danger" id="cast-reset-btn">↺ Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         GAME 2 — PHASE IDENTIFICATION
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="game-panel" id="panel-micro">
+        <div class="game-layout">
+            <div>
+                <div class="game-canvas-wrap">
+                    <canvas id="microCanvas" width="680" height="420"></canvas>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0.5rem;margin-top:0.75rem;" id="phase-choices"></div>
+                <div class="hint-box" id="phase-feedback">Identify the dominant microstructural phase shown above. Pay attention to grain morphology, feature distribution, and brightness.</div>
+<div class="hint-box">
+    <strong>Microstructure & Phase Transformation Model (WARNING: this basically tells you the answers):</strong><br><br>
+
+    <strong>1. Austenite (Base Phase)</strong><br>
+    Austenite grains are generated using a Voronoi tessellation algorithm to simulate equiaxed grains.
+    Randomly distributed seed points are generated, and each pixel is assigned to the nearest seed,
+    producing polygonal grain regions similar to real metallographic grain structures.
+    Grain boundaries are darkened to mimic etched micrographs.<br><br>
+
+    <strong>2. Pearlite Formation</strong><br>
+    Pearlite is drawn as lamellar colonies inside prior austenite grains.
+    The code generates parallel stripe patterns (ferrite/cementite lamellae) with random orientation
+    in each colony to simulate pearlite packets. Lamellar spacing is controlled by cooling rate,
+    where faster cooling produces finer spacing.<br><br>
+
+    <strong>3. Martensite Formation</strong><br>
+    Martensite is rendered as needle/lath structures.
+    The code draws thin, high-aspect-ratio lines in packets with similar orientation to simulate
+    martensitic laths forming within prior austenite grains. Packet orientation is randomized but grouped,
+    mimicking real martensite variants that form within a single parent grain.
+    Higher cooling rates increase the number density of laths.<br><br>
+
+    <strong>4. Bainite Formation</strong><br>
+    Bainite is drawn as feathery sheaves.
+    The algorithm creates branching line clusters that emanate from nucleation points,
+    representing bainitic ferrite plates growing in a sheaf-like morphology.
+    Density and length of sheaves depend on transformation temperature.<br><br>
+
+    <strong>5. Ferrite</strong><br>
+    Ferrite is represented as large equiaxed grains using Voronoi tessellation,
+    but with smoother boundaries and lighter shading to distinguish it from austenite.<br><br>
+
+    <strong>6. Cast Aluminum (Al-Si)</strong><br>
+    Dendritic structures are generated using a recursive branching algorithm.
+    Primary arms grow first, then secondary branches form at angles,
+    approximating dendritic solidification structures seen in cast alloys.<br><br>
+
+    <strong>7. Ti-6Al-4V Widmanstätten Structure</strong><br>
+    The code draws plate-like colonies growing across prior beta grains,
+    representing Widmanstätten alpha plates that form during slow cooling.<br><br>
+
+    <strong>How It Works (Graphics Side):</strong><br>
+    All microstructures are generated procedurally using HTML canvas drawing:
+    • Voronoi tessellation → grains<br>
+    • Parallel line fields → pearlite lamellae<br>
+    • Needle packets → martensite<br>
+    • Branching fractals → dendrites and bainite<br>
+    • Noise overlay → etched micrograph appearance<br><br>
+
+    <strong>General Overview:</strong>
+    The microstructures are not images, they are generated algorithmically based on
+    transformation type, cooling rate, and morphology rules to visually approximate
+    real metallographic structures, so I apologize for the 'basket weave' of which does not at all look like the proper grain structure, amoung many other issues... ></div>
+
+
+
+            </div>
+
+
+
+
+            <div class="game-sidebar">
+                <div class="sidebar-card">
+                    <h3>Score</h3>
+                    <div class="stat-row"><span class="label">Correct</span><span class="value" id="micro-correct" style="color:var(--accent)">0</span></div>
+                    <div class="stat-row"><span class="label">Attempted</span><span class="value" id="micro-total">0</span></div>
+                    <div class="stat-row"><span class="label">Accuracy</span><span class="value" id="micro-acc">—</span></div>
+                    <div class="progress-wrap"><div class="progress-fill" id="micro-acc-bar" style="width:0%;background:var(--accent);"></div></div>
+                </div>
+                <div class="sidebar-card">
+                    <h3>Difficulty</h3>
+                    <select id="micro-difficulty">
+                        <option value="easy">Easy — 3 phases</option>
+                        <option value="medium" selected>Medium — 6 phases</option>
+                        <option value="hard">Hard — all 8 phases</option>
+                    </select>
+                    <button class="btn" id="micro-next-btn" style="margin-top:0.4rem;">Next Image ▶</button>
+                </div>
+                <div class="sidebar-card">
+                    <h3>Reference</h3>
+                    <div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;" id="micro-ref">Select an answer to see notes.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<footer><div class="container"><p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p></div></footer>
+
+<script>
+// ── TAB SWITCHING ─────────────────────────────────────────────────────
+document.querySelectorAll('.game-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.game-tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.game-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+        if (btn.dataset.tab === 'micro') nextMicroImage();
+    });
+});
+
+// ══════════════════════════════════════════════════════════════════════
+//  GAME 1 — METAL CASTING
+// ══════════════════════════════════════════════════════════════════════
+
+const castCanvas = document.getElementById('castCanvas');
+const cc = castCanvas.getContext('2d');
+const CW = 680, CH = 420;
+
+// ── Alloy data ─────────────────────────────────────────────────────────
+// Tliq / Tsol : liquidus / solidus (°C)
+// L           : latent heat of fusion (J/kg)
+// cp          : solid-phase specific heat (J/kg·K)
+// rho         : density (kg/m³)
+// shrink_pct  : volumetric solidification shrinkage (%)
+// hottear     : susceptibility factor A_ht (0–1)
+// dasK        : DAS pre-factor K (µm·s^−1/3)
+//               Al: Gruzleski & Closset (1990); steels: Flemings (1974);
+//               gray iron: Lacaze et al. (1998); Ti-64: Semiatin et al.
+// uts_base    : as-cast UTS at DAS_ref (MPa)
+// uts_n       : exponent in UTS = UTS_base·(DAS_ref/DAS)^n
+// DAS_ref     : reference DAS for uts_base (µm)
+const ALLOYS = {
+    '1020':     { name:'AISI 1020 Steel', Tliq:1515, Tsol:1492, L:272000, cp:502, rho:7850, shrink_pct:2.5, hottear:0.55, dasK:32,  uts_base:420, uts_n:0.05, DAS_ref:80  },
+    '4140':     { name:'AISI 4140 Steel', Tliq:1500, Tsol:1470, L:270000, cp:473, rho:7850, shrink_pct:2.8, hottear:0.65, dasK:30,  uts_base:655, uts_n:0.05, DAS_ref:80  },
+    'gray_iron':{ name:'Gray Cast Iron',  Tliq:1200, Tsol:1150, L:196000, cp:544, rho:7150, shrink_pct:0.8, hottear:0.25, dasK:24,  uts_base:210, uts_n:0.0,  DAS_ref:60  },
+    'al356':    { name:'Al-Si A356',      Tliq:615,  Tsol:555,  L:389000, cp:963, rho:2685, shrink_pct:3.5, hottear:0.75, dasK:7.5, uts_base:230, uts_n:0.20, DAS_ref:25  },
+    'cu_brass': { name:'Brass 70/30',     Tliq:950,  Tsol:915,  L:168000, cp:380, rho:8500, shrink_pct:1.6, hottear:0.35, dasK:18,  uts_base:420, uts_n:0.08, DAS_ref:50  },
+    'ti64':     { name:'Ti-6Al-4V',       Tliq:1655, Tsol:1604, L:286000, cp:526, rho:4430, shrink_pct:3.0, hottear:0.88, dasK:40,  uts_base:900, uts_n:0.05, DAS_ref:100 },
+};
+
+// ── Mold data ──────────────────────────────────────────────────────────
+// B      : Chvorinov constant (s/m²)
+//          Sand ~6–8×10⁵   (Beeley, Foundry Technology, 2001)
+//          Perm. mold ~1–3×10⁵  (Flemings, Solidification Processing)
+//          Ceramic shell ~3–5×10⁵
+//          Graphite die ~1.5–2×10⁵
+// h_mold : metal/mold interface heat-transfer coefficient (W/m²·K)
+// T_mold : initial mold preheat temperature (°C)
+const MOLDS = {
+    sand:      { name:'Green Sand',           B:7e5,  h_mold:350,  T_mold:25  },
+    steel_die: { name:'Steel Permanent Mold', B:2e5,  h_mold:2500, T_mold:200 },
+    ceramic:   { name:'Ceramic Shell',        B:4e5,  h_mold:600,  T_mold:100 },
+    graphite:  { name:'Graphite Die',         B:2e5,  h_mold:1500, T_mold:50  },
+};
+
+const RISER_LABELS = ['none','medium','large'];
+const RISER_FACTOR = [1.0, 0.50, 0.22]; // shrinkage risk multiplier
+
+function castLog(msg, cls='') {
+    const el = document.getElementById('cast-log');
+    el.innerHTML += `<span class="${cls}">${msg}</span><br>`;
+    el.scrollTop = el.scrollHeight;
+}
+
+function computeCasting() {
+    const A   = ALLOYS[document.getElementById('cast-alloy').value];
+    const M   = MOLDS[document.getElementById('cast-mold').value];
+    const Tp  = parseFloat(document.getElementById('cast-temp').value);
+    const mod = parseFloat(document.getElementById('cast-modulus').value) / 1000; // m
+    const ri  = parseInt(document.getElementById('cast-riser').value);
+
+    const superheat = Tp - A.Tliq;
+    if (superheat < 0) {
+        castLog('✗ Pour temp below liquidus — metal will freeze before filling.','err');
+        return null;
+    }
+
+    // 1. Chvorinov:  t_s = B·(V/A)²
+    const t_s = M.B * mod * mod;
+
+    // 2. DAS = K·t_s^(1/3)
+    const DAS = A.dasK * Math.pow(t_s, 1/3);
+
+    // 3. Hot-tear index
+    const dT_mushy = A.Tliq - A.Tsol;
+    const thinF    = mod < 0.015 ? 1.9 : mod < 0.025 ? 1.3 : 1.0;
+    const shF      = 1 + Math.min(superheat, 300) / 400;
+    const HTI      = Math.min(1, A.hottear * (dT_mushy / 60) * thinF * shF);
+
+    // 4. Niyama-analogue shrinkage risk
+    const Ny         = 1 / (mod * Math.sqrt(M.B)); // higher = better feeding
+    const shrinkRisk = Math.min(1, A.shrink_pct * RISER_FACTOR[ri] / (1 + Ny / 5) / 5);
+
+    // 5. UTS = UTS_base·(DAS_ref/DAS)^n
+    const UTS = A.uts_base * Math.pow(A.DAS_ref / Math.max(5, DAS), A.uts_n);
+
+    // 6. Cooling curve — Apparent Heat Capacity (AHC) method
+    //    dT/dt = −h·(A_s/V)·(T − T_mold) / (ρ·c_p_eff)
+    //    c_p_eff = c_p + L/ΔT_mushy  inside the mushy zone
+    const N   = 800;
+    const dt  = t_s / N;
+    const AoV = 1 / mod;         // surface-area-to-volume (m⁻¹)
+    const h   = M.h_mold;        // W/m²·K
+    const simData = [];
+    let T = Tp, sf = 0;
+
+    for (let i = 0; i <= N; i++) {
+        let cp_eff;
+        if (T > A.Tliq) {
+            cp_eff = A.cp;
+            sf = 0;
+        } else if (T >= A.Tsol) {
+            // Mushy zone: effective cp absorbs latent heat uniformly
+            cp_eff = A.cp + A.L / Math.max(dT_mushy, 1);
+            sf = (A.Tliq - T) / Math.max(dT_mushy, 1); // linear lever-rule
+        } else {
+            cp_eff = A.cp;
+            sf = 1;
+        }
+        const dTdt = -(h * AoV * (T - M.T_mold)) / (A.rho * cp_eff);
+        T = Math.max(M.T_mold, T + dTdt * dt);
+        simData.push({ t: i * dt, T, sf: Math.min(1, Math.max(0, sf)) });
+    }
+
+    return { A, M, superheat, t_s, DAS, HTI, shrinkRisk, UTS, simData, Tp };
+}
+
+function riskColor(v) { return v < 0.3 ? '#64ffda' : v < 0.6 ? '#ffd966' : '#ff6464'; }
+function riskLabel(v) { return v < 0.3 ? 'Low' : v < 0.6 ? 'Moderate' : 'High'; }
+
+function updateCastResults(r) {
+    document.getElementById('res-superheat').textContent = r.superheat.toFixed(0) + ' °C';
+    document.getElementById('res-solidtime').textContent =
+        r.t_s < 60 ? r.t_s.toFixed(1) + ' s' : (r.t_s / 60).toFixed(2) + ' min';
+    document.getElementById('res-das').textContent = r.DAS.toFixed(0) + ' µm';
+    const se = document.getElementById('res-shrinkage');
+    se.textContent = riskLabel(r.shrinkRisk); se.style.color = riskColor(r.shrinkRisk);
+    const he = document.getElementById('res-hottear');
+    he.textContent = riskLabel(r.HTI); he.style.color = riskColor(r.HTI);
+    document.getElementById('res-uts').textContent = r.UTS.toFixed(0) + ' MPa';
+}
+
+function drawChart(r, prog) {
+    cc.clearRect(0,0,CW,CH);
+    cc.fillStyle='#0d1220'; cc.fillRect(0,0,CW,CH);
+
+    const P = {t:38, r:155, b:50, l:62};
+    const W = CW-P.l-P.r, H = CH-P.t-P.b;
+    const data = r.simData;
+    const Tmax = r.Tp + 55, Tmin = Math.max(0, r.M.T_mold - 15);
+    const tmax = data[data.length-1].t;
+    const cx = t => P.l + (t/tmax)*W;
+    const cy = T => P.t + H - ((T-Tmin)/(Tmax-Tmin))*H;
+
+    // Grid
+    cc.strokeStyle='rgba(45,53,72,0.7)'; cc.lineWidth=0.8;
+    for (let i=0;i<=5;i++){
+        const y=P.t+i*H/5;
+        cc.beginPath(); cc.moveTo(P.l,y); cc.lineTo(P.l+W,y); cc.stroke();
+        cc.fillStyle='rgba(168,178,209,0.55)'; cc.font='11px monospace'; cc.textAlign='right';
+        cc.fillText((Tmax-i*(Tmax-Tmin)/5).toFixed(0)+'°', P.l-5, y+4);
+    }
+    for (let i=0;i<=6;i++){
+        const x=P.l+i*W/6;
+        cc.beginPath(); cc.moveTo(x,P.t); cc.lineTo(x,P.t+H); cc.stroke();
+        const tv=(i/6)*tmax;
+        cc.fillStyle='rgba(168,178,209,0.55)'; cc.font='11px monospace'; cc.textAlign='center';
+        cc.fillText(tv<60?tv.toFixed(0)+'s':(tv/60).toFixed(1)+'m', x, P.t+H+17);
+    }
+
+    // Mushy zone band
+    const yL=cy(r.A.Tliq), yS=cy(r.A.Tsol);
+    cc.fillStyle='rgba(255,153,80,0.07)'; cc.fillRect(P.l,yL,W,yS-yL);
+    cc.strokeStyle='rgba(255,153,80,0.4)'; cc.setLineDash([5,4]); cc.lineWidth=1;
+    cc.beginPath(); cc.moveTo(P.l,yL); cc.lineTo(P.l+W,yL); cc.stroke();
+    cc.beginPath(); cc.moveTo(P.l,yS); cc.lineTo(P.l+W,yS); cc.stroke();
+    cc.setLineDash([]);
+    cc.fillStyle='rgba(255,153,80,0.75)'; cc.font='10px monospace'; cc.textAlign='left';
+    cc.fillText('T_liq '+r.A.Tliq+'°C', P.l+W+4, yL+4);
+    cc.fillText('T_sol '+r.A.Tsol+'°C', P.l+W+4, yS+4);
+
+    const n = Math.min(Math.floor(prog*data.length), data.length);
+
+    // Solid fraction (scaled ×0.5H for visibility alongside temp curve)
+    cc.strokeStyle='rgba(100,255,218,0.28)'; cc.lineWidth=1.5;
+    cc.beginPath();
+    for (let i=0;i<n;i++){
+        const fx=P.l+(data[i].t/tmax)*W, fy=P.t+H-data[i].sf*H*0.5;
+        i===0?cc.moveTo(fx,fy):cc.lineTo(fx,fy);
+    }
+    cc.stroke();
+
+    // Temperature curve
+    cc.strokeStyle='#ff9950'; cc.lineWidth=2.5;
+    cc.shadowColor='#ff9950'; cc.shadowBlur=5;
+    cc.beginPath();
+    for (let i=0;i<n;i++){
+        const x=cx(data[i].t), y=cy(data[i].T);
+        i===0?cc.moveTo(x,y):cc.lineTo(x,y);
+    }
+    cc.stroke(); cc.shadowBlur=0;
+
+    // Moving dot
+    if (n>0 && n<data.length){
+        const d=data[n-1];
+        cc.fillStyle='#fff'; cc.shadowColor='#ff9950'; cc.shadowBlur=10;
+        cc.beginPath(); cc.arc(cx(d.t),cy(d.T),4,0,Math.PI*2); cc.fill();
+        cc.shadowBlur=0;
+    }
+
+    // Axis labels
+    cc.fillStyle='rgba(168,178,209,0.65)'; cc.font='11px monospace'; cc.textAlign='center';
+    cc.fillText('Time', P.l+W/2, CH-6);
+    cc.save(); cc.translate(13,P.t+H/2); cc.rotate(-Math.PI/2);
+    cc.fillText('Temperature (°C)',0,0); cc.restore();
+
+    // Legend
+    cc.fillStyle='#ff9950'; cc.fillRect(P.l+W-118,9,11,3);
+    cc.fillStyle='rgba(168,178,209,0.6)'; cc.font='10px sans-serif'; cc.textAlign='left';
+    cc.fillText('Temp. curve', P.l+W-103, 13);
+    cc.fillStyle='rgba(100,255,218,0.45)'; cc.fillRect(P.l+W-118,22,11,3);
+    cc.fillStyle='rgba(168,178,209,0.6)';
+    cc.fillText('Solid fraction (×0.5H)', P.l+W-103, 26);
+
+    // Title
+    cc.fillStyle='rgba(200,210,200,0.8)'; cc.font='bold 12px sans-serif'; cc.textAlign='left';
+    cc.fillText('Cooling Curve — '+r.A.name+' in '+r.M.name, P.l, 20);
+}
+
+let castRAF = null;
+function animateCasting(r) {
+    let prog=0;
+    if (castRAF) cancelAnimationFrame(castRAF);
+    function step(){
+        prog+=0.007; drawChart(r, Math.min(prog,1));
+        if (prog<1){ castRAF=requestAnimationFrame(step); }
+        else {
+            castLog('✓ Solidification complete.','ok');
+            if (r.HTI>0.6)        castLog('⚠ High hot-tear risk — widen section or reduce superheat.','warn');
+            if (r.shrinkRisk>0.6) castLog('⚠ High shrinkage risk — increase riser size.','warn');
+            if (r.DAS>100)        castLog('⚠ Coarse DAS ('+r.DAS.toFixed(0)+' µm) — increase cooling rate.','warn');
+            if (r.superheat>200)  castLog('⚠ High superheat — elevated gas/oxide inclusion risk.','warn');
+        }
+    }
+    step();
+}
+
+document.getElementById('cast-pour-btn').addEventListener('click', ()=>{
+    document.getElementById('cast-log').innerHTML='';
+    const r=computeCasting(); if(!r) return;
+    updateCastResults(r);
+    castLog('Pouring '+r.A.name+' at '+r.Tp+'°C into '+r.M.name+'…','ok');
+    castLog('Superheat: '+r.superheat.toFixed(0)+'°C | t_s: '+r.t_s.toFixed(1)+' s');
+    animateCasting(r);
+});
+
+document.getElementById('cast-reset-btn').addEventListener('click', ()=>{
+    if(castRAF) cancelAnimationFrame(castRAF);
+    cc.clearRect(0,0,CW,CH);
+    cc.fillStyle='#0d1220'; cc.fillRect(0,0,CW,CH);
+    cc.fillStyle='rgba(168,178,209,0.28)'; cc.font='14px monospace'; cc.textAlign='center';
+    cc.fillText('Configure parameters and click Pour Metal',CW/2,CH/2);
+    document.getElementById('cast-log').innerHTML='';
+    ['res-superheat','res-solidtime','res-das','res-shrinkage','res-hottear','res-uts'].forEach(id=>{
+        const el=document.getElementById(id); el.textContent='—'; el.style.color='';
+    });
+});
+
+document.getElementById('cast-riser').addEventListener('input', function(){
+    document.getElementById('cast-riser-val').textContent=RISER_LABELS[this.value];
+});
+document.getElementById('cast-modulus').addEventListener('input', function(){
+    document.getElementById('cast-modulus-val').textContent=(this.value/1000).toFixed(3);
+});
+document.getElementById('cast-temp').addEventListener('input', function(){
+    document.getElementById('cast-temp-val').textContent=this.value;
+});
+
+document.getElementById('cast-alloy').addEventListener('change', ()=>{
+    const A=ALLOYS[document.getElementById('cast-alloy').value];
+    const el=document.getElementById('cast-temp');
+    const def=Math.round(A.Tliq+80);
+    el.min=Math.round(A.Tsol-50); el.max=Math.round(A.Tliq+400); el.value=def;
+    document.getElementById('cast-temp-val').textContent=def;
+});
+document.getElementById('cast-alloy').dispatchEvent(new Event('change'));
+
+(function(){
+    cc.fillStyle='#0d1220'; cc.fillRect(0,0,CW,CH);
+    cc.fillStyle='rgba(168,178,209,0.28)'; cc.font='14px monospace'; cc.textAlign='center';
+    cc.fillText('Configure parameters and click Pour Metal',CW/2,CH/2);
+})();
+
+
+// ══════════════════════════════════════════════════════════════════════
+//  GAME 2 — PHASE IDENTIFICATION
+// ══════════════════════════════════════════════════════════════════════
+
+const microCanvas = document.getElementById('microCanvas');
+const mc = microCanvas.getContext('2d');
+const MW=680, MH=420;
+
+// Seeded pseudo-random (deterministic, no Math.random)
+function pr(n){ const x=Math.sin(n+1)*43758.5453; return x-Math.floor(x); }
+
+// Voronoi tessellation (nearest-site grid sampling → convex hull per cell)
+function voronoi(w,h,n,seed){
+    const sites=Array.from({length:n},(_,i)=>[pr(seed+i*7)*w, pr(seed+i*13)*h]);
+    const g=8, cols=Math.ceil(w/g), rows=Math.ceil(h/g);
+    const cells=Array.from({length:n},()=>[]);
+    for(let r=0;r<=rows;r++) for(let c=0;c<=cols;c++){
+        const px=c*g, py=r*g; let best=0,bd=Infinity;
+        sites.forEach((s,i)=>{const d=(px-s[0])**2+(py-s[1])**2;if(d<bd){bd=d;best=i;}});
+        cells[best].push([px,py]);
+    }
+    return cells.map(hull2d);
+}
+function hull2d(pts){
+    if(pts.length<3)return pts;
+    pts=pts.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+    const cross=(O,A,B)=>(A[0]-O[0])*(B[1]-O[1])-(A[1]-O[1])*(B[0]-O[0]);
+    const lo=[],hi=[];
+    for(const p of pts){while(lo.length>=2&&cross(lo[lo.length-2],lo[lo.length-1],p)<=0)lo.pop();lo.push(p);}
+    for(let i=pts.length-1;i>=0;i--){const p=pts[i];while(hi.length>=2&&cross(hi[hi.length-2],hi[hi.length-1],p)<=0)hi.pop();hi.push(p);}
+    hi.pop();lo.pop();return lo.concat(hi);
+}
+function fillGrains(ctx,grains,fillFn,stroke,lw){
+    grains.forEach((g,i)=>{
+        ctx.fillStyle=fillFn(i);
+        ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+        ctx.closePath();ctx.fill();
+        ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke();
+    });
+}
+function addNoise(ctx,w,h,a){
+    const id=ctx.getImageData(0,0,w,h),d=id.data;
+    for(let i=0;i<d.length;i+=4){const v=(Math.random()-0.5)*60*a*8;d[i]+=v;d[i+1]+=v;d[i+2]+=v;}
+    ctx.putImageData(id,0,0);
+}
+
+const PHASES = {
+    ferrite:{
+        name:'Ferrite (α)',
+        desc:'BCC iron, &lt;0.022 wt% C. Large equiaxed grains, bright after Nital etch. Soft (~80 HRB), highly ductile. Dominant phase in hypo-eutectoid steels.',
+        difficulty:'easy',
+        draw(ctx,w,h){
+            ctx.fillStyle='#1a1f2e';ctx.fillRect(0,0,w,h);
+            fillGrains(ctx,voronoi(w,h,16,42),
+                i=>{const l=160+(i%5)*14;return `rgb(${l},${l-4},${l-8})`;},
+                'rgba(30,30,30,0.9)',1.2);
+            addNoise(ctx,w,h,0.03);
+        }
+    },
+    pearlite:{
+        name:'Pearlite',
+        desc:'Eutectoid mixture of ferrite + cementite (Fe₃C) lamellae formed at ~727°C. Appears dark/striated at optical resolution. Harder than ferrite (~20 HRC equivalent), moderate ductility.',
+        difficulty:'easy',
+        draw(ctx,w,h){
+            ctx.fillStyle='#111';ctx.fillRect(0,0,w,h);
+            for(let c=0;c<12;c++){
+                const cx=pr(77+c*13)*w,cy=pr(77+c*17)*h;
+                const r=40+pr(77+c*7)*60,ang=pr(77+c*3)*Math.PI,sp=4+pr(77+c)*4;
+                ctx.save();ctx.translate(cx,cy);ctx.rotate(ang);
+                ctx.beginPath();ctx.ellipse(0,0,r,r*0.8,0,0,Math.PI*2);ctx.clip();
+                for(let l=-r;l<r;l+=sp){
+                    ctx.strokeStyle=l%(sp*2)<sp?'rgba(220,210,190,0.9)':'rgba(50,50,50,0.5)';
+                    ctx.lineWidth=sp*0.4;
+                    ctx.beginPath();ctx.moveTo(l,-r);ctx.lineTo(l,r);ctx.stroke();
+                }
+                ctx.restore();
+                ctx.save();ctx.translate(cx,cy);ctx.rotate(ang);
+                ctx.strokeStyle='rgba(60,60,60,0.6)';ctx.lineWidth=0.8;
+                ctx.beginPath();ctx.ellipse(0,0,r,r*0.8,0,0,Math.PI*2);ctx.stroke();
+                ctx.restore();
+            }
+            addNoise(ctx,w,h,0.04);
+        }
+    },
+    martensite:{
+        name:'Martensite',
+        desc:'Supersaturated BCT iron; forms by diffusionless shear on quenching. Dark needles or laths within prior austenite grains. Very hard (up to 65 HRC at high carbon).',
+        difficulty:'easy',
+        draw(ctx,w,h){
+            ctx.fillStyle='#1a1f2e';ctx.fillRect(0,0,w,h);
+            voronoi(w,h,8,12).forEach(g=>{
+                ctx.fillStyle='#1a1f2e';
+                ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+                ctx.closePath();ctx.fill();
+                ctx.strokeStyle='rgba(100,140,120,0.3)';ctx.lineWidth=1;ctx.stroke();
+            });
+            for(let i=0;i<280;i++){
+                const x=pr(i*7+1)*w,y=pr(i*11+3)*h;
+                const len=12+pr(i*13)*40,wid=1.5+pr(i*17)*3,ang=pr(i*5)*Math.PI;
+                ctx.save();ctx.translate(x,y);ctx.rotate(ang);
+                ctx.fillStyle=pr(i*19)>0.4?'rgba(30,40,40,0.85)':'rgba(180,190,185,0.7)';
+                ctx.fillRect(-len/2,-wid/2,len,wid);
+                ctx.restore();
+            }
+            addNoise(ctx,w,h,0.04);
+        }
+    },
+    bainite:{
+        name:'Bainite',
+        desc:'Intermediate transformation product (~250–550°C). Upper bainite: feathery ferrite laths with cementite at boundaries. Lower bainite: finer acicular plates with carbides inside laths.',
+        difficulty:'medium',
+        draw(ctx,w,h){
+            ctx.fillStyle='#14181f';ctx.fillRect(0,0,w,h);
+            for(let i=0;i<200;i++){
+                const x=pr(i*3+2)*w,y=pr(i*7+5)*h;
+                const len=20+pr(i*11)*55,wid=2+pr(i*17)*5;
+                const ang=pr(i*5)*Math.PI*0.5+(pr(i)>0.5?Math.PI/4:-Math.PI/4);
+                ctx.save();ctx.translate(x,y);ctx.rotate(ang);
+                const g=ctx.createLinearGradient(-len/2,0,len/2,0);
+                g.addColorStop(0,'rgba(140,160,145,0)');
+                g.addColorStop(0.3,'rgba(140,160,145,0.7)');
+                g.addColorStop(1,'rgba(140,160,145,0)');
+                ctx.fillStyle=g;ctx.fillRect(-len/2,-wid/2,len,wid);
+                ctx.restore();
+            }
+            voronoi(w,h,6,88).forEach(g=>{
+                ctx.strokeStyle='rgba(80,100,90,0.32)';ctx.lineWidth=1.5;
+                ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+                ctx.closePath();ctx.stroke();
+            });
+            addNoise(ctx,w,h,0.05);
+        }
+    },
+    austenite:{
+        name:'Austenite (γ)',
+        desc:'FCC iron. Stable above 912°C in plain carbon steels; retained at room temperature in high-alloy / stainless steels. Key feature: straight annealing twin bands caused by stacking-fault growth during recrystallisation.',
+        difficulty:'medium',
+        draw(ctx,w,h){
+            ctx.fillStyle='#1a1f2e';ctx.fillRect(0,0,w,h);
+            const grains=voronoi(w,h,14,55);
+            grains.forEach((g,i)=>{
+                const l=150+(i%4)*12;
+                ctx.fillStyle=`rgb(${l-10},${l},${l-5})`;
+                ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+                ctx.closePath();ctx.fill();
+                if(pr(i*13)>0.45){
+                    ctx.save();
+                    ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+                    ctx.closePath();ctx.clip();
+                    const gcx=g.reduce((s,p)=>s+p[0],0)/g.length;
+                    const gcy=g.reduce((s,p)=>s+p[1],0)/g.length;
+                    ctx.translate(gcx,gcy);ctx.rotate(pr(i*7)*Math.PI);
+                    for(let t=-120;t<120;t+=14){
+                        ctx.fillStyle=`rgba(${l+20},${l+22},${l+18},0.7)`;
+                        ctx.fillRect(t,-80,7,160);
+                    }
+                    ctx.restore();
+                }
+                ctx.strokeStyle='rgba(35,35,35,0.9)';ctx.lineWidth=1.2;
+                ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+                ctx.closePath();ctx.stroke();
+            });
+            addNoise(ctx,w,h,0.03);
+        }
+    },
+    dendrite_al:{
+        name:'Al-Si Dendrites',
+        desc:'As-cast Al-Si alloy. Bright dendritic α-Al arms (primary solidification) surrounded by dark Al-Si eutectic. Coarser dendrite arm spacing (DAS) indicates slower solidification.',
+        difficulty:'medium',
+        draw(ctx,w,h){
+            ctx.fillStyle='#1a1710';ctx.fillRect(0,0,w,h);
+            function arm(x,y,len,ang,d){
+                if(d===0||len<4)return;
+                const ex=x+Math.cos(ang)*len,ey=y+Math.sin(ang)*len;
+                ctx.strokeStyle=`rgba(230,220,200,${0.5+d*0.1})`;ctx.lineWidth=d*1.2;
+                ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(ex,ey);ctx.stroke();
+                const nb=d>2?3:2;
+                for(let b=0;b<nb;b++) arm(ex,ey,len*0.55,ang+(b-(nb-1)/2)*Math.PI/3,d-1);
+            }
+            for(let d=0;d<8;d++){
+                const x=pr(d*11)*w,y=pr(d*17)*h;
+                for(let a=0;a<4;a++) arm(x,y,38+pr(d*3)*30,a*Math.PI/2+pr(d+a)*0.3,4);
+            }
+            for(let i=0;i<120;i++){
+                ctx.strokeStyle='rgba(100,80,50,0.55)';ctx.lineWidth=0.8;
+                ctx.beginPath();
+                const sx=pr(i*9)*w,sy=pr(i*13)*h,sa=pr(i*7)*Math.PI;
+                ctx.moveTo(sx,sy);ctx.lineTo(sx+Math.cos(sa)*8,sy+Math.sin(sa)*8);ctx.stroke();
+            }
+            addNoise(ctx,w,h,0.04);
+        }
+    },
+    alpha_beta_ti:{
+        name:'α+β Ti-6Al-4V',
+        desc:'Two-phase titanium alloy. HCP α (light) + BCC β (dark). Classic basket-weave (Widmanstätten) or lamellar α plates within prior-β grains after heat treatment above the β-transus (~995°C).',
+        difficulty:'hard',
+        draw(ctx,w,h){
+            ctx.fillStyle='#1c1a14';ctx.fillRect(0,0,w,h);
+            voronoi(w,h,9,33).forEach((g,gi)=>{
+                ctx.fillStyle='rgba(40,35,25,0.5)';
+                ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+                ctx.closePath();ctx.fill();
+                ctx.save();
+                ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+                ctx.closePath();ctx.clip();
+                const gcx=g.reduce((s,p)=>s+p[0],0)/g.length;
+                const gcy=g.reduce((s,p)=>s+p[1],0)/g.length;
+                for(let v=0;v<3;v++){
+                    const ang=v*Math.PI/3+pr(gi*5+v)*0.4;
+                    ctx.save();ctx.translate(gcx,gcy);ctx.rotate(ang);
+                    for(let p=-150;p<150;p+=9){
+                        ctx.fillStyle=pr(gi*13+p)>0.45?'rgba(220,210,180,0.85)':'rgba(35,28,18,0.7)';
+                        ctx.fillRect(p,-100,4,200);
+                    }
+                    ctx.restore();
+                }
+                ctx.restore();
+                ctx.strokeStyle='rgba(80,60,30,0.8)';ctx.lineWidth=1.8;
+                ctx.beginPath();g.forEach((p,j)=>j===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1]));
+                ctx.closePath();ctx.stroke();
+            });
+            addNoise(ctx,w,h,0.05);
+        }
+    },
+    graphite_fe:{
+        name:'Graphite in Cast Iron',
+        desc:'Gray cast iron: black graphite flakes in a pearlite/ferrite matrix. Type A (random uniform) flakes are ideal for machinability. Flake morphology explains low tensile strength but good vibration damping.',
+        difficulty:'hard',
+        draw(ctx,w,h){
+            ctx.fillStyle='#1a1f2e';ctx.fillRect(0,0,w,h);
+            fillGrains(ctx,voronoi(w,h,20,99),
+                i=>{const l=110+(i%6)*10;return `rgb(${l},${l-4},${l-8})`;},
+                'rgba(40,40,40,0.7)',0.8);
+            for(let i=0;i<60;i++){
+                const x=pr(i*5+1)*w,y=pr(i*7+3)*h;
+                const len=15+pr(i*11)*45,wid=2+pr(i*3)*4,ang=pr(i*13)*Math.PI;
+                ctx.save();ctx.translate(x,y);ctx.rotate(ang);
+                ctx.fillStyle='rgba(8,8,8,0.95)';
+                ctx.beginPath();ctx.ellipse(0,0,len/2,wid/2,0,0,Math.PI*2);ctx.fill();
+                ctx.restore();
+            }
+            addNoise(ctx,w,h,0.03);
+        }
+    }
+};
+
+const DIFF_POOL = {
+    easy:   ['ferrite','pearlite','martensite'],
+    medium: ['ferrite','pearlite','martensite','bainite','austenite','dendrite_al'],
+    hard:   Object.keys(PHASES),
+};
+
+let microState = { correct:0, total:0, answered:false };
+
+function buildChoices(correct){
+    const pool=DIFF_POOL[document.getElementById('micro-difficulty').value];
+    const opts=[correct];
+    const others=pool.filter(k=>k!==correct);
+    while(opts.length<Math.min(4,pool.length)){
+        const p=others[Math.floor(Math.random()*others.length)];
+        if(!opts.includes(p)) opts.push(p);
+    }
+    opts.sort(()=>Math.random()-0.5);
+    const c=document.getElementById('phase-choices');
+    c.innerHTML='';
+    opts.forEach(k=>{
+        const btn=document.createElement('button');
+        btn.className='btn';
+        btn.style.cssText='font-size:0.8rem;padding:0.45rem 0.35rem;';
+        btn.textContent=PHASES[k].name;
+        btn.addEventListener('click',()=>answerPhase(k,correct));
+        c.appendChild(btn);
+    });
+}
+
+function answerPhase(chosen,correct){
+    if(microState.answered) return;
+    microState.answered=true; microState.total++;
+    const ok=chosen===correct;
+    if(ok) microState.correct++;
+    document.querySelectorAll('#phase-choices .btn').forEach(btn=>{
+        if(btn.textContent===PHASES[correct].name){
+            btn.style.background='rgba(100,255,218,0.18)';
+            btn.style.borderColor='var(--accent)';btn.style.color='var(--accent)';
+        } else if(btn.textContent===PHASES[chosen].name&&!ok){
+            btn.style.background='rgba(255,100,100,0.14)';
+            btn.style.borderColor='var(--red)';btn.style.color='var(--red)';
+        }
+    });
+    const fb=document.getElementById('phase-feedback');
+    fb.style.borderColor=ok?'rgba(100,255,218,0.38)':'rgba(255,100,100,0.38)';
+    fb.innerHTML=ok
+        ?`<strong style="color:var(--accent)">✓ Correct — ${PHASES[correct].name}</strong><br>${PHASES[correct].desc}`
+        :`<strong style="color:var(--red)">✗ That was ${PHASES[correct].name}</strong><br>${PHASES[correct].desc}`;
+    document.getElementById('micro-ref').innerHTML=PHASES[correct].desc;
+    const acc=Math.round(100*microState.correct/microState.total);
+    document.getElementById('micro-correct').textContent=microState.correct;
+    document.getElementById('micro-total').textContent=microState.total;
+    document.getElementById('micro-acc').textContent=acc+'%';
+    document.getElementById('micro-acc-bar').style.width=acc+'%';
+}
+
+function nextMicroImage(){
+    const pool=DIFF_POOL[document.getElementById('micro-difficulty').value];
+    const key=pool[Math.floor(Math.random()*pool.length)];
+    microState.answered=false;
+    mc.clearRect(0,0,MW,MH);
+    PHASES[key].draw(mc,MW,MH);
+    // Scale bar
+    mc.fillStyle='rgba(0,0,0,0.48)';mc.fillRect(MW-100,MH-28,80,20);
+    mc.fillStyle='#fff';mc.fillRect(MW-95,MH-18,50,3);
+    mc.fillStyle='#fff';mc.font='11px monospace';mc.textAlign='left';
+    mc.fillText('50 µm',MW-38,MH-11);
+    // Label
+    mc.fillStyle='rgba(0,0,0,0.48)';mc.fillRect(8,8,200,22);
+    mc.fillStyle='rgba(200,220,200,0.65)';mc.font='11px monospace';mc.textAlign='left';
+    mc.fillText('Optical micrograph — Etched',14,22);
+    buildChoices(key);
+    document.getElementById('phase-feedback').innerHTML='Identify the dominant microstructural phase shown above. Look at grain morphology, feature distribution, and brightness.';
+    document.getElementById('phase-feedback').style.borderColor='';
+    document.getElementById('micro-ref').textContent='Select an answer to see notes.';
+}
+
+document.getElementById('micro-next-btn').addEventListener('click', nextMicroImage);
+document.getElementById('micro-difficulty').addEventListener('change', nextMicroImage);
+</script>
+</body>
+</html>
