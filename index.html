@@ -184,7 +184,7 @@
             background-color: rgba(100, 255, 218, 0.2);
         }
 
-       section {
+        section {
             padding: 4rem 0;
         }
 
@@ -287,6 +287,13 @@
             border-radius: 3px;
             font-size: 0.75rem;
             color: var(--text-secondary);
+        }
+
+        .card-external {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--accent);
         }
 
         /* Contact Section */
@@ -401,86 +408,77 @@
             .contact-section h2 {
                 font-size: 2rem;
             }
+
+            .header-flex {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .header-slideshow {
+                max-width: 100%;
+            }
         }
-.header-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-}
 
-.header-text {
-    flex: 1.2;
-}
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
 
-.header-slideshow {
-    flex: 1;
-    max-width: 420px;
-}
+        .header-text {
+            flex: 1.2;
+        }
 
-.slideshow {
-    position: relative;
-    width: 100%;
-    height: 360px;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-}
+        .header-slideshow {
+            flex: 1;
+            max-width: 420px;
+        }
 
-.slide {
-    position: absolute;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;   /* keeps full image */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
 
+        .slide {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;   /* keeps full image */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
 
+        .slide.active {
+            opacity: 1;
+        }
 
-
-.slide.active {
-    opacity: 1;
-}
-
-.nav-headshot {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-
+        .nav-headshot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
     </style>
 </head>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.slide');
-    let index = 0;
-
-    setInterval(() => {
-        slides[index].classList.remove('active');
-        index = (index + 1) % slides.length;
-        slides[index].classList.add('active');
-    },2500);
-});
-</script>
-
 
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
- <a href="index.html" class="nav-logo">
-    <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" class="nav-headshot">
-    Keira Boone
-</a>
+            <a href="index.html" class="nav-logo">
+                <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+                Keira Boone
+            </a>
             <div class="nav-links">
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="courses.html" class="nav-link">Courses</a>
@@ -503,64 +501,65 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     </nav>
 
- <header>
-    <div class="container header-flex">
+    <header>
+        <div class="container header-flex">
 
-        <!-- LEFT SIDE (YOUR ORIGINAL CONTENT — UNCHANGED) -->
-        <div class="header-text">
-            <h1>Keira Boone</h1>
-            <p class="subtitle">Materials Science & Engineering @ MIT, Design Concentration</p>
+            <!-- LEFT SIDE -->
+            <div class="header-text">
+                <h1>Keira Boone</h1>
+                <p class="subtitle">Materials Science &amp; Engineering @ MIT, Design Concentration</p>
 
-            <p class="value-prop">
-                I am endlessly curious and love to design and build random things! My work spans structural fabrication, electrochemical research, materials characterization, and much more, with a focus on resource-limited problem solving and testable outcomes.
-            </p>
+                <p class="value-prop">
+                    I am endlessly curious and love to design and build random things! My work spans process engineering and fabrication, from welding and machining to cleanroom device processing, along with electrochemical research and materials characterization, with a focus on resource-limited problem solving and testable outcomes.
+                </p>
 
-            <p class="intro-note">
-                Check out some of my favorite projects below, and take a look at my maker portfolio to see more details and photos! Also, this website is a major work-in-progress as I am learning to use nano and HTML/CSS/JavaScript from the bottom up...
-            </p>
+                <p class="intro-note">
+                    Check out some of my favorite projects below, and take a look at my maker portfolio to see more details and photos! Also, this is a major work-in-progress website as I am learning to use nano and HTML/CSS/JavaScript from the bottom up...
+                </p>
 
-            <div class="expertise">
-                <span class="expertise-tag">Structural Fabrication</span>
-                <span class="expertise-tag">Welding & Machining</span>
-                <span class="expertise-tag">CAD & Manufacturing</span>
-                <span class="expertise-tag">Electrochemical Systems</span>
-                <span class="expertise-tag">Materials Characterization</span>
-                <span class="expertise-tag">Hand Calculations</span>
+                <div class="expertise">
+                    <span class="expertise-tag">Process Engineering &amp; Fabrication</span>
+                    <span class="expertise-tag">Welding &amp; Machining</span>
+                    <span class="expertise-tag">CAD &amp; Design for Manufacture</span>
+                    <span class="expertise-tag">Micro/Nano Process Development</span>
+                    <span class="expertise-tag">Electrochemical &amp; Materials Processing</span>
+                    <span class="expertise-tag">Characterization &amp; Testing</span>
+                    <span class="expertise-tag">Hand Calculations</span>
+                </div>
+
+                <div class="header-cta">
+                    <a href="https://docs.google.com/document/d/1hIpr0bCmOOvACgFRUzOxqeyA0rJa1E-7csMoatxAWCM/export?format=pdf&tab=t.e6lkcy1ds3ez&attachment=false"
+                       class="cta-button"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Résumé
+                    </a>
+
+                    <a href="https://docs.google.com/presentation/d/1AhjKKB4mB38c3wr4kWkm7rXEUKWBCSXOlM9NIal7y0o/export/pdf?id=1AhjKKB4mB38c3wr4kWkm7rXEUKWBCSXOlM9NIal7y0o&pageid=g362b55c741e_0_5&attachment=false"
+                       class="cta-button cta-button-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Maker Portfolio
+                    </a>
+                </div>
             </div>
 
-            <div class="header-cta">
-                <a href="https://docs.google.com/document/d/1hIpr0bCmOOvACgFRUzOxqeyA0rJa1E-7csMoatxAWCM/export?format=pdf&tab=t.e6lkcy1ds3ez&attachment=false"
-                   class="cta-button"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View Résumé
-                </a>
-
-                <a href="https://docs.google.com/presentation/d/1AhjKKB4mB38c3wr4kWkm7rXEUKWBCSXOlM9NIal7y0o/export/pdf?id=1AhjKKB4mB38c3wr4kWkm7rXEUKWBCSXOlM9NIal7y0o&pageid=g362b55c741e_0_5&attachment=false"
-                   class="cta-button cta-button-secondary"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View Maker Portfolio
-                </a>
+            <!-- RIGHT SIDE (SLIDESHOW) -->
+            <div class="header-slideshow">
+                <div class="slideshow">
+                    <img src="https://drive.google.com/thumbnail?id=1_-dVHAax12gKHpUvy3LzdQb2dwzfFtdU&sz=w800" class="slide" alt="Project photo">
+                    <img src="https://drive.google.com/thumbnail?id=1QLpOWi17zXhK5iQfKNNfbdFZ-iROweWV&sz=w800" class="slide" alt="Project photo">
+                    <img src="https://drive.google.com/thumbnail?id=1Jy2XeWJsyKv_cz6xRoH3RMg8WU1ZQizf&sz=w800" class="slide active" alt="Project photo">
+                    <img src="https://drive.google.com/thumbnail?id=1hd0bZKVp7Se-Z0aSOd9fSceMUdlHEGv0&sz=w800" class="slide" alt="Project photo">
+                    <img src="https://drive.google.com/thumbnail?id=1_jXIJPU-si1kIDt5UKsJfHNqIqKnU_lC&sz=w800" class="slide" alt="Project photo">
+                    <img src="https://drive.google.com/thumbnail?id=1UHohHf3Y-bBCPkETmJQjzK2iQj1nunsM&sz=w800" class="slide" alt="Project photo">
+                    <img src="https://drive.google.com/thumbnail?id=1sDjYcjibe6T9JO9hWcioI6XzcgmMkDNf&sz=w800" class="slide" alt="Project photo">
+                    <img src="https://drive.google.com/thumbnail?id=1NJdUPc8Tf6ydhfMqwbwSjl9PKLiGe7jU&sz=w800" class="slide" alt="Project photo">
+                </div>
             </div>
+
         </div>
-
-        <!-- RIGHT SIDE (NEW SLIDESHOW) -->
-        <div class="header-slideshow">
-            <div class="slideshow">
-<img src="https://drive.google.com/thumbnail?id=1_-dVHAax12gKHpUvy3LzdQb2dwzfFtdU&sz=w800" class="slide">
-<img src="https://drive.google.com/thumbnail?id=1QLpOWi17zXhK5iQfKNNfbdFZ-iROweWV&sz=w800" class="slide"> 
-                <img src="https://drive.google.com/thumbnail?id=1Jy2XeWJsyKv_cz6xRoH3RMg8WU1ZQizf&sz=w800" class="slide active">
-                <img src="https://drive.google.com/thumbnail?id=1hd0bZKVp7Se-Z0aSOd9fSceMUdlHEGv0&sz=w800" class="slide">
-<img src="https://drive.google.com/thumbnail?id=1_jXIJPU-si1kIDt5UKsJfHNqIqKnU_lC&sz=w800" class="slide">
-<img src="https://drive.google.com/thumbnail?id=1UHohHf3Y-bBCPkETmJQjzK2iQj1nunsM&sz=w800" class="slide">
-<img src="https://drive.google.com/thumbnail?id=1sDjYcjibe6T9JO9hWcioI6XzcgmMkDNf&sz=w800" class="slide"> 
-<img src="https://drive.google.com/thumbnail?id=1NJdUPc8Tf6ydhfMqwbwSjl9PKLiGe7jU&sz=w800" class="slide">
-            </div>
-        </div>
-
-    </div>
-</header>
+    </header>
 
     <section id="projects">
         <div class="container">
@@ -569,556 +568,594 @@ document.addEventListener('DOMContentLoaded', function () {
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="fabrication">Fabrication</button>
                 <button class="filter-btn" data-filter="research">Research</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
                 <button class="filter-btn" data-filter="robotics">Robotics</button>
-                <button class="filter-btn" data-filter="cad">CAD & Design</button>
-            </div>
-  <div class="projects-grid">
-
-    <!-- Mobile Steel Hoist -->
-    <a href="mobile-hoist.html" class="project-card" data-category="fabrication cad">
-        <img src="https://drive.google.com/thumbnail?id=1p98CSmbx-TumDKAJgR2RNhPOu6D5cEwW"
-             alt="Mobile steel hoist testing"
-             class="project-card-image">
-        <h3>Mobile Steel Hoist</h3>
-        <p class="project-meta">Structural Design • Welding • Hand Calculations</p>
-        <p>Designed and fabricated a mobile lifting system with 600 lb capacity using salvaged steel. Conducted structural analysis using AISC manual to validate safety factors and developed solutions for material constraints including beveling, rigging, and weld sequencing.</p>
-        <div class="project-tags">
-            <span class="tag">MIG Welding</span>
-            <span class="tag">Statics Analysis</span>
-            <span class="tag">Scrap Fabrication</span>
-        </div>
-    </a>
-
-    <!-- Cantilever Desk -->
-    <a href="cantilever-desk.html" class="project-card" data-category="fabrication cad">
-        <img src="https://drive.google.com/thumbnail?id=1kld8By9BnBqvrot9O0dW0AoWb-ekeAVB"
-             alt="Two-tier cantilever desk"
-             class="project-card-image">
-        <h3>Two-Tier Cantilever Computer Desk</h3>
-        <p class="project-meta">Structural Design • Fabrication • Problem Solving</p>
-        <p>Built a two-tier cantilever desk from salvaged materials to meet specific spatial constraints. Addressed thermal warping during welding through mechanical correction using a car jack, and developed integrated cable management solutions mid-build.</p>
-        <div class="project-tags">
-            <span class="tag">Welding</span>
-            <span class="tag">Woodworking</span>
-            <span class="tag">Thermal Management</span>
-        </div>
-    </a>
-
-
-    <!-- EC Fort and Coaster 2025 -->
-    <a href="ec-build25.html" class="project-card" data-category="woodworking">
-        <img src="https://drive.google.com/thumbnail?id=1vnWKErWYtX2tjvfhMMrGzd7CqheahDWw"
-             alt="Fort-in-progress"
-             class="project-card-image">
-        <h3>East Campus Fort and Coaster, 2025 REX</h3>
-        <p class="project-meta">Woodworking • Structural Construction • Lighting</p>
-        <p>Along with a small team of the initial designers, spent 15+ hours a day for two weeks building a 3 story fort with LED displays, sound, and lighting, as well as a roller coaster (of which unfortunately was not completed due to premitting issues).</p>
-        <div class="project-tags">
-            <span class="tag">Wood Fabrication</span>
-            <span class="tag">Lighting</span>
-            
-        </div>
-    </a>
-
-<!-- Solar Cells -->
-<a href="solar-cells.html" class="project-card" data-category="research">
-    <img src="https://drive.google.com/thumbnail?id=1g0Drt__WIJxEihFMFk7960rqtJC0lLSm"
-         alt="Silicon solar cell project"
-         class="project-card-image">
-    <h3>Silicon Solar Cell Design & Testing</h3>
-    <p class="project-meta">Micro/Nano Processing • Device Fabrication • Characterization</p>
-    <p>Designed, fabricated, and tested silicon solar cells. Optimized finger geometry, metal coverage, and ARC thickness to improve efficiency, while diagnosing anomalous wafers and process defects.</p>
-    <div class="project-tags">
-        <span class="tag">Semiconductors</span>
-        <span class="tag">Lithography</span>
-        <span class="tag">I–V Characterization</span>
-    </div>
-</a>
-
-    <!-- Carbon Fiber Laminate Study -->
-    <a href="cf.html" class="project-card" data-category="research">
-        <img src="https://drive.google.com/thumbnail?id=1Qc_Q0uIHhiQn-zkPILoRE_NSwsdnkqZ3"
-             alt="Carbon fiber laminate bending tests"
-             class="project-card-image">
-        <h3>Carbon Fiber Laminate Flexural Study</h3>
-        <p class="project-meta">MIT • Composites • Experimental Mechanics</p>
-        <p>Investigated fiber orientation effects on flexural modulus using hand layup laminates and ASTM D790 three-point bending tests. Compared results to classical laminate theory predictions.</p>
-        <div class="project-tags">
-            <span class="tag">Composites</span>
-            <span class="tag">ASTM D790</span>
-            <span class="tag">Classical Laminate Theory</span>
-        </div>
-    </a>
-
-
-
-    <!-- Electrochemical Carbon Capture - Team Rahimi -->
-    <a href="placeholder.html" class="project-card" data-category="research">
-        <img src="https://drive.google.com/thumbnail?id=1TTSgwKDkUGQHzlfEsYESwfKYeJ8Pz2hY"
-             alt="Electrochemical carbon capture research"
-             class="project-card-image">
-        <h3>Electrochemical Carbon Capture - Team Rahimi</h3>
-        <p class="project-meta">University of Houston Research • Materials Development • Process Optimization</p>
-        <p>Developed membraneless electrochemical cells for CO₂ capture from point sources and seawater. Optimized electrode materials and utilized stepwise polarization to help refine EMAR techniques for industrial energy efficiency.</p>
-        <div class="project-tags">
-            <span class="tag">Electrochemistry</span>
-            <span class="tag">Material Characterization</span>
-            <span class="tag">Process Design</span>
-        </div>
-    </a>
-
-    <!-- CEREBRUZ: Lunar Polymer Recycling -->
-    <a href="lunarecycle.html" class="project-card" data-category="research cad">
-        <img src="https://drive.google.com/thumbnail?id=1aE77Lf9lLkJOa_WsvTGfDvyMxzEXrl6L"
-             alt="NASA lunar polymer recycling system"
-             class="project-card-image">
-        <h3>CEREBRUZ: Lunar Polymer Recycling System (NASA)</h3>
-        <p class="project-meta">NASA-Funded Research • Materials Testing • Manufacturing</p>
-        <p>Designed and optimized injection molding system for recycling lunar waste polymers (thermoset Zotek F30 foam) into functional composites. Conducted tensile testing, SEM, partical size analysis, FTIR, and hardness testing to evaluate processing parameters and mechanical properties.</p>
-        <div class="project-tags">
-            <span class="tag">Injection Molding</span>
-            <span class="tag">Material Testing</span>
-            <span class="tag">NASA LunaRecycle</span>
-        </div>
-    </a>
-
-    <!-- Self-Assembly Lab -->
-    <a class="project-card" data-category="research cad">
-        <img src="https://drive.google.com/thumbnail?id=1JkvFs7xcB1HXkvx6KrMrCOzBRIIN5XIO"
-             alt="Self-assembly lab research"
-             class="project-card-image">
-        <h3>Granular Jamming & Coral Reef Restoration</h3>
-        <p class="project-meta">MIT Self-Assembly Lab • DARPA BRACE • Parametric Design</p>
-        <p>Developed tension-based granular jamming systems for rapid infrastructure deployment (DARPA) and designed modular geometric structures for coral reef restoration in Maldives. Conducted physical prototyping, mechanical testing, and parametric design optimization.</p>
-        <div class="project-tags">
-            <span class="tag">Rhino3D</span>
-            <span class="tag">Grasshopper</span>
-            <span class="tag">DARPA</span>
-        </div>
-    </a>
-
-    <!-- Hydroponic Systems -->
-    <a href="placeholder.html" class="project-card" data-category="cad">
-        <img src="https://drive.google.com/thumbnail?id=" 
-             alt="Hydroponic system CAD models"
-             class="project-card-image">
-        <h3>Hydroponic Urban Farming Systems</h3>
-        <p class="project-meta">CAD Modeling • System Optimization • Community Impact</p>
-        <p>Developed CAD models and optimized hydroponic systems for local startup addressing urban food deserts. Conducted growing medium research for terrestrial and space applications, and designed mobile educational systems for community outreach programs.</p>
-        <div class="project-tags">
-            <span class="tag">CAD</span>
-            <span class="tag">System Design</span>
-            <span class="tag">Urban Agriculture</span>
-        </div>
-    </a>
-
-      <!-- MIT Motorsports -->
-    <a href="placeholder.html" class="project-card" data-category="fabrication cad">
-        <img src="https://drive.google.com/thumbnail?id=1ycDe3jOl5CIP2ZVe9GvFXmsKPPpP9GN7"
-             alt="Carbon fiber composites work"
-             class="project-card-image">
-        <h3>Carbon Fiber Composites (MIT Motorsports)</h3>
-        <p class="project-meta">Composites • Laminate Theory • Structural Testing</p>
-        <p>Fabricate pure carbon fiber wet layup and prepreg panels in addition to preliminary sandwich carbon fiber panels for electric F1-style vehicle. Apply laminate theory and FEA to validate structural specifications and conduct mechanical testing. Design impact attenuator and lightweight battery enclosure.</p>
-        <div class="project-tags">
-            <span class="tag">Composites</span>
-            <span class="tag">FEA</span>
-            <span class="tag">Mechanical Testing</span>
-        </div>
-    </a>
-
-    <!-- MIT Rocket Team -->
-    <a href="placeholder.html" class="project-card" data-category="cad fabrication">
-        <img src="https://drive.google.com/thumbnail?id=11sud3zt0oQP8iT1VstAcq7WVhJ2Xuxcl"
-             alt="Liquid rocket engine components"
-             class="project-card-image">
-        <h3>Liquid Rocket Engine Components (MIT Rocket Team)</h3>
-        <p class="project-meta">Thermal Analysis • Fabrication • Propulsion Systems</p>
-        <p>Design and fabricate liquid propulsion components, including injector faceplate for IPA-fueled, N₂O-cooled engine and graphite nozzle. Conduct hand calculations and FEA for thermal analysis of pintle and augmented spark igniter components.</p>
-        <div class="project-tags">
-            <span class="tag">Thermal Analysis</span>
-            <span class="tag">Propulsion</span>
-            <span class="tag">CNC Machining</span>
-        </div>
-    </a>
-
-
-
-    <!-- Journeyman AR Guidance System -->
-    <a href="journeyman-ar.html" class="project-card" data-category="robotics cad">
-        <img src="https://drive.google.com/thumbnail?id=1nJwAqjv-FnYexW4GvJZ_iHEiBozLNmZD"
-             alt="Journeyman AR projection guidance system"
-             class="project-card-image">
-        <h3>Journeyman: Augmenting Personal Realities</h3>
-        <p class="project-meta">2nd Place MIT Media Lab Hackathon • AR Projection • Human-Computer Interaction</p>
-        <p>Built a wearable AR projection system that guides hands-on learning by projecting instructions directly onto physical surfaces. Integrated spatial mapping, voice command recognition, and haptic feedback for domain-agnostic skill acquisition. Collaborators: Mohammed Aamir, Nick Nim, Chris Um, Cecilia Xu, Rachael Yang, Anna Zhang, Gloria Zhu
-</p>
-        <div class="project-tags">
-            <span class="tag">Projection Mapping</span>
-            <span class="tag">ILAD & DMX Basics</span>
-            <span class="tag">HCI</span>
-        </div>
-    </a>
-
-
-    <!-- NewGrid Visualization -->
-    <a href="placeholder.html" class="project-card" data-category="cad research">
-        <img src="https://drive.google.com/thumbnail?id=15q5i9T6IPNdiHn3jpePohrx5A2-SLU0U"
-             alt="Grid topology visualization tool"
-             class="project-card-image">
-        <h3>Grid Topology Optimization Tool</h3>
-        <p class="project-meta">NewGrid & MIT Energy Initiative • Data Visualization • UI/UX</p>
-        <p>Designed and prototyped interactive visualization tool demonstrating how topology optimization enhances electrical grid performance and resilience. Applied power systems concepts, optimization algorithms, and data visualization to model real-time grid reconfiguration scenarios.</p>
-        <div class="project-tags">
-            <span class="tag">Data Visualization</span>
-            <span class="tag">UI/UX</span>
-            <span class="tag">Power Systems</span>
-        </div>
-    </a>
-
-    <!-- Lock Decoding Multitool -->
-    <a href="placeholder.html" class="project-card" data-category="fabrication cad">
-        <img src="https://drive.google.com/thumbnail?id=1nHiXi6zHvwPTE1LM3oEvGbcnBl6x4tL0"
-             alt="SLA-printed lock decoding multitool with modular components"
-             class="project-card-image">
-        <h3>Lock Decoding Multitool</h3>
-        <p class="project-meta">Formlabs Student Hackathon • Additive Manufacturing • Precision Engineering</p>
-        <p>Revived a WWII-era lock decoding tool through modern SLA printing at the Formlabs Student Hackathon. Designed modular, swappable pin bittings with fine-tolerance interlocking mechanisms for locksport applications. Huge thanks to Formlabs for providing the materials and support!</p>
-        <div class="project-tags">
-            <span class="tag">SLA 3D Printing</span>
-            <span class="tag">Mechanical Design</span>
-            <span class="tag">Tolerance Engineering</span>
-        </div>
-    </a>
-
-
-    <!-- Kinetic Atlas Sand Table -->
-    <a href="kinetic-atlas.html" class="project-card" data-category="fabrication electronics">
-        <img src="https://drive.google.com/thumbnail?id=17Qpf-DZgW280PgA4LGf2ZS6zrDjZ5I0S"
-             alt="Kinetic sand table drawing patterns with magnetic ball"
-             class="project-card-image">
-        <h3>Kinetic Atlas Sand Table</h3>
-        <p class="project-meta">Arduino Programming • Mechanical Systems • Data Visualization</p>
-        <p>Built an automated sand table that draws physical patterns using a magnetically-controlled ball on an Arduino-driven gantry system. Integrated real-world satellite data visualization with plans for Raspberry Pi expansion and live environmental data feeds.</p>
-        <div class="project-tags">
-            <span class="tag">Arduino</span>
-            <span class="tag">Stepper Motors</span>
-            <span class="tag">Welding & Carpentry</span>
-            <span class="tag">Satellite Data</span>
-        </div>
-    </a>
-
-
-    <!-- Air Quality Dynamics During COVID-19 -->
-    <a href="nasa-sees.html" class="project-card" data-category="research">
-        <img src="https://drive.google.com/thumbnail?id=151eWxmyme8Vxdb0z-xOWHNYBdo0Hm8uL"
-             alt="Satellite altimetry analysis"
-             class="project-card-image">
-        <h3>Satellite Altimetry & Air Quality Analysis</h3>
-        <p class="project-meta">        <p class="project-meta">American Geophysical Union • NASA SEES • Data Analysis • Environmental Monitoring</p>
-        <p>Utilized NASA and ESA Earth observing satellite datasets to examine altimetry products and investigate environmental correlations. Performed parameter derivation, data visualization, and independent validation of air quality dynamics. Presented research at AGU24 conference.</p>
-        <div class="project-tags">
-            <span class="tag">Remote Sensing</span>
-            <span class="tag">QGIS</span>
-            <span class="tag">Data Analysis</span>
-	    <span class="tag">Google Earth Engine</span>
-        </div>
-    </a>
-
-    <!-- FIRST Robotics -->
-    <a href="placeholder.html" class="project-card" data-category="robotics cad">
-        <img src="https://drive.google.com/thumbnail?id=1TlGeGF2vpKMzEvIkYok0ac-f0THcN3DA"
-             alt="FIRST Robotics Competition robot"
-             class="project-card-image">
-        <h3>FIRST Robotics Competition (FRC)</h3>
-        <p class="project-meta">Mechanical Design • Project Management • Rapid Prototyping</p>
-        <p>Led administrative and co-led mechanical development for 80-member Team 5892: Energy HEROS. Managed CAD modeling, fabrication, and assembly of competition robots with focus on rapid troubleshooting and technical problem resolution during events. Created business plan and coordinated team operations.</p>
-        <div class="project-tags">
-            <span class="tag">CAD</span>
-            <span class="tag">Project Management</span>
-            <span class="tag">Rapid Iteration</span>
-        </div>
-    </a>
-
-    <!-- Posture Pet -->
-    <a href="placeholder.html" class="project-card" data-category="robotics cad">
-        <img src="https://drive.google.com/thumbnail?id=10c-Y_NwkMj6qxSCqFPonloVMf2DyoeOT"
-             alt="Posture Pet biofeedback robot"
-             class="project-card-image">
-        <h3>Posture Pet (Posturington)</h3>
-        <p class="project-meta">MakeMITxHarvard Hackathon • Wearable Sensors • Robotics</p>
-        <p>Designed a biofeedback-driven robotic companion using IMUs and ESP32s to mirror user posture in real time. Built a 4-DOF servo-actuated character to encourage active neuromuscular posture correction. Collaborators: Connor McCain, Ayaan Dhuka, Jack Chubick, Benji Adachi, Constantine Bulavenko
-</p>
-        <div class="project-tags">
-            <span class="tag">IMUs</span>
-            <span class="tag">ESP32</span>
-            <span class="tag">Wearables</span>
-        </div>
-    </a>
-
-    <!-- Magnetic Moment(um) -->
-    <a href="magnetic-momentum.html" class="project-card" data-category="research cad">
-        <img src="https://drive.google.com/thumbnail?id=1_lBMusgfQnoJRHmSEwBSCm29smlQ-YQJ"
-             alt="Deployable satellite boom concept"
-             class="project-card-image">
-        <h3>Magnetic Moment(um) Satellite Boom</h3>
-        <p class="project-meta">Blue Origin x MIT • Deployables • Structural Analysis</p>
-        <p>Developed low-cost, low-mass 1.5-meter deployment boom proposal for small satellite sensor suite for upcoming Blue Origin lunar prospecting mission (Oasis-1). Conducted structural analysis and materials trade studies considering deployment mechanics, mass constraints, and environmental loads.</p>
-        <div class="project-tags">
-            <span class="tag">Deployables</span>
-            <span class="tag">Composite Design</span>
-            <span class="tag">FEA</span>
-        </div>
-    </a>
-
-
-    <!-- Mobile Workbenches -->
-    <a href="mobile-workbenches.html" class="project-card" data-category="fabrication">
-        <img src="https://drive.google.com/thumbnail?id=140PPXCpi9wuICXxFeSmyPgHEnC1ZnfV-"
-             alt="Mobile steel and wood workbenches"
-             class="project-card-image">
-        <h3>Mobile Workbenches (Steel & Wood)</h3>
-        <p class="project-meta">Fabrication • Electrical Integration • Functional Design</p>
-        <p>Built dual-purpose workbenches for welding and general fabrication. Steel bench uses channel construction for versatile clamping. Wood bench includes integrated 120V AC power and lighting, with drawer storage and outfeed capability for table saw.</p>
-        <div class="project-tags">
-            <span class="tag">Welding</span>
-            <span class="tag">Electrical Systems</span>
-            <span class="tag">Shop Tooling</span>
-        </div>
-    </a>
-
-    <!-- Memorial Table Brackets -->
-    <a href="table-brackets.html" class="project-card" data-category="fabrication">
-        <img src="https://drive.google.com/thumbnail?id=1q35QV-5wMcmp6jq9RQNE0OjnldDiw-Fq"
-             alt="Welded table brackets for memorial"
-             class="project-card-image">
-        <h3>Memorial Table Brackets</h3>
-        <p class="project-meta">First Welding Project • MIG & Stick Welding • Community Service</p>
-        <p>Fabricated welded table brackets for annual Remembering Children memorial, supporting 300 candles. First welding project learning MIG and stick techniques from scratch, using scrap HSS tube steel with custom-cut end plates and extensive grinding work.</p>
-        <div class="project-tags">
-            <span class="tag">MIG Welding</span>
-            <span class="tag">Stick Welding</span>
-            <span class="tag">Memorial</span>
-        </div>
-    </a>
-
-    <!-- Side Table/Cabinet -->
-    <a href="side-table.html" class="project-card" data-category="fabrication cad">
-        <img src="https://drive.google.com/thumbnail?id=1yMdyPN7557td5ljc1Chb0KY5jvIleD03"
-             alt="Oak side table with casters"
-             class="project-card-image">
-        <h3>Oak Side Table/Cabinet with Casters</h3>
-        <p class="project-meta">Woodworking • Mortise & Tenon Joinery • Repurposed Materials</p>
-        <p>Built from broken oak bed frame using mortise and tenon joints, router trim work, and scrap oak plywood panels. Features recycled office chair casters and fits perfectly under the cantilever desk built a year later.</p>
-        <div class="project-tags">
-            <span class="tag">Woodworking</span>
-            <span class="tag">Joinery</span>
-            <span class="tag">Router Work</span>
-        </div>
-    </a>
-
-    <!-- Microphone Cabinet -->
-    <a href="microphone-cabinet.html" class="project-card" data-category="fabrication cad">
-        <img src="https://drive.google.com/thumbnail?id=1lP0aT_liEcMGFYLGjPdHzdmoFj4xFYZN"
-             alt="Wall-mounted microphone cabinet"
-             class="project-card-image">
-        <h3>Wall-Mounted Microphone Cabinet</h3>
-        <p class="project-meta">Woodworking • Security Design • Community Service</p>
-        <p>Designed and built wall-mounted security cabinet to prevent microphone theft at local community center. Successfully preventing theft while maintaining accessibility for over a year since implementation.</p>
-        <div class="project-tags">
-            <span class="tag">Woodworking</span>
-            <span class="tag">Security Design</span>
-            <span class="tag">Community</span>
-        </div>
-    </a>
-
-    <!-- Water Barrel System -->
-    <a href="water-barrel.html" class="project-card" data-category="fabrication">
-        <img src="https://drive.google.com/thumbnail?id=1fU9Aa7MUVFU9N_FLSyulFZJLimceEzT2"
-             alt="Dehumidifier water collection system"
-             class="project-card-image">
-        <h3>Shop Water Barrel System</h3>
-        <p class="project-meta">Plumbing • System Design • Practical Problem Solving</p>
-        <p>Built base and connected dehumidifier condensate line to barrel using PVC plumbing to create steady water supply for cleaning tools and materials. Eliminated 300-foot treks to house in dusty/muddy boots, leveraging Louisiana humidity for continuous water collection.</p>
-        <div class="project-tags">
-            <span class="tag">PVC Plumbing</span>
-            <span class="tag">System Design</span>
-            <span class="tag">Shop Improvement</span>
-        </div>
-    </a>
-
-    <!-- Mirror Etching -->
-    <a href="placeholder.html" class="project-card" data-category="cad">
-        <img src="https://drive.google.com/thumbnail?id=1dvMxSXaEqFQzMqNqAweXszbRh0h9idks"
-             alt="Laser-etched mirror"
-             class="project-card-image">
-        <h3>Laser-Etched Mirrors</h3>
-        <p class="project-meta">CAD Design • Laser Cutting • Gift Making</p>
-        <p>Designed custom mirror etchings in CAD, exported to DXF, and laser-etched geometric patterns. Created multiple designs as Christmas gifts, combining digital design with practical fabrication.</p>
-        <div class="project-tags">
-            <span class="tag">CAD</span>
-            <span class="tag">Laser Etching</span>
-            <span class="tag">DXF Export</span>
-        </div>
-    </a>
-
-
-    <!-- Prototype Greens -->
-    <a href="prototype-greens.html" class="project-card" data-category="research">
-        <img src="https://drive.google.com/thumbnail?id=???????????????????????????????????????"
-             alt="Prototype Greens algae biofuel system"
-             class="project-card-image">
-        <h3>Prototype Greens Biofuel Systems</h3>
-        <p class="project-meta">Startup R&D • Carbon Capture • Biofuels</p>
-        <p>Worked on algae biofuel and carbon capture concepts for home-scale deployment. Contributed to R&D, project management, and technical presentations for sustainable fuel systems.</p>
-        <div class="project-tags">
-            <span class="tag">R&D</span>
-            <span class="tag">Carbon Capture</span>
-            <span class="tag">Biofuels</span>
-        </div>
-    </a>
-
-
-    <!-- MEMS Tunable Diffraction Grating -->
-    <a href="mems.html" class="project-card" data-category="research">
-        <img src="https://drive.google.com/thumbnail?id=1JIdRJgTmbjHjTVA7NE-3R56SIletCqNP"
-             alt="MEMS Tunable Diffraction Grating CAD"
-             class="project-card-image">
-        <h3>MEMS Tunable Diffraction Grating</h3>
-        <p class="project-meta">6.2600 Micro/Nano Processing Final Project • MIT.nano • Work in Progress</p>
-        <p>Co-designed and fabricated a tunable MEMS diffraction grating in MIT.nano as final project for 6.2600: Micro/Nano Processing. Collaborators: Jieruei Chang, Alysha Rawji.</p>
-        <div class="project-tags">
-            <span class="tag">Micro/Nano Fab</span>
-            <span class="tag">Diffraction Grating</span>
-            <span class="tag">Electrostatic Actuation</span>
-        </div>
-    </a>
-
-
-<!-- 
-    <a href="placeholder.html" class="project-card" data-category="fabrication cad">
-        <img src="https://drive.google.com/thumbnail?id=1bXQAKr7tSd1dkaTh2GeVE1qslaJyHqYJ"
-             alt="CAD in progress for human hamster wheel"
-             class="project-card-image">
-        <h3>Human Hamster Wheel (MIT Admit Weekend)</h3>
-        <p class="project-meta">Structural Design • EHS/City Coordination • Work in Progress</p>
-        <p>Designing a full-scale tube-steel human hamster wheel with a wood foundation for MIT Admit Weekend (August 2026). Leading EHS and City of Cambridge coordination, hand-calcs for loads/shear/stress, sourcing, and fundraising. Collaborators: Vaughn Khouri, Evan Lim.</p>
-        <div class="project-tags">
-            <span class="tag">Steel Fabrication</span>
-            <span class="tag">Hand Calculations</span>
-            <span class="tag">Permitting</span>
-        </div>
-    </a>
--->
-	  
-<!-- Misc Small Projects -->
-<a href="misc-small-projects.html" class="project-card" data-category="fabrication">
-    <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_HERE"
-         alt="Miscellaneous small projects"
-         class="project-card-image">
-    <h3>Miscellaneous Small Builds</h3>
-    <p class="project-meta">Repair • Woodworking • Welding • Experiments</p>
-    <p>A collection of smaller builds, repairs, and one-off experiments including a chair rack, owl box, monitor stand, stool repair, and a climate-controlled room retrofit.</p>
-    <div class="project-tags">
-        <span class="tag">DIY</span>
-        <span class="tag">Repairs</span>
-        <span class="tag">Shop Upgrades</span>
-    </div>
-</a>
-
-</div>
-
-<p class="intro-note">
-    I’ve been building essentially my whole life and rarely take photos; these are just a few of my builds. I love learning random new skills and looking for problems that I can solve using the tools and materials that are already available.
-</p>
-                
-
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <div class="contact-content">
-            <h2>Get In Touch</h2>
-            <p>I'm always interested in discussing engineering challenges, research opportunities, and innovative projects. I also love to hear about people's passions and learn new things! Feel free to reach out.</p>
-           
-            <div class="contact-methods">
-                <div class="contact-item">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                    </svg>
-                    <a href="mailto:KBoone@MIT.edu">KBoone@MIT.edu</a>
-                </div>
-                
-                
-                <div class="contact-item">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    <a href="https://www.linkedin.com/in/keira-boone" target="_blank">LinkedIn Profile</a>
-                </div>
+                <button class="filter-btn" data-filter="cad">CAD &amp; Design</button>
             </div>
 
-            <div class="contact-social">
-                <a href="mailto:KBoone@MIT.edu" title="Email">
-                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                    </svg>
+            <div class="projects-grid">
+
+                <!-- Tetris on the Green Building -->
+                <a href="tetris-green-building.html" class="project-card" data-category="fabrication electronics cad">
+                    <img src="https://drive.google.com/thumbnail?id=1z40dwynr7fNt8ct-MtEoGNmpDSqLM4cw&sz=w800"
+                         alt="Tetris on the Green Building"
+                         class="project-card-image">
+                    <h3>Tetris on the Green Building</h3>
+                    <p class="project-meta">Building-Scale Installation • PCB Design • Design for Manufacture</p>
+                    <p>Part of the team that revived an iconic MIT hack as a permanent, building-scale light installation, redesigned from scratch and replicated 180 times over. Iterated through four MCU board and two LED board revisions while handling sourcing, assembly, new machining techniques, sealing, and thermal management for decades-long outdoor service.</p>
+                    <div class="project-tags">
+                        <span class="tag">PCB Design</span>
+                        <span class="tag">Design for Manufacture</span>
+                        <span class="tag">Thermal Management</span>
+                        <span class="tag">Machining</span>
+                    </div>
                 </a>
-                <a href="https://www.linkedin.com/in/keira-boone" target="_blank" title="LinkedIn">
-                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
+
+                <!-- MAV Unlimited (external link only) -->
+                <a href="https://mav-unlimited.com/" target="_blank" rel="noopener noreferrer" class="project-card" data-category="fabrication cad">
+                    <img src="https://drive.google.com/thumbnail?id=1-svPZmOZ3GpDH6V3yxIGKAFO_dDmb4Uc&sz=w800"
+                         alt="MAV Unlimited volumetric 3D printing gantry"
+                         class="project-card-image">
+                    <h3>XYZ Gantry for Volumetric 3D Printing (MAV Unlimited)</h3>
+                    <p class="project-meta">Precision Motion Systems • Proprietary • Industry</p>
+                    <p>Designed and built an XYZ gantry with micron-level accuracy for a volumetric 3D printing system. This work is proprietary, so I can't share images or many details here, but I'd love to talk about the engineering in person.</p>
+                    <div class="project-tags">
+                        <span class="tag">Precision Motion</span>
+                        <span class="tag">Gantry Design</span>
+                        <span class="tag">Volumetric 3D Printing</span>
+                    </div>
+                    <span class="card-external">Visit mav-unlimited.com &#8599;</span>
                 </a>
+
+                <!-- Mobile Steel Hoist -->
+                <a href="mobile-hoist.html" class="project-card" data-category="fabrication cad">
+                    <img src="https://drive.google.com/thumbnail?id=1p98CSmbx-TumDKAJgR2RNhPOu6D5cEwW"
+                         alt="Mobile steel hoist testing"
+                         class="project-card-image">
+                    <h3>Mobile Steel Hoist</h3>
+                    <p class="project-meta">Structural Design • Welding • Hand Calculations</p>
+                    <p>Designed and fabricated a mobile lifting system with 600 lb capacity using salvaged steel. Conducted structural analysis using AISC manual to validate safety factors and developed solutions for material constraints including beveling, rigging, and weld sequencing.</p>
+                    <div class="project-tags">
+                        <span class="tag">MIG Welding</span>
+                        <span class="tag">Statics Analysis</span>
+                        <span class="tag">Scrap Fabrication</span>
+                    </div>
+                </a>
+
+                <!-- Cantilever Desk -->
+                <a href="cantilever-desk.html" class="project-card" data-category="fabrication cad">
+                    <img src="https://drive.google.com/thumbnail?id=1kld8By9BnBqvrot9O0dW0AoWb-ekeAVB"
+                         alt="Two-tier cantilever desk"
+                         class="project-card-image">
+                    <h3>Two-Tier Cantilever Computer Desk</h3>
+                    <p class="project-meta">Structural Design • Fabrication • Problem Solving</p>
+                    <p>Built a two-tier cantilever desk from salvaged materials to meet specific spatial constraints. Addressed thermal warping during welding through mechanical correction using a car jack, and developed integrated cable management solutions mid-build.</p>
+                    <div class="project-tags">
+                        <span class="tag">Welding</span>
+                        <span class="tag">Woodworking</span>
+                        <span class="tag">Thermal Management</span>
+                    </div>
+                </a>
+
+                <!-- EC Fort and Coaster 2025 -->
+                <a href="ec-build25.html" class="project-card" data-category="fabrication">
+                    <img src="https://drive.google.com/thumbnail?id=1vnWKErWYtX2tjvfhMMrGzd7CqheahDWw"
+                         alt="Fort-in-progress"
+                         class="project-card-image">
+                    <h3>East Campus Fort and Coaster, 2025 REX</h3>
+                    <p class="project-meta">Woodworking • Structural Construction • Lighting</p>
+                    <p>Along with a small team of the initial designers, spent 15+ hours a day for two weeks building a 3 story fort with LED displays, sound, and lighting, as well as a roller coaster (which unfortunately was not completed due to permitting issues).</p>
+                    <div class="project-tags">
+                        <span class="tag">Wood Fabrication</span>
+                        <span class="tag">Lighting</span>
+                        <span class="tag">Team Build</span>
+                    </div>
+                </a>
+
+                <!-- Solar Cells -->
+                <a href="solar-cells.html" class="project-card" data-category="research">
+                    <img src="https://drive.google.com/thumbnail?id=1g0Drt__WIJxEihFMFk7960rqtJC0lLSm"
+                         alt="Silicon solar cell project"
+                         class="project-card-image">
+                    <h3>Silicon Solar Cell Design &amp; Testing</h3>
+                    <p class="project-meta">Micro/Nano Processing • Device Fabrication • Characterization</p>
+                    <p>Designed, fabricated, and tested silicon solar cells. Optimized finger geometry, metal coverage, and ARC thickness to improve efficiency, while diagnosing anomalous wafers and process defects.</p>
+                    <div class="project-tags">
+                        <span class="tag">Semiconductors</span>
+                        <span class="tag">Lithography</span>
+                        <span class="tag">I–V Characterization</span>
+                    </div>
+                </a>
+
+                <!-- MEMS Tunable Diffraction Grating -->
+                <a href="mems.html" class="project-card" data-category="research cad">
+                    <img src="https://drive.google.com/thumbnail?id=1vfU2hVaywnhRRLeEGC8eljjDO3tgOotu&sz=w800"
+                         alt="MEMS tunable diffraction grating"
+                         class="project-card-image">
+                    <h3>MEMS Tunable Diffraction Grating</h3>
+                    <p class="project-meta">6.2600 Micro/Nano Processing Final Project • MIT.nano • Single-Mask SOI Process</p>
+                    <p>Designed, fabricated, and tested a voltage-tunable diffraction grating on a 10 µm SOI wafer using a single photolithography step and electrostatic comb drives. Demonstrated measurable optical deflection and characterized the dominant failure modes: DRIE undercut, device collapse, and critical-point-drying washout. Collaborators: Jieruei Chang, Alysha Rawji.</p>
+                    <div class="project-tags">
+                        <span class="tag">Micro/Nano Fab</span>
+                        <span class="tag">DRIE &amp; Release Processing</span>
+                        <span class="tag">Electrostatic Actuation</span>
+                        <span class="tag">Optical Testing</span>
+                    </div>
+                </a>
+
+                <!-- Carbon Fiber Laminate Study -->
+                <a href="cf.html" class="project-card" data-category="research">
+                    <img src="https://drive.google.com/thumbnail?id=1Qc_Q0uIHhiQn-zkPILoRE_NSwsdnkqZ3"
+                         alt="Carbon fiber laminate bending tests"
+                         class="project-card-image">
+                    <h3>Carbon Fiber Laminate Flexural Study</h3>
+                    <p class="project-meta">MIT • Composites • Experimental Mechanics</p>
+                    <p>Investigated fiber orientation effects on flexural modulus using hand layup laminates and ASTM D790 three-point bending tests. Compared results to classical laminate theory predictions.</p>
+                    <div class="project-tags">
+                        <span class="tag">Composites</span>
+                        <span class="tag">ASTM D790</span>
+                        <span class="tag">Classical Laminate Theory</span>
+                    </div>
+                </a>
+
+                <!-- Electrochemical Carbon Capture - Team Rahimi -->
+                <a href="placeholder.html" class="project-card" data-category="research">
+                    <img src="https://drive.google.com/thumbnail?id=1TTSgwKDkUGQHzlfEsYESwfKYeJ8Pz2hY"
+                         alt="Electrochemical carbon capture research"
+                         class="project-card-image">
+                    <h3>Electrochemical Carbon Capture - Team Rahimi</h3>
+                    <p class="project-meta">University of Houston Research • Materials Development • Process Optimization</p>
+                    <p>Developed membraneless electrochemical cells for CO₂ capture from point sources and seawater. Optimized electrode materials and utilized stepwise polarization to help refine EMAR techniques for industrial energy efficiency.</p>
+                    <div class="project-tags">
+                        <span class="tag">Electrochemical Process Design</span>
+                        <span class="tag">Material Characterization</span>
+                        <span class="tag">Process Optimization</span>
+                    </div>
+                </a>
+
+                <!-- CEREBRUZ: Lunar Polymer Recycling -->
+                <a href="lunarecycle.html" class="project-card" data-category="research cad">
+                    <img src="https://drive.google.com/thumbnail?id=1aE77Lf9lLkJOa_WsvTGfDvyMxzEXrl6L"
+                         alt="NASA lunar polymer recycling system"
+                         class="project-card-image">
+                    <h3>CEREBRUZ: Lunar Polymer Recycling System (NASA)</h3>
+                    <p class="project-meta">NASA-Funded Research • Materials Testing • Manufacturing</p>
+                    <p>Designed and optimized injection molding system for recycling lunar waste polymers (thermoset Zotek F30 foam) into functional composites. Conducted tensile testing, SEM, particle size analysis, FTIR, and hardness testing to evaluate processing parameters and mechanical properties.</p>
+                    <div class="project-tags">
+                        <span class="tag">Injection Molding</span>
+                        <span class="tag">Process Parameter Optimization</span>
+                        <span class="tag">NASA LunaRecycle</span>
+                    </div>
+                </a>
+
+                <!-- Self-Assembly Lab -->
+                <a href="placeholder.html" class="project-card" data-category="research cad">
+                    <img src="https://drive.google.com/thumbnail?id=1JkvFs7xcB1HXkvx6KrMrCOzBRIIN5XIO"
+                         alt="Self-assembly lab research"
+                         class="project-card-image">
+                    <h3>Granular Jamming &amp; Coral Reef Restoration</h3>
+                    <p class="project-meta">MIT Self-Assembly Lab • DARPA BRACE • Parametric Design</p>
+                    <p>Develop tension-based granular jamming systems for rapid infrastructure deployment (DARPA) and design modular geometric structures for coral reef restoration in Maldives. Conduct physical prototyping, mechanical testing, and parametric design optimization.</p>
+                    <div class="project-tags">
+                        <span class="tag">Rhino3D</span>
+                        <span class="tag">Grasshopper</span>
+                        <span class="tag">DARPA</span>
+                    </div>
+                </a>
+
+                <!-- Hydroponic Systems -->
+                <a href="placeholder.html" class="project-card" data-category="cad">
+                    <img src="https://drive.google.com/thumbnail?id="
+                         alt="Hydroponic system CAD models"
+                         class="project-card-image">
+                    <h3>Hydroponic Urban Farming Systems</h3>
+                    <p class="project-meta">CAD Modeling • System Optimization • Community Impact</p>
+                    <p>Developed CAD models and optimized hydroponic systems for local startup addressing urban food deserts. Conducted growing medium research for terrestrial and space applications, and designed mobile educational systems for community outreach programs.</p>
+                    <div class="project-tags">
+                        <span class="tag">CAD</span>
+                        <span class="tag">System Design</span>
+                        <span class="tag">Urban Agriculture</span>
+                    </div>
+                </a>
+
+                <!-- MIT Motorsports -->
+                <a href="placeholder.html" class="project-card" data-category="fabrication cad">
+                    <img src="https://drive.google.com/thumbnail?id=1ycDe3jOl5CIP2ZVe9GvFXmsKPPpP9GN7"
+                         alt="Carbon fiber composites work"
+                         class="project-card-image">
+                    <h3>Carbon Fiber Composites (MIT Motorsports)</h3>
+                    <p class="project-meta">Composites • Laminate Theory • Structural Testing</p>
+                    <p>Fabricate pure carbon fiber wet layup and prepreg panels in addition to preliminary sandwich carbon fiber panels for electric F1-style vehicle. Apply laminate theory and FEA to validate structural specifications and conduct mechanical testing. Design impact attenuator and lightweight battery enclosure.</p>
+                    <div class="project-tags">
+                        <span class="tag">Composites Processing</span>
+                        <span class="tag">FEA</span>
+                        <span class="tag">Mechanical Testing</span>
+                    </div>
+                </a>
+
+                <!-- MIT Rocket Team -->
+                <a href="placeholder.html" class="project-card" data-category="cad fabrication">
+                    <img src="https://drive.google.com/thumbnail?id=11sud3zt0oQP8iT1VstAcq7WVhJ2Xuxcl"
+                         alt="Liquid rocket engine components"
+                         class="project-card-image">
+                    <h3>Liquid Rocket Engine Components (MIT Rocket Team)</h3>
+                    <p class="project-meta">Thermal Analysis • Fabrication • Propulsion Systems</p>
+                    <p>Design and fabricate liquid propulsion components, including injector faceplate for IPA-fueled, N₂O-cooled engine and graphite nozzle. Conduct hand calculations and FEA for thermal analysis of pintle and augmented spark igniter components.</p>
+                    <div class="project-tags">
+                        <span class="tag">Thermal Analysis</span>
+                        <span class="tag">Propulsion</span>
+                        <span class="tag">CNC Machining</span>
+                    </div>
+                </a>
+
+                <!-- Journeyman AR Guidance System -->
+                <a href="journeyman-ar.html" class="project-card" data-category="robotics cad electronics">
+                    <img src="https://drive.google.com/thumbnail?id=1nJwAqjv-FnYexW4GvJZ_iHEiBozLNmZD"
+                         alt="Journeyman AR projection guidance system"
+                         class="project-card-image">
+                    <h3>Journeyman: Augmenting Personal Realities</h3>
+                    <p class="project-meta">2nd Place MIT Media Lab Hackathon • AR Projection • Human-Computer Interaction</p>
+                    <p>Built a wearable AR projection system that guides hands-on learning by projecting instructions directly onto physical surfaces. Integrated spatial mapping, voice command recognition, and haptic feedback for domain-agnostic skill acquisition. Collaborators: Mohammed Aamir, Nick Nim, Chris Um, Cecilia Xu, Rachael Yang, Anna Zhang, Gloria Zhu</p>
+                    <div class="project-tags">
+                        <span class="tag">Projection Mapping</span>
+                        <span class="tag">ILDA &amp; DMX Basics</span>
+                        <span class="tag">HCI</span>
+                    </div>
+                </a>
+
+                <!-- NewGrid Visualization -->
+                <a href="placeholder.html" class="project-card" data-category="cad research">
+                    <img src="https://drive.google.com/thumbnail?id=15q5i9T6IPNdiHn3jpePohrx5A2-SLU0U"
+                         alt="Grid topology visualization tool"
+                         class="project-card-image">
+                    <h3>Grid Topology Optimization Tool</h3>
+                    <p class="project-meta">NewGrid &amp; MIT Energy Initiative • Data Visualization • UI/UX</p>
+                    <p>Designed and prototyped interactive visualization tool demonstrating how topology optimization enhances electrical grid performance and resilience. Applied power systems concepts, optimization algorithms, and data visualization to model real-time grid reconfiguration scenarios.</p>
+                    <div class="project-tags">
+                        <span class="tag">Data Visualization</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Power Systems</span>
+                    </div>
+                </a>
+
+                <!-- Lock Decoding Multitool -->
+                <a href="placeholder.html" class="project-card" data-category="fabrication cad">
+                    <img src="https://drive.google.com/thumbnail?id=1nHiXi6zHvwPTE1LM3oEvGbcnBl6x4tL0"
+                         alt="SLA-printed lock decoding multitool with modular components"
+                         class="project-card-image">
+                    <h3>Lock Decoding Multitool</h3>
+                    <p class="project-meta">Formlabs Student Hackathon • Additive Manufacturing • Precision Engineering</p>
+                    <p>Revived a WWII-era lock decoding tool through modern SLA printing at the Formlabs Student Hackathon. Designed modular, swappable pin bittings with fine-tolerance interlocking mechanisms for locksport applications. Huge thanks to Formlabs for providing the materials and support!</p>
+                    <div class="project-tags">
+                        <span class="tag">SLA 3D Printing</span>
+                        <span class="tag">Mechanical Design</span>
+                        <span class="tag">Tolerance Engineering</span>
+                    </div>
+                </a>
+
+                <!-- Kinetic Atlas Sand Table -->
+                <a href="kinetic-atlas.html" class="project-card" data-category="fabrication electronics">
+                    <img src="https://drive.google.com/thumbnail?id=17Qpf-DZgW280PgA4LGf2ZS6zrDjZ5I0S"
+                         alt="Kinetic sand table drawing patterns with magnetic ball"
+                         class="project-card-image">
+                    <h3>Kinetic Atlas Sand Table</h3>
+                    <p class="project-meta">Arduino Programming • Mechanical Systems • Data Visualization</p>
+                    <p>Built an automated sand table that draws physical patterns using a magnetically-controlled ball on an Arduino-driven gantry system. Integrated real-world satellite data visualization with plans for Raspberry Pi expansion and live environmental data feeds.</p>
+                    <div class="project-tags">
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Stepper Motors</span>
+                        <span class="tag">Welding &amp; Carpentry</span>
+                        <span class="tag">Satellite Data</span>
+                    </div>
+                </a>
+
+                <!-- Satellite Altimetry & Air Quality -->
+                <a href="nasa-sees.html" class="project-card" data-category="research">
+                    <img src="https://drive.google.com/thumbnail?id=151eWxmyme8Vxdb0z-xOWHNYBdo0Hm8uL"
+                         alt="Satellite altimetry analysis"
+                         class="project-card-image">
+                    <h3>Satellite Altimetry &amp; Air Quality Analysis</h3>
+                    <p class="project-meta">American Geophysical Union • NASA SEES • Data Analysis • Environmental Monitoring</p>
+                    <p>Utilized NASA and ESA Earth observing satellite datasets to examine altimetry products and investigate environmental correlations. Performed parameter derivation, data visualization, and independent validation of air quality dynamics. Presented research at AGU24 conference.</p>
+                    <div class="project-tags">
+                        <span class="tag">Remote Sensing</span>
+                        <span class="tag">QGIS</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Google Earth Engine</span>
+                    </div>
+                </a>
+
+                <!-- FIRST Robotics -->
+                <a href="placeholder.html" class="project-card" data-category="robotics cad">
+                    <img src="https://drive.google.com/thumbnail?id=1TlGeGF2vpKMzEvIkYok0ac-f0THcN3DA"
+                         alt="FIRST Robotics Competition robot"
+                         class="project-card-image">
+                    <h3>FIRST Robotics Competition (FRC)</h3>
+                    <p class="project-meta">Mechanical Design • Project Management • Rapid Prototyping</p>
+                    <p>Led administrative and co-led mechanical development for 80-member Team 5892: Energy HEROS. Managed CAD modeling, fabrication, and assembly of competition robots with focus on rapid troubleshooting and technical problem resolution during events. Created business plan and coordinated team operations.</p>
+                    <div class="project-tags">
+                        <span class="tag">CAD</span>
+                        <span class="tag">Project Management</span>
+                        <span class="tag">Rapid Iteration</span>
+                    </div>
+                </a>
+
+                <!-- Posture Pet -->
+                <a href="placeholder.html" class="project-card" data-category="robotics cad electronics">
+                    <img src="https://drive.google.com/thumbnail?id=10c-Y_NwkMj6qxSCqFPonloVMf2DyoeOT"
+                         alt="Posture Pet biofeedback robot"
+                         class="project-card-image">
+                    <h3>Posture Pet (Posturington)</h3>
+                    <p class="project-meta">MakeMITxHarvard Hackathon • Wearable Sensors • Robotics</p>
+                    <p>Designed a biofeedback-driven robotic companion using IMUs and ESP32s to mirror user posture in real time. Built a 4-DOF servo-actuated character to encourage active neuromuscular posture correction. Collaborators: Connor McCain, Ayaan Dhuka, Jack Chubick, Benji Adachi, Constantine Bulavenko</p>
+                    <div class="project-tags">
+                        <span class="tag">IMUs</span>
+                        <span class="tag">ESP32</span>
+                        <span class="tag">Wearables</span>
+                    </div>
+                </a>
+
+                <!-- Magnetic Moment(um) -->
+                <a href="magnetic-momentum.html" class="project-card" data-category="research cad">
+                    <img src="https://drive.google.com/thumbnail?id=1_lBMusgfQnoJRHmSEwBSCm29smlQ-YQJ"
+                         alt="Deployable satellite boom concept"
+                         class="project-card-image">
+                    <h3>Magnetic Moment(um) Satellite Boom</h3>
+                    <p class="project-meta">Blue Origin x MIT • Deployables • Structural Analysis</p>
+                    <p>Developed low-cost, low-mass 1.5-meter deployment boom proposal for small satellite sensor suite for upcoming Blue Origin lunar prospecting mission (Oasis-1). Conducted structural analysis and materials trade studies considering deployment mechanics, mass constraints, and environmental loads.</p>
+                    <div class="project-tags">
+                        <span class="tag">Deployables</span>
+                        <span class="tag">Composite Design</span>
+                        <span class="tag">FEA</span>
+                    </div>
+                </a>
+
+                <!-- Mobile Workbenches -->
+                <a href="mobile-workbenches.html" class="project-card" data-category="fabrication">
+                    <img src="https://drive.google.com/thumbnail?id=140PPXCpi9wuICXxFeSmyPgHEnC1ZnfV-"
+                         alt="Mobile steel and wood workbenches"
+                         class="project-card-image">
+                    <h3>Mobile Workbenches (Steel &amp; Wood)</h3>
+                    <p class="project-meta">Fabrication • Electrical Integration • Functional Design</p>
+                    <p>Built dual-purpose workbenches for welding and general fabrication. Steel bench uses channel construction for versatile clamping. Wood bench includes integrated 120V AC power and lighting, with drawer storage and outfeed capability for table saw.</p>
+                    <div class="project-tags">
+                        <span class="tag">Welding</span>
+                        <span class="tag">Electrical Systems</span>
+                        <span class="tag">Shop Tooling</span>
+                    </div>
+                </a>
+
+                <!-- Memorial Table Brackets -->
+                <a href="table-brackets.html" class="project-card" data-category="fabrication">
+                    <img src="https://drive.google.com/thumbnail?id=1q35QV-5wMcmp6jq9RQNE0OjnldDiw-Fq"
+                         alt="Welded table brackets for memorial"
+                         class="project-card-image">
+                    <h3>Memorial Table Brackets</h3>
+                    <p class="project-meta">First Welding Project • MIG &amp; Stick Welding • Community Service</p>
+                    <p>Fabricated welded table brackets for annual Remembering Children memorial, supporting 300 candles. First welding project learning MIG and stick techniques from scratch, using scrap HSS tube steel with custom-cut end plates and extensive grinding work.</p>
+                    <div class="project-tags">
+                        <span class="tag">MIG Welding</span>
+                        <span class="tag">Stick Welding</span>
+                        <span class="tag">Memorial</span>
+                    </div>
+                </a>
+
+                <!-- Side Table/Cabinet -->
+                <a href="side-table.html" class="project-card" data-category="fabrication cad">
+                    <img src="https://drive.google.com/thumbnail?id=1yMdyPN7557td5ljc1Chb0KY5jvIleD03"
+                         alt="Oak side table with casters"
+                         class="project-card-image">
+                    <h3>Oak Side Table/Cabinet with Casters</h3>
+                    <p class="project-meta">Woodworking • Mortise &amp; Tenon Joinery • Repurposed Materials</p>
+                    <p>Built from broken oak bed frame using mortise and tenon joints, router trim work, and scrap oak plywood panels. Features recycled office chair casters and fits perfectly under the cantilever desk built a year later.</p>
+                    <div class="project-tags">
+                        <span class="tag">Woodworking</span>
+                        <span class="tag">Joinery</span>
+                        <span class="tag">Router Work</span>
+                    </div>
+                </a>
+
+                <!-- Microphone Cabinet -->
+                <a href="microphone-cabinet.html" class="project-card" data-category="fabrication cad">
+                    <img src="https://drive.google.com/thumbnail?id=1lP0aT_liEcMGFYLGjPdHzdmoFj4xFYZN"
+                         alt="Wall-mounted microphone cabinet"
+                         class="project-card-image">
+                    <h3>Wall-Mounted Microphone Cabinet</h3>
+                    <p class="project-meta">Woodworking • Security Design • Community Service</p>
+                    <p>Designed and built wall-mounted security cabinet to prevent microphone theft at local community center. Successfully preventing theft while maintaining accessibility for over a year since implementation.</p>
+                    <div class="project-tags">
+                        <span class="tag">Woodworking</span>
+                        <span class="tag">Security Design</span>
+                        <span class="tag">Community</span>
+                    </div>
+                </a>
+
+                <!-- Water Barrel System -->
+                <a href="water-barrel.html" class="project-card" data-category="fabrication">
+                    <img src="https://drive.google.com/thumbnail?id=1fU9Aa7MUVFU9N_FLSyulFZJLimceEzT2"
+                         alt="Dehumidifier water collection system"
+                         class="project-card-image">
+                    <h3>Shop Water Barrel System</h3>
+                    <p class="project-meta">Plumbing • System Design • Practical Problem Solving</p>
+                    <p>Built base and connected dehumidifier condensate line to barrel using PVC plumbing to create steady water supply for cleaning tools and materials. Eliminated 300-foot treks to house in dusty/muddy boots, leveraging Louisiana humidity for continuous water collection.</p>
+                    <div class="project-tags">
+                        <span class="tag">PVC Plumbing</span>
+                        <span class="tag">System Design</span>
+                        <span class="tag">Shop Improvement</span>
+                    </div>
+                </a>
+
+                <!-- Mirror Etching -->
+                <a href="placeholder.html" class="project-card" data-category="cad">
+                    <img src="https://drive.google.com/thumbnail?id=1dvMxSXaEqFQzMqNqAweXszbRh0h9idks"
+                         alt="Laser-etched mirror"
+                         class="project-card-image">
+                    <h3>Laser-Etched Mirrors</h3>
+                    <p class="project-meta">CAD Design • Laser Cutting • Gift Making</p>
+                    <p>Designed custom mirror etchings in CAD, exported to DXF, and laser-etched geometric patterns. Created multiple designs as Christmas gifts, combining digital design with practical fabrication.</p>
+                    <div class="project-tags">
+                        <span class="tag">CAD</span>
+                        <span class="tag">Laser Etching</span>
+                        <span class="tag">DXF Export</span>
+                    </div>
+                </a>
+
+                <!-- Prototype Greens -->
+                <a href="prototype-greens.html" class="project-card" data-category="research">
+                    <img src="https://drive.google.com/thumbnail?id=???????????????????????????????????????"
+                         alt="Prototype Greens algae biofuel system"
+                         class="project-card-image">
+                    <h3>Prototype Greens Biofuel Systems</h3>
+                    <p class="project-meta">Startup R&amp;D • Carbon Capture • Biofuels</p>
+                    <p>Worked on algae biofuel and carbon capture concepts for home-scale deployment. Contributed to R&amp;D, project management, and technical presentations for sustainable fuel systems.</p>
+                    <div class="project-tags">
+                        <span class="tag">R&amp;D</span>
+                        <span class="tag">Carbon Capture</span>
+                        <span class="tag">Biofuels</span>
+                    </div>
+                </a>
+
+                <!-- Human Hamster Wheel -->
+                <a href="placeholder.html" class="project-card" data-category="fabrication cad">
+                    <img src="https://drive.google.com/thumbnail?id=1bXQAKr7tSd1dkaTh2GeVE1qslaJyHqYJ"
+                         alt="CAD in progress for human hamster wheel"
+                         class="project-card-image">
+                    <h3>Human Hamster Wheel (MIT Admit Weekend)</h3>
+                    <p class="project-meta">Structural Design • EHS/City Coordination • Work in Progress</p>
+                    <p>Designing a full-scale tube-steel human hamster wheel with a wood foundation for MIT Admit Weekend (August 2026). Leading EHS and City of Cambridge coordination, hand-calcs for loads/shear/stress, sourcing, and fundraising. Collaborators: Vaughn Khouri, Evan Lim.</p>
+                    <div class="project-tags">
+                        <span class="tag">Steel Fabrication</span>
+                        <span class="tag">Hand Calculations</span>
+                        <span class="tag">Permitting</span>
+                    </div>
+                </a>
+
+                <!-- Misc Small Projects -->
+                <a href="misc-small-projects.html" class="project-card" data-category="fabrication">
+                    <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_HERE"
+                         alt="Miscellaneous small projects"
+                         class="project-card-image">
+                    <h3>Miscellaneous Small Builds</h3>
+                    <p class="project-meta">Repair • Woodworking • Welding • Experiments</p>
+                    <p>A collection of smaller builds, repairs, and one-off experiments including a chair rack, owl box, monitor stand, stool repair, and a climate-controlled room retrofit.</p>
+                    <div class="project-tags">
+                        <span class="tag">DIY</span>
+                        <span class="tag">Repairs</span>
+                        <span class="tag">Shop Upgrades</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <p class="intro-note" style="margin-top: 2rem;">
+                I’ve been building essentially my whole life and rarely take photos—so while these are just a few of my builds, I love learning random new skills and building from what I can find around me to solve problems I see haven’t yet been solved.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Get In Touch</h2>
+                <p>I'm always interested in discussing engineering challenges, research opportunities, and innovative projects. I also love to hear about people's passions and learn new things! Feel free to reach out.</p>
+
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                        <a href="mailto:KBoone@MIT.edu">KBoone@MIT.edu</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        <a href="https://www.linkedin.com/in/keira-boone" target="_blank">LinkedIn Profile</a>
+                    </div>
+                </div>
+
+                <div class="contact-social">
+                    <a href="mailto:KBoone@MIT.edu" title="Email">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/keira-boone" target="_blank" title="LinkedIn">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <div class="container">
-        <p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
-    </div>
-</footer>
+    <footer>
+        <div class="container">
+            <p>© 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
 
-<script>
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    <script>
+        // Header slideshow
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.slide');
+            if (slides.length > 1) {
+                let index = 0;
+                const start = document.querySelector('.slide.active');
+                if (start) { index = Array.prototype.indexOf.call(slides, start); }
+                setInterval(() => {
+                    slides[index].classList.remove('active');
+                    index = (index + 1) % slides.length;
+                    slides[index].classList.add('active');
+                }, 2500);
+            }
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const filter = button.getAttribute('data-filter');
-            
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            projectCards.forEach(card => {
-                if (filter === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    const categories = card.getAttribute('data-category');
-                    if (categories.includes(filter)) {
+            // Hide any card image that fails to load (placeholder or bad Drive IDs)
+            document.querySelectorAll('.project-card-image').forEach(img => {
+                img.addEventListener('error', () => { img.style.display = 'none'; });
+            });
+        });
+
+        // Project filters
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all') {
                         card.style.display = 'block';
                     } else {
-                        card.style.display = 'none';
+                        const categories = (card.getAttribute('data-category') || '').split(' ');
+                        card.style.display = categories.includes(filter) ? 'block' : 'none';
                     }
+                });
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
-    });
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-</script>
-
+    </script>
+</body>
+</html>
