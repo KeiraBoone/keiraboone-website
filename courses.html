@@ -62,6 +62,15 @@
             text-decoration: none;
         }
 
+        .nav-headshot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -225,7 +234,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Keira Boone</a>
+            <a href="index.html" class="nav-logo">
+                <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+                Keira Boone
+            </a>
             <div class="nav-links">
                 <a href="index.html#projects" class="nav-link">Projects</a>
                 <a href="courses.html" class="nav-link">Courses</a>
@@ -257,13 +269,87 @@
 
     <section>
         <div class="container">
-            
+
+            <!-- Fall 2026 -->
+            <div class="semester-section">
+                <h2>Fall 2026 (Current)</h2>
+                <div class="courses-grid">
+
+                    <div class="course-card highlight-course">
+                        <div class="course-header">
+                            <span class="course-number">3.010</span>
+                            <span class="course-credits">12 Units</span>
+                        </div>
+                        <div class="course-title">Structure of Materials</div>
+                        <div class="course-description">
+                            Introduction to the atomic and crystal structure of materials. Topics include bonding, crystal geometry and symmetry, point groups and space groups, defects, and structure determination by diffraction, connecting how atoms are arranged to the properties of metals, ceramics, and other materials.
+                        </div>
+                    </div>
+
+                    <div class="course-card highlight-course">
+                        <div class="course-header">
+                            <span class="course-number">3.030</span>
+                            <span class="course-credits">12 Units</span>
+                        </div>
+                        <div class="course-title">Microstructural Evolution</div>
+                        <div class="course-description">
+                            How microstructure forms and changes in materials over time. Topics include diffusion, interfaces and surface energy, nucleation and growth, solidification, phase transformations, coarsening, and the kinetics that govern processing and heat treatment.
+                        </div>
+                    </div>
+
+                    <div class="course-card highlight-course">
+                        <div class="course-header">
+                            <span class="course-number">3.033</span>
+                            <span class="course-credits">12 Units</span>
+                        </div>
+                        <div class="course-title">Electronic Properties</div>
+                        <div class="course-description">
+                            The electronic behavior of materials from a quantum and solid-state perspective. Topics include electrons in solids, band structure, metals, semiconductors, and dielectrics, and the physics behind electronic devices, linking materials structure and processing to electrical performance.
+                        </div>
+                    </div>
+
+                    <div class="course-card highlight-course">
+                        <div class="course-header">
+                            <span class="course-number">3.14</span>
+                            <span class="course-credits">12 Units</span>
+                        </div>
+                        <div class="course-title">Modern Physical Metallurgy</div>
+                        <div class="course-description">
+                            Relationships between processing, microstructure, and properties in metals and alloys. Topics include dislocations and strengthening mechanisms, phase transformations, heat treatment, and the design of alloys for specific mechanical performance.
+                        </div>
+                    </div>
+
+                    <div class="course-card highlight-course">
+                        <div class="course-header">
+                            <span class="course-number">4.053</span>
+                            <span class="course-credits">12 Units</span>
+                        </div>
+                        <div class="course-title">Visual Communication Fundamentals</div>
+                        <div class="course-description">
+                            A studio introduction to communicating ideas visually. Covers composition, typography, imagery, and visual hierarchy through hands-on design projects and critique, building the skills to present technical and creative work clearly.
+                        </div>
+                    </div>
+
+                    <div class="course-card highlight-course">
+                        <div class="course-header">
+                            <span class="course-number">CMS.376</span>
+                            <span class="course-credits">12 Units</span>
+                        </div>
+                        <div class="course-title">History of Media and Technology</div>
+                        <div class="course-description">
+                            Examines how media technologies have developed and shaped society. Looks at the cultural, economic, and political forces behind the tools people use to communicate, and how those technologies in turn changed the way we live and think.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <!-- Spring 2026 -->
             <div class="semester-section">
-                <h2>Spring 2026 (Current)</h2>
+                <h2>Spring 2026</h2>
                 <div class="courses-grid">
-                    
-                    <div class="course-card highlight-course">
+
+                    <div class="course-card">
                         <div class="course-header">
                             <span class="course-number">3.020</span>
                             <span class="course-credits">12 Units</span>
@@ -274,7 +360,7 @@
                         </div>
                     </div>
 
-                    <div class="course-card highlight-course">
+                    <div class="course-card">
                         <div class="course-header">
                             <span class="course-number">3.023</span>
                             <span class="course-credits">12 Units</span>
@@ -285,7 +371,7 @@
                         </div>
                     </div>
 
-                    <div class="course-card highlight-course">
+                    <div class="course-card">
                         <div class="course-header">
                             <span class="course-number">3.155</span>
                             <span class="course-credits">12 Units</span>
@@ -296,7 +382,7 @@
                         </div>
                     </div>
 
-                    <div class="course-card highlight-course">
+                    <div class="course-card">
                         <div class="course-header">
                             <span class="course-number">8.02</span>
                             <span class="course-credits">12 Units</span>
@@ -307,17 +393,16 @@
                         </div>
                     </div>
 
-<div class="course-card highlight-course">
+                    <div class="course-card">
                         <div class="course-header">
                             <span class="course-number">4.657</span>
                             <span class="course-credits">12 Units</span>
                         </div>
                         <div class="course-title">Design: The History of Making Things</div>
                         <div class="course-description">
-                             Examines Euro-American design theory and practice in global context. Covers the historical design of communications, objects, and environments as processes of decision-making, adaptation, and innovation. Critically explores design's interaction with politics, economics, technology, and culture across history and the present.                       </div>
-                    </div> 
-
-
+                            Examines Euro-American design theory and practice in global context. Covers the historical design of communications, objects, and environments as processes of decision-making, adaptation, and innovation. Critically explores design's interaction with politics, economics, technology, and culture across history and the present.
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -326,7 +411,7 @@
             <div class="semester-section">
                 <h2>Fall 2025</h2>
                 <div class="courses-grid">
-                    
+
                     <div class="course-card">
                         <div class="course-header">
                             <span class="course-number">3.013</span>
@@ -411,7 +496,7 @@
             <div class="semester-section">
                 <h2>Summer 2025</h2>
                 <div class="courses-grid">
-                    
+
                     <div class="course-card">
                         <div class="course-header">
                             <span class="course-number">SP.100</span>
@@ -426,11 +511,11 @@
                 </div>
             </div>
 
-            <!-- AP Credit -->
+            <!-- AP Credit & Passed by Exam -->
             <div class="semester-section">
-                <h2>AP Credit</h2>
+                <h2>AP Credit &amp; Passed by Exam</h2>
                 <div class="courses-grid">
-                    
+
                     <div class="course-card">
                         <div class="course-header">
                             <span class="course-number">GEN.APCR</span>
@@ -439,6 +524,28 @@
                         <div class="course-title">AP Elective Credit</div>
                         <div class="course-description">
                             General elective credit awarded for Advanced Placement exam scores.
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <span class="course-number">6.100A</span>
+                            <span class="course-credits">6 Units</span>
+                        </div>
+                        <div class="course-title">Introduction to Computer Science Programming in Python</div>
+                        <div class="course-description">
+                            Introduction to computer science and programming in Python, covering computational thinking, algorithms, and problem solving. Credit earned through Advanced Standing.
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <span class="course-number">7.012</span>
+                            <span class="course-credits">12 Units</span>
+                        </div>
+                        <div class="course-title">Introductory Biology</div>
+                        <div class="course-description">
+                            Fundamentals of biochemistry, genetics, molecular biology, and cell biology. Credit earned through Advanced Standing.
                         </div>
                     </div>
 
