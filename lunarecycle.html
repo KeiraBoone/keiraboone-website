@@ -1,0 +1,381 @@
+<!-- lunarecycle.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERBERUZ: NASA LunaRecycle | Keira Boone</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg-primary:#0a0e17; --bg-secondary:#141824; --bg-card:#1a1f2e;
+            --text-primary:#e4e6eb; --text-secondary:#a8b2d1; --accent:#64ffda;
+            --accent-dim:#4a9d7f; --border:#2d3548;
+        }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.7; }
+        .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        nav { padding:1.5rem 0; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,14,23,0.95); backdrop-filter:blur(10px); z-index:100; }
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .nav-logo { font-size:1.25rem; font-weight:600; color:var(--text-primary); text-decoration:none; }
+        .nav-links { display:flex; gap:2rem; }
+        .nav-link { color:var(--text-secondary); text-decoration:none; font-size:0.95rem; }
+        .nav-link:hover { color:var(--accent); }
+        header { padding:3.5rem 0 2rem; border-bottom:1px solid var(--border); }
+        h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+        .subtitle { color:var(--text-secondary); margin-bottom:1.5rem; }
+        section { padding:2.5rem 0; border-bottom:1px solid var(--border); }
+        h2 { font-size:1.8rem; margin-bottom:1rem; }
+        h3 { font-size:1.2rem; margin:1.5rem 0 0.5rem; color:var(--accent); }
+        p { color:var(--text-secondary); margin-bottom:1rem; }
+        ul, ol { padding-left:1.25rem; color:var(--text-secondary); }
+        li { margin-bottom:0.5rem; }
+        a { color:var(--accent); }
+        strong { color:var(--text-primary); }
+        .callout { background:var(--bg-card); border:1px solid var(--border); padding:1rem 1.25rem; border-radius:6px; margin:1rem 0; }
+        .callout p:last-child, .callout ul:last-child { margin-bottom:0; }
+        .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin:1.5rem 0; }
+        .stat { background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:1rem 1.25rem; }
+        .stat .num { font-size:1.6rem; font-weight:700; color:var(--accent); line-height:1.2; }
+        .stat .lbl { font-size:0.85rem; color:var(--text-secondary); margin-top:0.25rem; }
+        table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.92rem; }
+        th, td { padding:0.5rem 0.75rem; border-bottom:1px solid var(--border); text-align:left; color:var(--text-secondary); }
+        th { color:var(--text-primary); background:var(--bg-secondary); }
+        .table-wrap { overflow-x:auto; }
+        .table-note { font-size:0.85rem; font-style:italic; }
+        .two-col { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+        .video-wrapper { position:relative; width:100%; padding-top:56.25%; border-radius:8px; overflow:hidden; border:1px solid var(--border); background:var(--bg-secondary); margin-top:1rem; }
+        .video-wrapper iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+        .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
+        .gallery figure { margin:0; }
+        .gallery img { width:100%; height:220px; object-fit:cover; border-radius:6px; border:1px solid var(--border); background:var(--bg-secondary); cursor:zoom-in; transition:border-color 0.2s; }
+        .gallery img:hover { border-color:var(--accent); }
+        .gallery figcaption { font-size:0.85rem; color:var(--text-secondary); margin-top:0.4rem; }
+        .credits { background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:1.25rem 1.5rem; }
+        .credits p:last-child { margin-bottom:0; }
+        .lightbox { position:fixed; inset:0; background:rgba(5,8,14,0.92); display:none; align-items:center; justify-content:center; z-index:1000; cursor:zoom-out; padding:2rem; }
+        .lightbox.open { display:flex; }
+        .lightbox img { max-width:100%; max-height:100%; object-fit:contain; border-radius:6px; }
+        footer { padding:2rem 0; text-align:center; color:var(--text-secondary); }
+        @media (max-width:768px){ .container,.nav-container{padding:0 1rem;} h1{font-size:2rem;} .nav-links{gap:1rem;} .two-col{grid-template-columns:1fr;} }
+        .nav-headshot { width:36px; height:36px; border-radius:50%; object-fit:cover; vertical-align:middle; margin-right:8px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>CERBERUZ: NASA LunaRecycle Challenge</h1>
+        <p class="subtitle">Materials Testing &amp; Characterization Lead &bull; Injection Molding &bull; Mold Machining &bull; Digital Twin &bull; Sept 2025 to present</p>
+        <p>Watching nanoscale voids that I never would have caught with the naked eye show up under the SEM always makes me grin, even when they are a likely source of the unfavorable results I just got on the mechanical tester. That was for CERBERUZ, MIT's NASA LunaRecycle Challenge team and first place winner out of more than 1,200 registered teams, in both the Prototype and Digital Twin divisions.</p>
+        <p>The system recycles lunar trash (reclosable bags, drink pouches, rehydratable pouches, Zotek F30 foam, and nitrile gloves) into parts a crew could actually use: screwdriver handles, hydroponic net pots, pipe fittings, and 3D printing filament. It does this with composite injection molding, grinding everything together and treating the non-thermoplastics as reinforcing filler inside a thermoplastic matrix. None of these filler and matrix combinations had known mechanical properties going in, so as materials testing and characterization lead, I got to build that understanding from scratch. I also worked across preprocessing, machining our molds, running the injection molder, and the digital twin.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>At a Glance</h2>
+        <div class="stats">
+            <div class="stat"><div class="num">1st of 1,200+</div><div class="lbl">teams, NASA LunaRecycle Prototype and Digital Twin divisions</div></div>
+            <div class="stat"><div class="num">15 blends</div><div class="lbl">recycled-polymer compositions characterized in the molding sweep</div></div>
+            <div class="stat"><div class="num">50+ runs</div><div class="lbl">injection molding runs sweeping barrel temperature, pressure, hold, and cooling</div></div>
+            <div class="stat"><div class="num">56 samples</div><div class="lbl">complete tensile records feeding a quality-prediction model</div></div>
+        </div>
+        <div class="callout">
+            <strong>What I worked on</strong>
+            <ul>
+                <li>Materials characterization: ASTM D638 tensile, hardness, SEM, FTIR and TGA-IR, laser-diffraction particle size, and CT</li>
+                <li>Preprocessing: grinding and sieving trials for every feedstock, including removing liquid nitrogen from the process</li>
+                <li>Mold design and machining, and injection molding parameter development</li>
+                <li>Digital twin: using the characterization and machine data to train and check the models</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>The System</h2>
+        <p>Rather than requiring clean, sorted material, CERBERUZ embraces the mess. Mixed logistics waste goes through one mechanical pipeline and comes out as composite feedstock. The system uses no water and no consumables, and any unused material can be reprocessed, so material loss stays near zero.</p>
+        <div class="two-col">
+            <div>
+                <h3>HERCULES</h3>
+                <p>A double-shaft shredder that reduces large or flexible items to sub-centimeter pieces. We cut and shredded by hand for the demonstration, so this stage was designed but not built.</p>
+                <h3>CHARON</h3>
+                <p>A centrifugal mill with an interchangeable sieve (up to 18,000 rpm) followed by a ribbon mixer that blends matrix and filler by mass ratio into molding-ready powder.</p>
+            </div>
+            <div>
+                <h3>PERSEPHONE</h3>
+                <p>A modified commercial tabletop electric injection molder. With custom molds it makes parts, and with a filament guide and spooler added it extrudes 3D printing filament, so one machine does both jobs. Average cycle time is about 75 seconds, or roughly 48 parts per hour.</p>
+                <h3>DEIMOS</h3>
+                <p>Our digital twin: a machine model, a mold fill model, a filament extrusion model, and a machine-learning quality predictor, all driven from one MATLAB and Simulink interface.</p>
+            </div>
+        </div>
+        <div class="callout">
+            <p><strong>Prototype numbers:</strong> about 220 kg total mass, 1.6 kW peak power (from PERSEPHONE), and a commercial-parts bill of materials of roughly $23,700. A demonstration batch is 33 molded products plus 3 filament samples, about 0.57 kg, from five of the eight challenge waste items.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Characterizing the Feedstock</h2>
+
+        <h3>Particle size, and dropping liquid nitrogen</h3>
+        <p>The original plan embrittled Zotek with liquid nitrogen before grinding. I characterized particle size distributions on the ground feedstock by laser diffraction and compared nitrile, aluminum-laminate drink pouch, and Zotek ground with and without liquid nitrogen. Dominant peaks sat around 800 to 920 &micro;m and held 79 to 93% of the volume. Liquid nitrogen only added a small fine population (about 4% by volume near 33 &micro;m) and did not move the main peak, and the coarser powder still fed, melted, and injected fine. That let us cut liquid nitrogen out of preprocessing entirely: same usable particle size, one less consumable, and one less cryogenic hazard.</p>
+        <p>One honest wrinkle: the mill sieve is 80 &micro;m, but laser diffraction reports a volume-equivalent diameter, so thin flakes pass the mesh and still read much larger. That is useful to know when interpreting the numbers.</p>
+
+        <h3>Thermal stability of Zotek F30</h3>
+        <p>Zotek can release hydrofluoric acid when overheated, so processing temperature limits matter. NASA rules cap it at 250 &deg;C, with HF release reported above about 290 &deg;C. We sent neat Zotek F30 foam to Eurofins EAG for TGA with evolved-gas FTIR, run in both argon and air up to 800 &deg;C. Mass was flat to roughly 400 &deg;C, and our molding setpoints of 240 to 270 &deg;C sat at least 130 &deg;C below the measured onset. HF showed up in both atmospheres, so running in vacuum or inert gas removes combustion products but not HF. Two sweep points did exceed the 250 &deg;C cap, and nitrile blends at 260 &deg;C are above the literature onset range for nitrile (210 to 245 &deg;C) and remain untested.</p>
+
+        <h3>What filler does to the process window</h3>
+        <p>Higher solids loading raises melt viscosity, which means a hotter barrel and longer hold to keep the cavity packed while the gate is open. Swapping filler also changed the window. Switching from Zotek to nitrile gloves pushed the required barrel temperature up by as much as about 15 &deg;C and, at 30% loading, lengthened the hold by 8 seconds, even though the two ground to a similar particle size (about 865 and 903 &micro;m). That is the kind of thing that seems obvious, but you can only prove and understand it by actually characterizing each feedstock.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Composition (matrix is reclosable bag unless noted)</th><th>Barrel (&deg;C)</th><th>Inject (bar)</th><th>Hold (bar)</th><th>Hold time (s)</th><th>Cool (s)</th></tr></thead>
+                <tbody>
+                    <tr><td>100% reclosable bag</td><td>240</td><td>340</td><td>250</td><td>9</td><td>5</td></tr>
+                    <tr><td>90% bag / 10% Zotek</td><td>250</td><td>340</td><td>250</td><td>10</td><td>5</td></tr>
+                    <tr><td>70% bag / 30% Zotek</td><td>245</td><td>340</td><td>250</td><td>8</td><td>5</td></tr>
+                    <tr><td>45% bag / 55% Zotek</td><td>250</td><td>340</td><td>250</td><td>15</td><td>5</td></tr>
+                    <tr><td>35% bag / 65% Zotek</td><td>255</td><td>340</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>25% bag / 75% Zotek</td><td>255</td><td>340</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>70% bag / 30% nitrile gloves</td><td>260</td><td>340</td><td>250</td><td>16</td><td>5</td></tr>
+                    <tr><td>60% bag / 40% nitrile gloves</td><td>260</td><td>340</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>45% bag / 55% nitrile gloves</td><td>260</td><td>340</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>70% bag / 30% drink pouch</td><td>250</td><td>340</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>45% bag / 55% drink pouch</td><td>245</td><td>340</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>30% bag / 70% drink pouch</td><td>240</td><td>340</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>10% bag / 90% drink pouch</td><td>240</td><td>300</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>100% drink pouch</td><td>240</td><td>320</td><td>250</td><td>12</td><td>5</td></tr>
+                    <tr><td>100% rehydratable pouch</td><td>270</td><td>340</td><td>250</td><td>12</td><td>5</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="table-note">Optimized injection molding parameters from the 15-composition sweep. Each mold then needed its own clamp time (7,000 to 12,000 ms) and cutoff volume (15 to 29 cm&sup3;).</p>
+
+        <h3>When a material just does not work</h3>
+        <p>Nomex and cotton were a lesson in scoping. Cotton would need a barrel hotter than its own degradation temperature to avoid short shots, and once we dropped liquid nitrogen we could no longer embrittle Nomex, so long strands clogged both the mill and the molder. We descoped from seven eligible waste items to five and tuned each remaining blend individually.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Mechanical Testing</h2>
+        <p>I molded dogbone specimens for every blend and tested them to ASTM D638 (Type IV-like specimens, 5 mm/min, strain from a video extensometer, five specimens per composition). The data went into a master sheet that grew to 102 rows, 56 of them complete, and fed our quality-prediction model.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Composition</th><th>Young's modulus (MPa)</th><th>Ultimate tensile strength (MPa)</th></tr></thead>
+                <tbody>
+                    <tr><td>100% LDPE (neat)</td><td>81.8</td><td>17.9</td></tr>
+                    <tr><td>+ 10% Zotek</td><td>40.4</td><td>19.1</td></tr>
+                    <tr><td>+ 30% Zotek</td><td>90.1</td><td>9.9</td></tr>
+                    <tr><td>+ 55% Zotek</td><td>78.4</td><td>8.7</td></tr>
+                    <tr><td>+ 65% Zotek</td><td>103.1</td><td>7.0</td></tr>
+                    <tr><td>+ 30% nitrile</td><td>90.8</td><td>8.5</td></tr>
+                    <tr><td>+ 40% nitrile</td><td>179.1</td><td>6.9</td></tr>
+                    <tr><td>+ 30% drink pouch</td><td>75.7</td><td>12.7</td></tr>
+                    <tr><td>+ 55% drink pouch</td><td>88.3</td><td>13.5</td></tr>
+                    <tr><td>+ 75% drink pouch</td><td>128.1</td><td>11.2</td></tr>
+                    <tr><td>+ 90% drink pouch</td><td>165.7</td><td>9.7</td></tr>
+                    <tr><td>100% drink pouch</td><td>205.4</td><td>9.0</td></tr>
+                    <tr><td>100% rehydratable pouch</td><td>129.5</td><td>24.6</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="table-note">Selected values; error bars and the full set are in the project paper.</p>
+
+        <ul>
+            <li>Ground drink pouch (polyethylene and aluminum) stiffens the composite the most.</li>
+            <li>Zotek and nitrile blends lose tensile strength compared with neat LDPE, while the rehydratable pouch is the strongest at 24.6 MPa.</li>
+            <li>CERBERUZ parts are functional rather than load-bearing, so we deliberately trade some strength for more recycled content and higher throughput. This data is what decided which compositions made it into our final demonstration for NASA. No pressure.</li>
+        </ul>
+
+        <h3>What the data taught me about my own measurements</h3>
+        <p>The most useful results were sometimes the ones that told me my method was off, and I tried to treat them that way.</p>
+        <div class="callout">
+            <ul>
+                <li><strong>Yield definition:</strong> I applied the 0.2% offset over too wide a strain range. These strain-hardening semicrystalline blends have no sharp yield point (our milestone HDPE read 2.7 MPa yield against a 7.7 MPa ultimate strength), so I am re-extracting yield per D638 and reporting the offset explicitly.</li>
+                <li><strong>Crosshead is not gauge:</strong> a quick elastic finite element model of the dogbone showed gauge strain is about 1.24 times crosshead strain, so crosshead-based modulus reads roughly 19% low. An extensometer fixes it.</li>
+                <li><strong>Hardness dropped:</strong> Vickers readings varied from 2.3 to 3.4 HV within a single dogbone, which points to viscoelastic recovery of the indent and surface preparation. Tensile data plus density are more informative here.</li>
+                <li><strong>Voids and CT:</strong> I used CT scans and ImageJ to estimate void area percent, but the voxel size turned out too coarse for the voids and 2D thresholding is biased, so I set those numbers aside. Next steps are a density method against the rule of mixtures and higher-resolution micro-CT and SEM cross-sections.</li>
+            </ul>
+        </div>
+        <p>Net result: the trends and rankings are credible, while absolute yield values stay provisional until the D638 re-analysis is done.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Molds, Machining &amp; Filament</h2>
+        <p>Product molds were designed in CAD, programmed in CAM, and machined from 6061 aluminum on a HAAS CNC mill. Because the composites are more viscous than plain polymer, I used larger runners and gates, and every new mold geometry meant re-checking the optimized parameters.</p>
+        <ul>
+            <li><strong>Screwdriver:</strong> insert molding with a metal blade placed in the mold before injection, so the plastic flows around it and can transmit torque.</li>
+            <li><strong>Pipe:</strong> a hollow interior that cannot be machined into the mold directly, so I used a removable side pull with a 1&deg; draft angle to release it through shrinkage.</li>
+            <li><strong>Net pot:</strong> thin ribs and varying thickness, a good test of fill on complex geometry.</li>
+        </ul>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Per-mold machine setting</th><th>Dogbone</th><th>Pipe</th><th>Screwdriver</th><th>Net pot</th></tr></thead>
+                <tbody>
+                    <tr><td>Clamp time (ms)</td><td>12,000</td><td>7,000</td><td>12,000</td><td>11,700</td></tr>
+                    <tr><td>Cutoff amount (cm&sup3;)</td><td>16</td><td>29</td><td>25</td><td>15</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Filament extrusion</h3>
+        <p>PERSEPHONE's filament mode swaps the mold for a die and a guide, tensioning, and spooling stage, tuned on HDPE pellets first and then on reclosable bag feedstock. A quality check on a 20.2 m strand of reclosable bag filament, sampling 20 locations in two perpendicular axes, measured an average diameter of 1.35 mm with a 0.11 mm tolerance and an average eccentricity of 0.18.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Digital Twin (DEIMOS)</h2>
+        <p>Our digital twin pulls real data from the machine, the power meter, the Instron, and the CT scanner into one pipeline and uses it to simulate and predict. My characterization data is what trains its quality-prediction model.</p>
+        <ul>
+            <li><strong>Machine model:</strong> a Stateflow and Simulink state machine of the injection cycle. On a nominal run it matched recorded maximum pressure within 1%, clamp force within 1%, injected volume within about 5%, and cycle time within about 10%.</li>
+            <li><strong>Mold fill model:</strong> a finite-volume viscosity, temperature, pressure, and velocity model that flags frozen gates, short shots, and flash.</li>
+            <li><strong>Filament model:</strong> a one-dimensional enthalpy model that predicts solidification distance, final diameter, and sag.</li>
+            <li><strong>Quality prediction:</strong> one Gaussian process regression per output, trained on 45 samples and tested on 11, predicting modulus, yield, and strength with 95% confidence intervals. Held-out R&sup2; was 0.91 for Young's modulus and 0.85 for ultimate strength, but only 0.50 for yield, the output most hurt by the offset problem above.</li>
+        </ul>
+        <p>The twin talks to the real machine in both directions, so predicted settings can be pushed back to the molder for the next cycle. Its limits are documented too: warpage and flash are threshold flags rather than deformation predictions, and the screwdriver and net pot need a 3D extension of the thin-cavity model.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Phase 1 Submission Video</h2>
+        <p>Here is our Phase 1 submission video, cued up to the section I'd most like you to see.</p>
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/ZXgKN80r4K8?start=216"
+                title="CERBERUZ Phase 1 submission video"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Gallery</h2>
+        <!--
+            HOW TO FILL THIS IN: upload each image to Google Drive (share as "Anyone with the link"),
+            copy the ID from its link (the long string between /d/ and /view), and replace PASTE_ID_HERE.
+            Any figure still containing PASTE_ID_HERE is hidden automatically, so the page looks fine either way.
+            Suggested files are in lunarecycle-figures.zip (file name noted in each comment).
+        -->
+        <div class="gallery">
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=1aE77Lf9lLkJOa_WsvTGfDvyMxzEXrl6L&sz=w1600" alt="NASA lunar polymer recycling system" loading="lazy">
+            </figure>
+            <!-- paper-page-12-12.png : dogbone specimens -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="Injection-molded dogbone specimens" loading="lazy">
+                <figcaption>Dogbone specimens from different blends</figcaption>
+            </figure>
+            <!-- paper-page-16-16.png : manufactured products -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="Manufactured products: net pots, filament, screwdrivers, pipes" loading="lazy">
+                <figcaption>Net pots, filament, screwdrivers, and pipe fittings</figcaption>
+            </figure>
+            <!-- paper-page-11-11.png : particle size distributions -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="Particle size distributions with and without liquid nitrogen" loading="lazy">
+                <figcaption>Particle size distributions with and without liquid nitrogen</figcaption>
+            </figure>
+            <!-- slide-12-12.png : TGA-IR -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="TGA-IR thermal stability of Zotek F30" loading="lazy">
+                <figcaption>Thermal stability of Zotek F30 (TGA-IR)</figcaption>
+            </figure>
+            <!-- slide-13-13.png : processing window vs thermal limits -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="Processing window versus thermal limits" loading="lazy">
+                <figcaption>Processing window versus thermal limits</figcaption>
+            </figure>
+            <!-- slide-16-16.png : modulus and UTS sweep -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="Young's modulus and tensile strength across compositions" loading="lazy">
+                <figcaption>Modulus and tensile strength across the composition sweep</figcaption>
+            </figure>
+            <!-- slide-14-14.png : testing and parts -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="Tensile testing, CT scanning, and end products" loading="lazy">
+                <figcaption>Tensile testing, CT scanning, and end products</figcaption>
+            </figure>
+            <!-- slide-22-22.png : digital twin architecture -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="Digital twin architecture" loading="lazy">
+                <figcaption>Digital twin architecture</figcaption>
+            </figure>
+            <!-- slide-27-27.png : digital twin interface -->
+            <figure>
+                <img src="https://drive.google.com/thumbnail?id=PASTE_ID_HERE&sz=w1600" alt="Digital twin control interface" loading="lazy">
+                <figcaption>The digital twin control interface</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Team &amp; Credits</h2>
+        <div class="credits">
+            <p>I'm so grateful to have been part of this team. CERBERUZ grew out of the MIT Space Resources Workshop, an interdisciplinary student collaboration supported by the Engineering Systems Lab and the Human Systems Lab in Aeronautics and Astronautics, and it won both the Prototype and Digital Twin divisions of the NASA LunaRecycle Challenge.</p>
+            <p><strong>Team leads:</strong> Lilly Etzenbach, Lanie McKinney, Palak B. Patel, Jose Soto</p>
+            <p><strong>Faculty advisors:</strong> Dr. George Lordos and Professor Jeffrey Hoffman</p>
+            <p><strong>Team members:</strong> Sophia Augier, Sophie Bergkvist, Ariella Blackman, Keira Boone, Constantine Bulavenko, Seth Burrowes, Andrew Chen, Alex Chen, Chris Choe, Johnson Cristales, Brady Cruse, Hillel Dei, Natalie Hatzigeorgiu, Intia Ibnah, Avishai Jeselsohn, Mollie Johnson, Uma Kirk, Christopher Kwon, Jessica Meza, Juan Orrego, Giuliana Pertuz, Jordan Prawira, Brandy Romine, Dustin Wang, Madison Wood, Adrian Yang</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+
+<div class="lightbox" id="lightbox"><img src="" alt="Enlarged photo"></div>
+<script>
+    (function () {
+        // Hide gallery slots that have not been filled in yet, or whose images fail to load
+        document.querySelectorAll('.gallery figure').forEach(function (fig) {
+            var img = fig.querySelector('img');
+            if (img.src.indexOf('PASTE_ID_HERE') !== -1) { fig.style.display = 'none'; return; }
+            img.addEventListener('error', function () { fig.style.display = 'none'; });
+        });
+
+        var box = document.getElementById('lightbox');
+        var big = box.querySelector('img');
+        document.querySelectorAll('.gallery img').forEach(function (img) {
+            img.addEventListener('click', function () {
+                big.src = img.src.replace(/sz=w\d+/, 'sz=w2400');
+                box.classList.add('open');
+            });
+        });
+        box.addEventListener('click', function () { box.classList.remove('open'); big.src = ''; });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') box.click(); });
+    })();
+</script>
+</body>
+</html>
