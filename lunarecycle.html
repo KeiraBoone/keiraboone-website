@@ -45,6 +45,11 @@
         .two-col { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
         .video-wrapper { position:relative; width:100%; padding-top:56.25%; border-radius:8px; overflow:hidden; border:1px solid var(--border); background:var(--bg-secondary); margin-top:1rem; }
         .video-wrapper iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+        .inline-fig { margin:1.5rem 0; }
+        .inline-fig img { display:block; width:100%; height:auto; max-height:560px; object-fit:contain; border-radius:8px; border:1px solid var(--border); background:var(--bg-secondary); cursor:zoom-in; transition:border-color 0.2s; }
+        .inline-fig img:hover { border-color:var(--accent); }
+        .inline-fig figcaption { font-size:0.85rem; color:var(--text-secondary); margin-top:0.5rem; font-style:italic; }
+        .slideshow-embed iframe { border:1px solid var(--border); border-radius:8px; background:var(--bg-secondary); }
         .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
         .gallery figure { margin:0; }
         .gallery img { width:100%; height:220px; object-fit:cover; border-radius:6px; border:1px solid var(--border); background:var(--bg-secondary); cursor:zoom-in; transition:border-color 0.2s; }
@@ -111,6 +116,17 @@
     <div class="container">
         <h2>The System</h2>
         <p>Rather than requiring clean, sorted material, CERBERUZ embraces the mess. Mixed logistics waste goes through one mechanical pipeline and comes out as composite feedstock. The system uses no water and no consumables, and any unused material can be reprocessed, so material loss stays near zero.</p>
+
+        <figure class="inline-fig">
+            <img src="https://drive.google.com/thumbnail?id=18HPowoKdr5FRQ-30yETJP73mFfGOX9_S&sz=w1600" alt="Logistics waste streams on a lunar mission" loading="lazy">
+            <figcaption>The problem: logistics waste, from some of our earliest process work</figcaption>
+        </figure>
+
+        <figure class="inline-fig">
+            <img src="https://drive.google.com/thumbnail?id=1kZXkwEo0_NwtB4FyJIZ5mkUewgnFKfcf&sz=w1600" alt="The full physical recycling and manufacturing cycle" loading="lazy">
+            <figcaption>The full physical cycle, from some of our earliest process work</figcaption>
+        </figure>
+
         <div class="two-col">
             <div>
                 <h3>HERCULES</h3>
@@ -134,6 +150,11 @@
 <section>
     <div class="container">
         <h2>Characterizing the Feedstock</h2>
+
+        <figure class="inline-fig">
+            <img src="https://drive.google.com/thumbnail?id=1MCbC4Bn8ehXivJ1nv4Jq9sfVnynxD3ZJ&sz=w1600" alt="Cryogrinding and preprocessing of recycled feedstock" loading="lazy">
+            <figcaption>Preprocessing with cryogrinding, from some of our earliest process work</figcaption>
+        </figure>
 
         <h3>Particle size, and dropping liquid nitrogen</h3>
         <p>The original plan embrittled Zotek with liquid nitrogen before grinding. I characterized particle size distributions on the ground feedstock by laser diffraction and compared nitrile, aluminum-laminate drink pouch, and Zotek ground with and without liquid nitrogen. Dominant peaks sat around 800 to 920 &micro;m and held 79 to 93% of the volume. Liquid nitrogen only added a small fine population (about 4% by volume near 33 &micro;m) and did not move the main peak, and the coarser powder still fed, melted, and injected fine. That let us cut liquid nitrogen out of preprocessing entirely: same usable particle size, one less consumable, and one less cryogenic hazard.</p>
@@ -178,6 +199,11 @@
     <div class="container">
         <h2>Mechanical Testing</h2>
         <p>I molded dogbone specimens for every blend and tested them to ASTM D638 (Type IV-like specimens, 5 mm/min, strain from a video extensometer, five specimens per composition). The data went into a master sheet that grew to 102 rows, 56 of them complete, and fed our quality-prediction model.</p>
+
+        <figure class="inline-fig">
+            <img src="https://drive.google.com/thumbnail?id=15tuKb2mIBj8AxjN54fvfd2_4raO09gbp&sz=w1600" alt="Mechanical testing and characterization of molded parts" loading="lazy">
+            <figcaption>Testing and characterization, from some of our earliest process work</figcaption>
+        </figure>
 
         <div class="table-wrap">
             <table>
@@ -225,6 +251,11 @@
     <div class="container">
         <h2>Molds, Machining &amp; Filament</h2>
         <p>Product molds were designed in CAD, programmed in CAM, and machined from 6061 aluminum on a HAAS CNC mill. Because the composites are more viscous than plain polymer, I used larger runners and gates, and every new mold geometry meant re-checking the optimized parameters.</p>
+
+        <figure class="inline-fig">
+            <img src="https://drive.google.com/thumbnail?id=1B7q3REJuoVifH2N-ni3O9EppbDZeCjSi&sz=w1600" alt="Injection molding of recycled composite parts" loading="lazy">
+            <figcaption>Injection molding, from some of our earliest process work</figcaption>
+        </figure>
         <ul>
             <li><strong>Screwdriver:</strong> insert molding with a metal blade placed in the mold before injection, so the plastic flows around it and can transmit torque.</li>
             <li><strong>Pipe:</strong> a hollow interior that cannot be machined into the mold directly, so I used a removable side pull with a 1&deg; draft angle to release it through shrinkage.</li>
@@ -263,13 +294,29 @@
 <section>
     <div class="container">
         <h2>Phase 1 Submission Video</h2>
-        <p>Here is our Phase 1 submission video, cued up to the section I'd most like you to see.</p>
         <div class="video-wrapper">
             <iframe
                 src="https://www.youtube.com/embed/ZXgKN80r4K8?start=216"
                 title="CERBERUZ Phase 1 submission video"
                 allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Project Presentation</h2>
+        <div class="slideshow-embed">
+            <iframe
+                src="https://docs.google.com/presentation/d/1YALyWOt7iEwgUFCZ0RIwshPNd5URACo4RoAat4o_Itc/embed?start=false&loop=false&delayms=3000"
+                frameborder="0"
+                width="100%"
+                height="560"
+                allowfullscreen="true"
+                mozallowfullscreen="true"
+                webkitallowfullscreen="true">
             </iframe>
         </div>
     </div>
@@ -367,7 +414,7 @@
 
         var box = document.getElementById('lightbox');
         var big = box.querySelector('img');
-        document.querySelectorAll('.gallery img').forEach(function (img) {
+        document.querySelectorAll('.gallery img, .inline-fig img').forEach(function (img) {
             img.addEventListener('click', function () {
                 big.src = img.src.replace(/sz=w\d+/, 'sz=w2400');
                 box.classList.add('open');
