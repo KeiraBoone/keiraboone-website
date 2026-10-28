@@ -1,0 +1,254 @@
+<!-- mems.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMS Tunable Diffraction Grating | Keira Boone</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg-primary:#0a0e17; --bg-secondary:#141824; --bg-card:#1a1f2e;
+            --text-primary:#e4e6eb; --text-secondary:#a8b2d1; --accent:#64ffda;
+            --accent-dim:#4a9d7f; --border:#2d3548;
+        }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.7; }
+        .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        nav { padding:1.5rem 0; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,14,23,0.95); backdrop-filter:blur(10px); z-index:100; }
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .nav-logo { font-size:1.25rem; font-weight:600; color:var(--text-primary); text-decoration:none; }
+        .nav-links { display:flex; gap:2rem; }
+        .nav-link { color:var(--text-secondary); text-decoration:none; font-size:0.95rem; }
+        .nav-link:hover { color:var(--accent); }
+        header { padding:3.5rem 0 2rem; border-bottom:1px solid var(--border); }
+        h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+        .subtitle { color:var(--text-secondary); margin-bottom:1.5rem; }
+        section { padding:2.5rem 0; border-bottom:1px solid var(--border); }
+        h2 { font-size:1.8rem; margin-bottom:1rem; }
+        h3 { font-size:1.2rem; margin:1.5rem 0 0.5rem; color:var(--accent); }
+        p { color:var(--text-secondary); margin-bottom:1rem; }
+        ul, ol { padding-left:1.25rem; color:var(--text-secondary); }
+        li { margin-bottom:0.5rem; }
+        a { color:var(--accent); }
+        .callout { background:var(--bg-card); border:1px solid var(--border); padding:1rem 1.25rem; border-radius:6px; margin:1rem 0; }
+        .callout strong { color:var(--text-primary); }
+        .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin:1.5rem 0; }
+        .stat { background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:1rem 1.25rem; }
+        .stat .num { font-size:1.6rem; font-weight:700; color:var(--accent); line-height:1.2; }
+        .stat .lbl { font-size:0.85rem; color:var(--text-secondary); margin-top:0.25rem; }
+        table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:0.95rem; }
+        th, td { padding:0.55rem 0.75rem; border-bottom:1px solid var(--border); text-align:left; color:var(--text-secondary); }
+        th { color:var(--text-primary); background:var(--bg-secondary); }
+        .slideshow-embed iframe { border:1px solid var(--border); border-radius:8px; background:var(--bg-secondary); }
+        .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
+        .gallery img { width:100%; height:220px; object-fit:cover; border-radius:6px; border:1px solid var(--border); background:var(--bg-secondary); cursor:zoom-in; transition:border-color 0.2s; }
+        .gallery img:hover { border-color:var(--accent); }
+        .credits { background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:1.25rem 1.5rem; }
+        .credits p:last-child { margin-bottom:0; }
+        .lightbox { position:fixed; inset:0; background:rgba(5,8,14,0.92); display:none; align-items:center; justify-content:center; z-index:1000; cursor:zoom-out; padding:2rem; }
+        .lightbox.open { display:flex; }
+        .lightbox img { max-width:100%; max-height:100%; object-fit:contain; border-radius:6px; }
+        footer { padding:2rem 0; text-align:center; color:var(--text-secondary); }
+        @media (max-width:768px){ .container,.nav-container{padding:0 1rem;} h1{font-size:2rem;} .nav-links{gap:1rem;} }
+        .nav-headshot { width:36px; height:36px; border-radius:50%; object-fit:cover; vertical-align:middle; margin-right:8px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>MEMS Tunable Diffraction Grating</h1>
+        <p class="subtitle">6.2600 Micro/Nano Processing Final Project &bull; MIT.nano &bull; Electrostatic Comb-Drive Actuation</p>
+        <p>A low-cost, voltage-tunable optical diffraction grating built on a silicon-on-insulator wafer with a <em>single</em> photolithography step. Two electrostatic comb drives pull a flexible grating apart to change its pitch, steering the diffracted beam with no moving optics. This was a three-person project: I am so grateful to have worked with <strong>Jieruei Chang</strong> and <strong>Alysha Rawji</strong>, who were absolutely amazing collaborators from first sketch to last cleanroom run.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>Project Summary</h2>
+        <p>Beam steering usually relies on mechanically rotating optics, which limits switching speed and makes systems bulky. A tunable diffraction grating changes the optical response itself, so light can be steered without rotating anything. Applications include compact spectrometers for CubeSats, laser modulation, and high-speed optical communications.</p>
+        <p>Our goal was to make the fabrication as simple as possible: one mask, one DRIE etch, one release, one metallization. We designed the device, fabricated it in MIT.nano, wirebonded it to a carrier PCB, and measured its optical response to an applied voltage with a HeNe laser and a position-sensitive photodiode.</p>
+
+        <div class="stats">
+            <div class="stat"><div class="num">1</div><div class="lbl">photolithography step on a 10&micro;m SOI wafer</div></div>
+            <div class="stat"><div class="num">5&ndash;9 V</div><div class="lbl">measurable first-order deflection, increasing with voltage</div></div>
+            <div class="stat"><div class="num">~10.1%</div><div class="lbl">designed first-order diffraction efficiency (50% duty cycle)</div></div>
+            <div class="stat"><div class="num">0.38%</div><div class="lbl">device yield, which taught us a lot about failure modes</div></div>
+        </div>
+
+        <div class="callout">
+            <strong>What I worked on</strong>
+            <ul>
+                <li>Cleanroom process flow: lithography, DRIE, BOE release, critical point drying, e-beam metallization</li>
+                <li>Flexure and comb-drive design from hand calculations</li>
+                <li>Optical testing, SEM and interferometric inspection, and failure-mode diagnosis</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Design &amp; Theory</h2>
+
+        <h3>Device concept</h3>
+        <p>A suspended flexible diffraction grating (6&micro;m bars on a 12&micro;m pitch, giving a ~50% duty cycle for best efficiency) is held by flexures and actuated by two comb drives, one on each side. With no voltage the grating sits at its minimum pitch; at high voltage the comb drives pull it apart to its maximum pitch.</p>
+
+        <h3>Flexure sizing</h3>
+        <p>The flexures have to resist sagging under gravity so the suspended structure never collapses onto the silicon below. Modeling eight parallel flexure springs against a 2&micro;m maximum allowable displacement gave a theoretical maximum flexure length of about 1930&micro;m at 4&micro;m width. To leave margin for lateral pull-in instability, we designed 300&micro;m flexures. In the actuation direction that gives roughly 0.325 N/m per flexure and about 1.54 N/m for the full assembly.</p>
+
+        <h3>Comb drive</h3>
+        <p>Modeling the comb drive as a line of parallel-plate capacitors, two comb drives with 100 fingers, 3&micro;m spacing, and 10 V produce about 0.295 &micro;N, a theoretical DC deflection of 0.192 &micro;m.</p>
+
+        <h3>Optics</h3>
+        <p>For a 633 nm HeNe laser, that displacement corresponds to a theoretical optical response of about 16.9 microradians, governed by the grating equation. Diffraction efficiency is maximized by keeping the bar width near half the pitch, which is why we chose 6&micro;m bars on a 12&micro;m pitch.</p>
+
+        <h3>Device parameters</h3>
+        <table>
+            <thead><tr><th>Parameter</th><th>Value</th><th>Parameter</th><th>Value</th></tr></thead>
+            <tbody>
+                <tr><td>Comb finger length</td><td>50&micro;m</td><td>Comb finger inset</td><td>20&micro;m</td></tr>
+                <tr><td>Comb finger width</td><td>3&micro;m</td><td>Comb pitch</td><td>3&micro;m</td></tr>
+                <tr><td>Spring length</td><td>60&micro;m</td><td>Spring width</td><td>3.5&micro;m</td></tr>
+                <tr><td>Flexure width</td><td>4&micro;m</td><td>Flexure length</td><td>300&micro;m</td></tr>
+                <tr><td>Grating bar width</td><td>6&micro;m</td><td>Grating pitch</td><td>12&micro;m</td></tr>
+                <tr><td>Grating width</td><td>590&micro;m</td><td>Grating height</td><td>500&micro;m</td></tr>
+                <tr><td>Device layer</td><td>10&micro;m</td><td>Oxide layer</td><td>3.5&micro;m</td></tr>
+            </tbody>
+        </table>
+        <p>These values came from a variable sweep and fabrication run; devices with these parameters had the highest rate of survival through fabrication.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Fabrication Process</h2>
+        <p>Built on a 4-inch SOI wafer with a 10&micro;m device layer and a 3.5&micro;m buried oxide, with the full layout generated parametrically in Python.</p>
+        <h3>1. Pattern</h3>
+        <p>Plasma ash, HMDS prime, then spin 5&micro;m of AZ10XT photoresist at 6000 rpm (chosen for its high viscosity and steep sidewalls in thick layers). Expose on the MLA150 maskless aligner, develop, and hard-bake.</p>
+        <h3>2. DRIE</h3>
+        <p>Etch 10&micro;m through the device layer on the SPTS Pegasus to expose the buried oxide, then strip the resist by ashing. The 4-inch wafer was temporarily bonded to a 6-inch carrier because of tool size constraints.</p>
+        <h3>3. Release</h3>
+        <p>Cleave into chips and run a buffered HF etch for about 1 hr 15 min to undercut roughly 5&micro;m of oxide, freeing small structures. The pattern is designed so every suspended surface is within 5&micro;m of an initially exposed region.</p>
+        <h3>4. Critical point drying</h3>
+        <p>Conventional drying would destroy the devices through surface tension, so chips are rinsed in DI water, moved into isopropanol, and critical point dried.</p>
+        <h3>5. Metallization</h3>
+        <p>Deposit 20 nm Ti and 200 nm Au by e-beam evaporation at 45&deg; angles to form the comb-drive parallel-plate capacitors and electrical contacts.</p>
+        <h3>6. Packaging</h3>
+        <p>Attach chips to an SOIC-28 carrier PCB, wirebond the device pads to the PCB pads, and solder on header pins.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Testing &amp; Results</h2>
+        <p>A 633 nm HeNe laser was focused through a 500 mm lens onto the grating while a function generator drove the comb drives. A position-sensitive photodiode (PSD) tracked the first-order diffraction spot.</p>
+        <ul>
+            <li>Deflection was visible at 5 V and increased with voltage, following theory surprisingly well. The PSD was uncalibrated, so the conversion to lateral shift is an estimate.</li>
+            <li>Actuation was lower than predicted, which we attribute to DRIE overetch (below). The device failed while driving at 9 V.</li>
+            <li>The grating's own movement was too small to see directly, as expected, but unintended diffraction from the comb drive showed clear motion between the two actuation extremes.</li>
+            <li>The first-order peak sat at 61 mm, corresponding to &beta; &asymp; 3.27&deg; against an expected 3.05&deg;.</li>
+        </ul>
+
+        <h2 style="margin-top:2rem;">What Went Wrong (and What We Learned)</h2>
+        <p>A big part of the project was characterizing why so few devices survived. We documented each failure mode and its mitigation:</p>
+        <div class="callout">
+            <ul>
+                <li><strong>DRIE undercut and negative sidewalls:</strong> SEM at 45&deg; showed up to ~2&micro;m of undercut, likely from the footing effect on SOI, where charging of the insulating oxide redirects ions into the sidewalls. On 3&micro;m comb fingers this was enough to detach fingers early and shrink the force-generating overlap. Mitigations: stop the etch immediately at the oxide, or use a pulsed DC bias to limit charge buildup.</li>
+                <li><strong>Device layer collapse:</strong> Attempts on 2.2&micro;m and 5&micro;m SOI wafers collapsed onto the substrate, visible as interferograms, despite modeling that said they should hold. We suspect residual stress in the thin silicon torques the structure on release.</li>
+                <li><strong>CPD washout:</strong> Fluid motion during critical point drying tore suspended structures loose. Guardrails placed 50&micro;m from all device elements helped reduce flow across the surface.</li>
+            </ul>
+        </div>
+
+        <h2 style="margin-top:2rem;">Future Work</h2>
+        <ul>
+            <li>Improve yield (0.38% in this run) by tuning DRIE to eliminate footing</li>
+            <li>Develop designs that work on less costly 2.2&micro;m or 5&micro;m SOI platforms</li>
+            <li>Explore alternative actuation, such as vertical instead of lateral motion</li>
+        </ul>
+        <p>The parametric layout code is open source: <a href="https://github.com/knosmos/grate-gatsby" target="_blank" rel="noopener noreferrer">github.com/knosmos/grate-gatsby</a>.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Final Presentation</h2>
+        <div class="slideshow-embed">
+            <iframe
+                src="https://docs.google.com/presentation/d/18pQeKrYyzYnm-6zhAhEv_KEdJNvGGhnAYO_nSRXqrgA/embed?start=false&loop=false&delayms=3000"
+                frameborder="0"
+                width="100%"
+                height="560"
+                allowfullscreen="true"
+                mozallowfullscreen="true"
+                webkitallowfullscreen="true">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="https://drive.google.com/thumbnail?id=1MSYFMgpf7d-uuuyX4-8wWyyzBDVq_EGl&sz=w1600" alt="MEMS diffraction grating photo 1" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1vI-_9x9sg3shKMLBEprh0_cn-lPDBnX1&sz=w1600" alt="MEMS diffraction grating photo 2" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1mEFRG9JMzHuOfigjiYe-_2P9hmoN89fN&sz=w1600" alt="MEMS diffraction grating photo 3" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1Jjh9V-GQRoA801a-XJPmJENK4r7QJOw7&sz=w1600" alt="MEMS diffraction grating photo 4" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1fJG746VteB4iRwi8CAWf6wzgXdSx463k&sz=w1600" alt="MEMS diffraction grating photo 5" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1_1m_bwxRj2HnFi73oA_1dv6HPy4aQLLL&sz=w1600" alt="MEMS diffraction grating photo 6" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1VbpbktmvIcvAZ4_lbhXEljKcELz7--oB&sz=w1600" alt="MEMS diffraction grating photo 7" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1QfOX15y_gMS0Z_6b-FHNMaOooBXqUD7k&sz=w1600" alt="MEMS diffraction grating photo 8" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Credits &amp; Thanks</h2>
+        <div class="credits">
+            <p><strong>Collaborators:</strong> Jieruei Chang and Alysha Rawji, amazing teammates who made this project what it was.</p>
+            <p><strong>Thank you</strong> to Juan Ferrera and Ben Newcomb at MIT.nano, who put in overtime to help us make this project possible. Thanks also to Farnaz Niroui for assistance with optical testing, and to MIT.nano for providing fabrication resources.</p>
+            <p>Project for MIT 6.2600: Micro/Nano Processing, Spring 2026.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+
+<div class="lightbox" id="lightbox"><img src="" alt="Enlarged photo"></div>
+<script>
+    (function () {
+        var box = document.getElementById('lightbox');
+        var big = box.querySelector('img');
+        document.querySelectorAll('.gallery img').forEach(function (img) {
+            img.addEventListener('click', function () {
+                big.src = img.src.replace(/sz=w\d+/, 'sz=w2400');
+                box.classList.add('open');
+            });
+        });
+        box.addEventListener('click', function () { box.classList.remove('open'); big.src = ''; });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') box.click(); });
+    })();
+</script>
+</body>
+</html>

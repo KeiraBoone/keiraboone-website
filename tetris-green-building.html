@@ -1,0 +1,140 @@
+<!-- tetris-green-building.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris on the Green Building | Keira Boone</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --bg-primary:#0a0e17; --bg-secondary:#141824; --bg-card:#1a1f2e;
+            --text-primary:#e4e6eb; --text-secondary:#a8b2d1; --accent:#64ffda;
+            --accent-dim:#4a9d7f; --border:#2d3548;
+        }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.7; }
+        .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+        nav { padding:1.5rem 0; border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(10,14,23,0.95); backdrop-filter:blur(10px); z-index:100; }
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .nav-logo { font-size:1.25rem; font-weight:600; color:var(--text-primary); text-decoration:none; }
+        .nav-links { display:flex; gap:2rem; }
+        .nav-link { color:var(--text-secondary); text-decoration:none; font-size:0.95rem; }
+        .nav-link:hover { color:var(--accent); }
+        header { padding:3.5rem 0 2rem; border-bottom:1px solid var(--border); }
+        h1 { font-size:2.5rem; margin-bottom:0.5rem; }
+        .subtitle { color:var(--text-secondary); margin-bottom:1.5rem; }
+        section { padding:2.5rem 0; border-bottom:1px solid var(--border); }
+        h2 { font-size:1.8rem; margin-bottom:1rem; }
+        p { color:var(--text-secondary); margin-bottom:1rem; }
+        a { color:var(--accent); }
+        .callout { background:var(--bg-card); border:1px solid var(--border); padding:1rem 1.25rem; border-radius:6px; margin:1rem 0; }
+        .callout p:last-child { margin-bottom:0; }
+        .callout strong { color:var(--text-primary); }
+        .links { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
+        .link-btn { display:inline-block; padding:0.65rem 1.25rem; border:1px solid var(--accent); border-radius:4px; color:var(--accent); text-decoration:none; font-size:0.95rem; transition:background 0.2s; }
+        .link-btn:hover { background:rgba(100,255,218,0.1); }
+        .gallery { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
+        .gallery img { width:100%; height:220px; object-fit:cover; border-radius:6px; border:1px solid var(--border); background:var(--bg-secondary); cursor:zoom-in; transition:border-color 0.2s; }
+        .gallery img:hover { border-color:var(--accent); }
+        .lightbox { position:fixed; inset:0; background:rgba(5,8,14,0.92); display:none; align-items:center; justify-content:center; z-index:1000; cursor:zoom-out; padding:2rem; }
+        .lightbox.open { display:flex; }
+        .lightbox img { max-width:100%; max-height:100%; object-fit:contain; border-radius:6px; }
+        footer { padding:2rem 0; text-align:center; color:var(--text-secondary); }
+        @media (max-width:768px){ .container,.nav-container{padding:0 1rem;} h1{font-size:2rem;} .nav-links{gap:1rem;} }
+        .nav-headshot { width:36px; height:36px; border-radius:50%; object-fit:cover; vertical-align:middle; margin-right:8px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <img src="https://drive.google.com/thumbnail?id=1g-brOLH-v0vM3rHUvC9j0N6HASB9BKfY" alt="Keira Boone" class="nav-headshot">
+            Keira Boone
+        </a>
+        <div class="nav-links">
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="courses.html" class="nav-link">Courses</a>
+            <a href="hobbies.html" class="nav-link">Hobbies</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <h1>Tetris on the Green Building</h1>
+        <p class="subtitle">Building-Scale Light Installation &bull; PCB Design &bull; Design for Manufacture &bull; Thermal Management</p>
+        <p>I'm so grateful to have been a part of the amazing team that brought this project back to life. I did a lot of sourcing and assembly for this project in addition to learning PCB design and assembly, design for manufacture, thermal management, new machining techniques, and a ton more, plus generally just having a great time!</p>
+        <div class="links">
+            <a class="link-btn" href="https://mitadmissions.org/blogs/entry/the-holy-grail-of-hacks-returns/" target="_blank" rel="noopener noreferrer">Read the MIT Admissions blog post</a>
+            <a class="link-btn" href="https://thetech.com/2012/05/01/tetris-v132-n22" target="_blank" rel="noopener noreferrer">The original 2012 hack (The Tech)</a>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <h2>The Project</h2>
+        <p>Recently I worked on an amazing team to complete a joint passion project: a building-scale light installation hardware venture that pushed me past small, self-contained prototypes and into &lsquo;mass&rsquo; production. It introduced me to scaling up electronics for large, collaborative systems; integrating my machining experience into a more complex, multifaceted project than I had previously done; designing custom PCBs for the first time; and more. Mentored by some amazing friends, I learned to design electronics that remain robust, debuggable, and manufacturable when multiple subsystems and people are involved, with our team iterating through four revisions of the MCU board and two of the LED board before locking in a design that could survive being reproduced 180 times over.</p>
+        <p>In addition to being replicable, it was also designed and built to be a permanent installation meant to last for decades. On one end this meant we had to think about avoiding environmental damage across every single module, seriously taking into account sealing, moisture, and thermal stress in a way my past projects never demanded. On the other end, we had to think about documentation. The team turns over on a minimum four year cycle as students graduate, so anything I designed needed to be understandable and maintainable by people who are many steps removed from the original decision makers. And while I was familiar with the discipline of writing for a future team, this task was definitely complicated by the fact that I was learning to understand the system as I was building it!</p>
+        <p>Moving from a single working prototype to a couple hundred identical units also changed how I thought about tolerances and failure modes; even a small per-unit defect rate meant real issues once multiplied across every module in the field, with several bodges coming into play. But in the end, it all came together. Standing with the team on the night of our self-imposed deadline (after weeks of very late nights and maybe a few missed classes), seeing an entire building light up in multi-colored patterns on command was one of the most rewarding engineering experiences I've ever had.</p>
+
+        <div class="callout">
+            <p><strong>Want to learn more?</strong> Check out this great blog post (thanks, Ellie!) on <a href="https://mitadmissions.org/blogs/entry/the-holy-grail-of-hacks-returns/" target="_blank" rel="noopener noreferrer">the return of the hack</a>, and the write-up of <a href="https://thetech.com/2012/05/01/tetris-v132-n22" target="_blank" rel="noopener noreferrer">the original 2012 hack</a>. We completely redesigned everything from scratch in order to revive this iconic MIT hack.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Gallery</h2>
+        <p>Photo credits to all of our team members.</p>
+        <div class="gallery">
+            <img src="https://drive.google.com/thumbnail?id=1-DXtRpWgezczDdHOjxN2vDR3pNvXEWgf&sz=w1600" alt="Tetris on the Green Building photo 1" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1OkG6bShZgk3iJAeJVs1HtBqH08nn8SVK&sz=w1600" alt="Tetris on the Green Building photo 2" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1_zJ73MTEmr3kUWgKGo3icJ_pcUihdPsd&sz=w1600" alt="Tetris on the Green Building photo 3" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=16kcxUCST4IDeiDwhdssolk-OHRAzJnvB&sz=w1600" alt="Tetris on the Green Building photo 4" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=17ZYPldTsCLRxoR_gxoh1m1fdnzn3OyW_&sz=w1600" alt="Tetris on the Green Building photo 5" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1qD_ZCnGgOb-OWvVCpJpIjz8udg_qxpaV&sz=w1600" alt="Tetris on the Green Building photo 6" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1aem4eEW-GGaSH-0Y0N7GlGBGSuaQIHde&sz=w1600" alt="Tetris on the Green Building photo 7" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1LCof7nIurfujqN9CEFNYb4APtwNItHxb&sz=w1600" alt="Tetris on the Green Building photo 8" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1crp3vMtfSaHqBz8rpgTpw52LuT8VFqDZ&sz=w1600" alt="Tetris on the Green Building photo 9" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=158HI8lkf7BXfDGSzHS0oB-qJ_B6Wj78-&sz=w1600" alt="Tetris on the Green Building photo 10" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=19s8qxKBHNJ9UKtypqhACU7vntvmS3PZq&sz=w1600" alt="Tetris on the Green Building photo 11" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1gmI_Z6WyAM9egOzbhakQJFyN-jStBLDy&sz=w1600" alt="Tetris on the Green Building photo 12" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1K-lF8p7mpMx_1wBgbbMjdXvd0gJH4K0_&sz=w1600" alt="Tetris on the Green Building photo 13" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1UymLfx2_JNNNrZf4m8XOaIxD2bF_cIio&sz=w1600" alt="Tetris on the Green Building photo 14" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1uoMc4o5Q55Jyf6irMwhDHW418wWWaSoz&sz=w1600" alt="Tetris on the Green Building photo 15" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1QURM6MWY9D8Jg-QqRb__YsBk-0rRRVZG&sz=w1600" alt="Tetris on the Green Building photo 16" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1Sr6aVlz-7i_Fh5i1mPQNbJGrrHRGABoY&sz=w1600" alt="Tetris on the Green Building photo 17" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1d8-RBVaWZtLRRmmRV-5cOKZeQ2M8AKo6&sz=w1600" alt="Tetris on the Green Building photo 18" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1bioYJUeAA6jmz5uM3b4XKTxsY2UYVcnq&sz=w1600" alt="Tetris on the Green Building photo 19" loading="lazy">
+            <img src="https://drive.google.com/thumbnail?id=1xmJbOChTq-Fp-ayl6fcPyGiyrAbpXXXN&sz=w1600" alt="Tetris on the Green Building photo 20" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Keira Boone. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+</footer>
+
+<div class="lightbox" id="lightbox"><img src="" alt="Enlarged photo"></div>
+<script>
+    (function () {
+        var box = document.getElementById('lightbox');
+        var big = box.querySelector('img');
+        document.querySelectorAll('.gallery img').forEach(function (img) {
+            img.addEventListener('click', function () {
+                big.src = img.src.replace(/sz=w\d+/, 'sz=w2400');
+                box.classList.add('open');
+            });
+        });
+        box.addEventListener('click', function () { box.classList.remove('open'); big.src = ''; });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') box.click(); });
+    })();
+</script>
+</body>
+</html>
